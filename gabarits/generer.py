@@ -165,13 +165,51 @@ def actualite(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-GABARITS = dict(couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+def demo(v):
+    """Étape illustrée par une carte claire qui montre ce que produit l'IA (univers sombre).
+    Champs : rubrique, position, total, numero, titre, carte {type, etiquette, ...}
+    carte.type : citation (texte) | liste (elements [{fort, texte}]) | chiffre (valeur, legende, detail) | image (chemin, recadrage [x0,y0,x1,y1])"""
+    c = SOMBRE; w, h = 1080, 1350
+    k = v["carte"]; t = k["type"]
+    if t == "citation":
+        contenu = f"<div style='font-size:60px;line-height:1.22;font-weight:700;letter-spacing:-.02em'>« {e(k['texte'])} »</div>"
+    elif t == "liste":
+        contenu = "".join(f"<div style='display:flex;gap:24px;padding:30px 0;border-top:2px solid #ECEBE7'><div style='width:18px;height:18px;margin-top:22px;flex:none;background:#DA291C'></div><div style='font-size:48px;line-height:1.2'><b style='font-weight:700'>{e(x['fort'])}</b> {e(x.get('texte',''))}</div></div>" for x in k["elements"])
+    elif t == "chiffre":
+        contenu = f"<div style='font-size:230px;font-weight:800;letter-spacing:-.04em;line-height:1'>{e(k['valeur'])}</div><div style='font-size:54px;font-weight:700;margin-top:24px;line-height:1.15;letter-spacing:-.015em'>{e(k['legende'])}</div><div style='font-size:38px;color:#5A5A5C;margin-top:28px;line-height:1.3'>{e(k.get('detail',''))}</div>"
+    else:
+        contenu = f"<img src='{img(k['chemin_recadre'])}' style='display:block;width:100%;border-radius:4px'>"
+    corps = f"""<div class='cadre'>
+      {tete(v, v['rubrique'], v.get('position'))}
+      <div style='display:flex;align-items:baseline;gap:32px;margin-top:56px'>
+        <div class='titre' style='font-size:120px;line-height:.9;color:{c['rouge']}'>{e(v['numero'])}</div>
+        <div class='titre' style='font-size:{tt(v['titre'],84,72,60)}px'>{e(v['titre'])}</div>
+      </div>
+      <div class='milieu'>
+        <div style='background:#FFFFFF;color:#2B2B2D;border-radius:12px;padding:56px 56px;box-shadow:0 24px 60px rgba(0,0,0,.45)'>
+          <div style='font-size:30px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C42518;margin-bottom:32px'>{e(k['etiquette'])}</div>
+          {contenu}
+        </div>
+      </div>
+      {pied(c)}
+    </div>"""
+    return page(base(c, w, h), corps), (w, h)
+
+GABARITS = dict(demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
 async def main(spec, sortie):
     global RACINE
     RACINE = spec.resolve().parent
     sortie.mkdir(parents=True, exist_ok=True)
     visuels = json.loads(spec.read_text())["visuels"]
+    from PIL import Image
+    for i, v in enumerate(visuels, 1):
+        k = v.get("carte", {})
+        if k.get("type") == "image":
+            src = pathlib.Path(k["chemin"]); src = src if src.is_absolute() else RACINE / src
+            im = Image.open(src).convert("RGB")
+            if k.get("recadrage"): im = im.crop(tuple(k["recadrage"]))
+            dst = ICI / f".recadre-{i}.png"; im.save(dst); k["chemin_recadre"] = str(dst)
     async with async_playwright() as p:
         nav = await p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox", "--allow-file-access-from-files"])
         for i, v in enumerate(visuels, 1):
@@ -185,6 +223,7 @@ async def main(spec, sortie):
                 print(f"ATTENTION {nom} : le texte déborde, raccourcir")
             print(sortie / nom)
             await pg.close(); tmp.unlink()
+            if v.get('carte',{}).get('chemin_recadre'): pathlib.Path(v['carte']['chemin_recadre']).unlink()
         await nav.close()
 
 if __name__ == "__main__":

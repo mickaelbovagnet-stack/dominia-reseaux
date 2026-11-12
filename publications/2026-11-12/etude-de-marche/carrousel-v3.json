@@ -1,0 +1,88 @@
+{
+ "visuels": [
+  {
+   "gabarit": "demo",
+   "fichier": "v3-2.png",
+   "rubrique": "Pratique",
+   "position": 2,
+   "total": 6,
+   "numero": "1",
+   "titre": "Posez une question précise",
+   "carte": {
+    "type": "citation",
+    "etiquette": "La question formulée avec l’IA",
+    "texte": "Le quartier compte-t-il assez de salariés qui déjeunent dehors et paieraient un prix couvrant nos coûts ?"
+   }
+  },
+  {
+   "gabarit": "demo",
+   "fichier": "v3-3.png",
+   "rubrique": "Pratique",
+   "position": 3,
+   "total": 6,
+   "numero": "2",
+   "titre": "Repérez la concurrence",
+   "carte": {
+    "type": "liste",
+    "etiquette": "Les offres existantes",
+    "elements": [
+     {
+      "fort": "Traiteurs",
+      "texte": "qui livrent déjà les entreprises"
+     },
+     {
+      "fort": "Cafétérias",
+      "texte": "et restaurants du quartier"
+     },
+     {
+      "fort": "Plateformes",
+      "texte": "de livraison de repas"
+     }
+    ]
+   }
+  },
+  {
+   "gabarit": "demo",
+   "fichier": "v3-4.png",
+   "rubrique": "Pratique",
+   "position": 4,
+   "total": 6,
+   "numero": "3",
+   "titre": "Chiffrez la demande",
+   "carte": {
+    "type": "chiffre",
+    "etiquette": "Ordre de grandeur calculé",
+    "valeur": "≈ 5'100",
+    "legende": "déjeuners achetés par jour dans le quartier",
+    "detail": "Scénario central, entre 1'700 et 8'300. Chaque hypothèse est affichée."
+   }
+  },
+  {
+   "gabarit": "demo",
+   "fichier": "v3-5.png",
+   "rubrique": "Pratique",
+   "position": 5,
+   "total": 6,
+   "numero": "4",
+   "titre": "Décidez sur pièces",
+   "carte": {
+    "type": "liste",
+    "etiquette": "Ce qui invaliderait le projet",
+    "elements": [
+     {
+      "fort": "Peu de déjeuners captables.",
+      "texte": "Cantine, restaurant ou repas maison."
+     },
+     {
+      "fort": "Prix inatteignable.",
+      "texte": "Au-dessus de ce que paient déjà les entreprises."
+     },
+     {
+      "fort": "Clientèle instable.",
+      "texte": "Des entreprises qui déménagent."
+     }
+    ]
+   }
+  }
+ ]
+}
