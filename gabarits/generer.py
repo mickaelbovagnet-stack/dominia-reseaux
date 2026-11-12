@@ -113,6 +113,7 @@ def fin(v):
         <div class='accent' style='margin-bottom:44px'></div>
         <div class='titre' style='font-size:96px'>{e(v.get('titre','Enregistrez ce post pour le retrouver.'))}</div>
         <div class='texte' style='margin-top:44px'>{e(v.get('texte','Une question sur votre cas ? Écrivez-nous en message privé. L’article complet est en lien dans la bio.'))}</div>
+        {f"<div style='display:flex;align-items:center;gap:28px;margin-top:56px'><div style='width:120px;height:120px;border-radius:50%;background:url({img(v['photo'])}) center 20%/cover'></div><div style='font-size:34px;line-height:1.3'><div style='font-weight:700'>{e(v['auteur'])}</div><div style='color:{c['douce']}'>{e(v.get('fonction',''))}</div></div></div>" if v.get('auteur') else ""}
       </div>
       {pied(c, '@dominiamedia')}
     </div>"""
@@ -273,7 +274,7 @@ def etape_methode(v):
     Champs : rubrique, position, total, numero, titre, avant (facultatif), consigne [[label, texte]x4], rend, verifie"""
     c = CLAIR; w, h = 1080, 1350
     avant = f"<div style='font-size:30px;font-weight:600;margin-top:26px;color:{c['douce']}'>Avant · {e(v['avant'])}</div>" if v.get("avant") else ""
-    lignes = "".join(f"<div style='display:flex;gap:22px;padding:13px 0;border-top:1px solid #4A4A4E'><div style='width:170px;flex:none;font-size:26px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:4px'>{e(a)}</div><div style='font-size:31px;line-height:1.25'>{e(b)}</div></div>" for a, b in v["consigne"])
+    lignes = "".join(f"<div style='display:flex;gap:22px;padding:13px 0;border-top:1px solid #4A4A4E'><div style='width:190px;flex:none;font-size:28px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:6px'>{e(a)}</div><div style='font-size:37px;line-height:1.2'>{e(b)}</div></div>" for a, b in v["consigne"])
     corps = f"""<div class='cadre'>
       {tete(v, v['rubrique'], v.get('position'))}
       <div style='display:flex;align-items:baseline;gap:26px;margin-top:34px'>
@@ -283,7 +284,7 @@ def etape_methode(v):
       {avant}
       <div class='milieu' style='gap:22px'>
         <div style='background:#2B2B2D;color:#F6F5F2;border-radius:20px;padding:26px 34px 16px'>
-          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Votre consigne, en 4 C</div>
+          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Ce que vous écrivez, en 4 C</div>
           {lignes}
         </div>
         <div style='background:#FFFFFF;border:2px solid {c['filet']};border-radius:20px;padding:24px 34px'>
