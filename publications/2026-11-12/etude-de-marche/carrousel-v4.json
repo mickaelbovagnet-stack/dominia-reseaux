@@ -1,0 +1,123 @@
+{
+ "visuels": [
+  {
+   "gabarit": "couverture_ia",
+   "fichier": "v4-1.png",
+   "rubrique": "Pratique",
+   "total": 7,
+   "demande": "Aide-moi à faire une première étude de marché pour mon projet.",
+   "titre": "Votre étude de marché, menée avec l’IA",
+   "accroche": "Quatre demandes à lui faire, ce qu’elle vous rend et ce qui reste à vous."
+  },
+  {
+   "gabarit": "echange",
+   "fichier": "v4-2.png",
+   "rubrique": "Pratique",
+   "position": 2,
+   "total": 7,
+   "numero": "1",
+   "titre": "Elle cadre la question avec vous",
+   "demande": "Aide-moi à cadrer l’étude. Donne-moi la question centrale et trois hypothèses à vérifier.",
+   "carte": {
+    "type": "texte",
+    "texte": "« Le quartier compte-t-il assez de salariés qui déjeunent dehors et paieraient un prix couvrant nos coûts ? »",
+    "note": "Puis trois hypothèses, chacune avec ses sources publiques."
+   }
+  },
+  {
+   "gabarit": "echange",
+   "fichier": "v4-3.png",
+   "rubrique": "Pratique",
+   "position": 3,
+   "total": 7,
+   "numero": "2",
+   "titre": "Elle cherche sur le web",
+   "demande": "Dresse la carte des offres existantes à Genève, avec la source de chaque ligne. Écris « non trouvé » si une information manque.",
+   "carte": {
+    "type": "tableau",
+    "colonnes": [
+     "Offre",
+     "Source"
+    ],
+    "lignes": [
+     [
+      "Traiteur A",
+      "lien"
+     ],
+     [
+      "Plateforme B",
+      "lien"
+     ],
+     [
+      "Cafétéria C",
+      "non trouvé"
+     ]
+    ]
+   }
+  },
+  {
+   "gabarit": "echange",
+   "fichier": "v4-4.png",
+   "rubrique": "Pratique",
+   "position": 4,
+   "total": 7,
+   "numero": "3",
+   "titre": "Elle calcule à partir de vos fichiers",
+   "joint": "tableaux OCSTAT et OFS",
+   "demande": "Calcule le nombre de clients potentiels. Affiche chaque hypothèse.",
+   "carte": {
+    "type": "chiffre",
+    "valeur": "≈ 5'100",
+    "legende": "déjeuners achetés par jour",
+    "detail": "Scénario central, entre 1'700 et 8'300."
+   }
+  },
+  {
+   "gabarit": "echange",
+   "fichier": "v4-5c.png",
+   "rubrique": "Pratique",
+   "position": 5,
+   "total": 7,
+   "numero": "4",
+   "titre": "Elle met en forme pour décider",
+   "demande": "Transforme la note en rapport HTML, avec graphiques et sources.",
+   "carte": {
+    "type": "image",
+    "legende": "rapport.html, ouvert dans le navigateur",
+    "chemin": "/home/claude/dominia-site/public/images/articles/etude-de-marche-ia-claude-4-graphiques.webp",
+    "recadrage": [
+     40,
+     424,
+     790,
+     745
+    ]
+   }
+  },
+  {
+   "gabarit": "lecon",
+   "fichier": "v4-6.png",
+   "rubrique": "Pratique",
+   "position": 6,
+   "total": 7,
+   "titre": "Le partage des rôles",
+   "lignes": [
+    [
+     "L’IA",
+     "cherche, calcule et met en forme."
+    ],
+    [
+     "Vous",
+     "ouvrez chaque source et rencontrez vos futurs clients."
+    ]
+   ]
+  },
+  {
+   "gabarit": "fin",
+   "fichier": "v4-7.png",
+   "rubrique": "Pratique",
+   "total": 7,
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "texte": "Les quatre demandes complètes sont dans l’article, en lien dans la bio. Une question sur votre cas ? Écrivez-nous en message privé."
+  }
+ ]
+}

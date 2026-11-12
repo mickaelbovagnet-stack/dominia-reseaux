@@ -106,7 +106,7 @@ def fait(v):
     return page(base(c, w, h), corps), (w, h)
 
 def fin(v):
-    c = SOMBRE; w, h = 1080, 1350
+    c = CLAIR; w, h = 1080, 1350
     corps = f"""<div class='cadre'>
       {tete(v, v.get('rubrique','Dominia'), v.get('total'))}
       <div class='milieu'>
@@ -195,7 +195,81 @@ def demo(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-GABARITS = dict(demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+def bulle_vous(texte, joint=None, taille=40):
+    pj = f"<div style='display:inline-block;margin-bottom:18px;padding:10px 18px;border:2px solid #5A5A5C;border-radius:8px;font-size:28px;font-weight:600;color:#F6F5F2'>Fichiers joints · {e(joint)}</div><br>" if joint else ""
+    return f"""<div style='display:flex;justify-content:flex-end'>
+      <div style='max-width:86%;background:#2B2B2D;color:#F6F5F2;border-radius:28px 28px 6px 28px;padding:32px 38px'>
+        <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:14px'>Vous demandez</div>
+        {pj}<div style='font-size:{taille}px;line-height:1.25;font-weight:500'>{e(texte)}</div></div></div>"""
+
+def bulle_ia(contenu):
+    return f"""<div style='display:flex;margin-top:30px'>
+      <div style='width:92%;background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:34px 38px;box-shadow:0 18px 40px rgba(43,43,45,.10)'>
+        <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C42518;margin-bottom:18px'>L’IA vous rend</div>
+        {contenu}</div></div>"""
+
+def reponse(k):
+    t = k["type"]
+    if t == "texte":
+        return f"<div style='font-size:42px;line-height:1.25;font-weight:600;letter-spacing:-.01em'>{e(k['texte'])}</div>" + (f"<div style='font-size:32px;color:#5A5A5C;margin-top:18px;line-height:1.3'>{e(k['note'])}</div>" if k.get('note') else "")
+    if t == "tableau":
+        lignes = "".join(f"<div style='display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-top:2px solid #ECEBE7;font-size:36px'><span style='font-weight:600'>{e(a)}</span><span style='color:{'#C42518' if b=='non trouvé' else '#5A5A5C'};text-decoration:{'none' if b=='non trouvé' else 'underline'}'>{e(b)}</span></div>" for a, b in k["lignes"])
+        return f"<div style='display:flex;justify-content:space-between;font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5A5A5C;padding-bottom:12px'><span>{e(k['colonnes'][0])}</span><span>{e(k['colonnes'][1])}</span></div>{lignes}"
+    if t == "chiffre":
+        return f"<div style='font-size:150px;font-weight:800;letter-spacing:-.04em;line-height:1'>{e(k['valeur'])}</div><div style='font-size:42px;font-weight:700;margin-top:14px;line-height:1.15'>{e(k['legende'])}</div><div style='font-size:32px;color:#5A5A5C;margin-top:16px;line-height:1.3'>{e(k.get('detail',''))}</div>"
+    if t == "image":
+        return f"<div style='font-size:26px;color:#5A5A5C;margin-bottom:14px'>{e(k.get('legende',''))}</div><img src='{img(k['chemin_recadre'])}' style='display:block;width:100%;border:2px solid #ECEBE7;border-radius:6px'>"
+    return ""
+
+def echange(v):
+    """Une demande à l'IA et ce qu'elle rend (univers clair).
+    Champs : rubrique, position, total, numero, titre, demande, joint (facultatif), carte {type...}"""
+    c = CLAIR; w, h = 1080, 1350
+    corps = f"""<div class='cadre'>
+      {tete(v, v['rubrique'], v.get('position'))}
+      <div style='display:flex;align-items:baseline;gap:28px;margin-top:40px'>
+        <div class='titre' style='font-size:84px;line-height:.9;color:{c['rouge']}'>{e(v['numero'])}</div>
+        <div class='titre' style='font-size:{tt(v['titre'],64,56,50)}px'>{e(v['titre'])}</div>
+      </div>
+      <div class='milieu'>
+        {bulle_vous(v['demande'], v.get('joint'), v.get('taille_demande', 36))}
+        {bulle_ia(reponse(v['carte']))}
+      </div>
+      {pied(c)}
+    </div>"""
+    return page(base(c, w, h), corps), (w, h)
+
+def couverture_ia(v):
+    c = CLAIR; w, h = 1080, 1350
+    corps = f"""<div class='cadre'>
+      {tete(v, v['rubrique'], 1)}
+      <div style='margin-top:48px'>
+        {bulle_vous(v['demande'], None, 34)}
+        <div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:26px 34px;display:flex;gap:14px'>
+          <div style='width:18px;height:18px;border-radius:50%;background:#C42518'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div></div></div>
+      </div>
+      <div class='milieu'>
+        <div class='titre' style='font-size:{tt(v['titre'],96,84,72)}px'>{e(v['titre'])}</div>
+        <div class='texte' style='margin-top:32px'>{e(v.get('accroche',''))}</div>
+      </div>
+      {pied(c, 'Faites défiler →')}
+    </div>"""
+    return page(base(c, w, h), corps), (w, h)
+
+def lecon(v):
+    c = CLAIR; w, h = 1080, 1350
+    lignes = "".join(f"<div style='display:flex;gap:28px;padding:30px 0;border-top:2px solid {c['filet']}'><div class='titre' style='font-size:44px;width:260px;flex:none;color:{c['rougeTexte'] if i else c['encre']}'>{e(a)}</div><div class='texte' style='font-size:42px;color:{c['encre']}'>{e(b)}</div></div>" for i, (a, b) in enumerate(v["lignes"]))
+    corps = f"""<div class='cadre'>
+      {tete(v, v['rubrique'], v.get('position'))}
+      <div class='milieu'>
+        <div class='titre' style='font-size:{tt(v['titre'],84,72,62)}px;margin-bottom:44px'>{e(v['titre'])}</div>
+        {lignes}
+      </div>
+      {pied(c)}
+    </div>"""
+    return page(base(c, w, h), corps), (w, h)
+
+GABARITS = dict(echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
 async def main(spec, sortie):
     global RACINE
