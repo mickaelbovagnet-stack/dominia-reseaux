@@ -1,8 +1,62 @@
-{"visuels":[
- {"gabarit":"couverture","fichier":"1-couverture.png","rubrique":"Pratique","total":6,"titre":"Une première étude de marché en une heure, sans budget d’étude","accroche":"Quatre étapes avec une IA, sur un exemple genevois.","image":"sources/etude-de-marche-ia-claude.png"},
- {"gabarit":"etape","fichier":"2-etape-1.png","rubrique":"Pratique","position":2,"total":6,"numero":"1","titre":"Posez une question précise","texte":"L’IA formule avec vous la question centrale et trois hypothèses à vérifier.","capture":"sources/etude-de-marche-ia-claude-1.webp"},
- {"gabarit":"etape","fichier":"3-etape-2.png","rubrique":"Pratique","position":3,"total":6,"numero":"2","titre":"Repérez qui est déjà là","texte":"Elle dresse la carte des offres existantes à partir de sources publiques. Ouvrez chaque lien, car elle peut se tromper."},
- {"gabarit":"etape","fichier":"4-etape-3.png","rubrique":"Pratique","position":4,"total":6,"numero":"3","titre":"Chiffrez la demande","texte":"Avec les statistiques officielles, elle calcule un ordre de grandeur et affiche chaque hypothèse.","capture":"sources/etude-de-marche-ia-claude-3.webp"},
- {"gabarit":"etape","fichier":"5-etape-4.png","rubrique":"Pratique","position":5,"total":6,"numero":"4","titre":"Obtenez un rapport pour décider","texte":"Ce qui est établi, ce qui reste à vérifier et ce qui invaliderait le projet.","capture":"sources/etude-de-marche-ia-claude-4-graphiques.webp"},
- {"gabarit":"fin","fichier":"6-fin.png","rubrique":"Pratique","total":6}
-]}
+{
+ "visuels": [
+  {
+   "gabarit": "couverture",
+   "fichier": "1-couverture-v2.png",
+   "rubrique": "Pratique",
+   "total": 6,
+   "titre": "Une première étude de marché en une heure, sans cabinet ni budget",
+   "accroche": "Quatre étapes avec une IA, sur un exemple genevois.",
+   "image": "sources/etude-de-marche-ia-claude.png"
+  },
+  {
+   "gabarit": "etape",
+   "fichier": "2-etape-1.png",
+   "rubrique": "Pratique",
+   "position": 2,
+   "total": 6,
+   "numero": "1",
+   "titre": "Posez une question précise",
+   "texte": "L’IA formule avec vous la question centrale et trois hypothèses à vérifier.",
+   "capture": "sources/etude-de-marche-ia-claude-1.webp"
+  },
+  {
+   "gabarit": "etape",
+   "fichier": "3-etape-2.png",
+   "rubrique": "Pratique",
+   "position": 3,
+   "total": 6,
+   "numero": "2",
+   "titre": "Repérez qui est déjà là",
+   "texte": "Elle dresse la carte des offres existantes à partir de sources publiques. Ouvrez chaque lien, car elle peut se tromper."
+  },
+  {
+   "gabarit": "etape",
+   "fichier": "4-etape-3.png",
+   "rubrique": "Pratique",
+   "position": 4,
+   "total": 6,
+   "numero": "3",
+   "titre": "Chiffrez la demande",
+   "texte": "Avec les statistiques officielles, elle calcule un ordre de grandeur et affiche chaque hypothèse.",
+   "capture": "sources/etude-de-marche-ia-claude-3.webp"
+  },
+  {
+   "gabarit": "etape",
+   "fichier": "5-etape-4.png",
+   "rubrique": "Pratique",
+   "position": 5,
+   "total": 6,
+   "numero": "4",
+   "titre": "Obtenez un rapport pour décider",
+   "texte": "Ce qui est établi, ce qui reste à vérifier et ce qui invaliderait le projet.",
+   "capture": "sources/etude-de-marche-ia-claude-4-graphiques.webp"
+  },
+  {
+   "gabarit": "fin",
+   "fichier": "6-fin.png",
+   "rubrique": "Pratique",
+   "total": 6
+  }
+ ]
+}
