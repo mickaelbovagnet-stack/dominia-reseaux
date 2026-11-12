@@ -243,10 +243,9 @@ def couverture_ia(v):
     c = CLAIR; w, h = 1080, 1350
     corps = f"""<div class='cadre'>
       {tete(v, v['rubrique'], 1)}
-      <div style='margin-top:48px'>
+      <div style='margin-top:48px;display:flex;flex-direction:column'>
         {bulle_vous(v['demande'], None, 34)}
-        <div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:26px 34px;display:flex;gap:14px'>
-          <div style='width:18px;height:18px;border-radius:50%;background:#C42518'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div></div></div>
+        {f"<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:24px 34px;font-size:32px;color:#5A5A5C;line-height:1.3'>{e(v['reponse_vague'])}</div></div><div style='margin-top:22px;display:inline-block;align-self:flex-start;border:4px solid #DA291C;color:#C42518;font-weight:800;font-size:34px;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;transform:rotate(-3deg)'>{e(v['verdict'])}</div>" if v.get('verdict') else "<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:26px 34px;display:flex;gap:14px'><div style='width:18px;height:18px;border-radius:50%;background:#C42518'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div></div></div>"}
       </div>
       <div class='milieu'>
         <div class='titre' style='font-size:{tt(v['titre'],96,84,72)}px'>{e(v['titre'])}</div>
@@ -269,7 +268,38 @@ def lecon(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-GABARITS = dict(echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+def etape_methode(v):
+    """Étape de méthode IA : la consigne structurée (4 C), ce que l'IA rend, ce que vous vérifiez. Univers clair.
+    Champs : rubrique, position, total, numero, titre, avant (facultatif), consigne [[label, texte]x4], rend, verifie"""
+    c = CLAIR; w, h = 1080, 1350
+    avant = f"<div style='font-size:30px;font-weight:600;margin-top:26px;color:{c['douce']}'>Avant · {e(v['avant'])}</div>" if v.get("avant") else ""
+    lignes = "".join(f"<div style='display:flex;gap:22px;padding:13px 0;border-top:1px solid #4A4A4E'><div style='width:170px;flex:none;font-size:26px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:4px'>{e(a)}</div><div style='font-size:31px;line-height:1.25'>{e(b)}</div></div>" for a, b in v["consigne"])
+    corps = f"""<div class='cadre'>
+      {tete(v, v['rubrique'], v.get('position'))}
+      <div style='display:flex;align-items:baseline;gap:26px;margin-top:34px'>
+        <div class='titre' style='font-size:84px;line-height:.9;color:{c['rouge']}'>{e(v['numero'])}</div>
+        <div class='titre' style='font-size:{tt(v['titre'],64,56,50)}px'>{e(v['titre'])}</div>
+      </div>
+      {avant}
+      <div class='milieu' style='gap:22px'>
+        <div style='background:#2B2B2D;color:#F6F5F2;border-radius:20px;padding:26px 34px 16px'>
+          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Votre consigne, en 4 C</div>
+          {lignes}
+        </div>
+        <div style='background:#FFFFFF;border:2px solid {c['filet']};border-radius:20px;padding:24px 34px'>
+          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:{c['rougeTexte']};margin-bottom:8px'>L’IA vous rend</div>
+          <div style='font-size:34px;line-height:1.25;font-weight:600'>{e(v['rend'])}</div>
+        </div>
+        <div style='border-left:8px solid {c['rouge']};padding:6px 0 6px 28px'>
+          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:{c['encre']};margin-bottom:8px'>Vous vérifiez</div>
+          <div style='font-size:34px;line-height:1.25'>{e(v['verifie'])}</div>
+        </div>
+      </div>
+      {pied(c)}
+    </div>"""
+    return page(base(c, w, h), corps), (w, h)
+
+GABARITS = dict(etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
 async def main(spec, sortie):
     global RACINE
