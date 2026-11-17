@@ -7,7 +7,7 @@
   "Annoncer une hausse de prix avec l’IA, étape 1 sur 4, contexte. Vous ajoutez « Je dirige une PME genevoise d’entretien de chauffages. Hausse de 4 % au 1er janvier. » L’IA vous rend un e-mail qui parle de vos clients. Ce qui manque encore, le montant et les raisons restent vagues.",
   "Annoncer une hausse de prix avec l’IA, étape 2 sur 4, consigne. Vous ajoutez « Que nos clients gardent leur contrat. Ils doivent comprendre en 20 secondes ce qui change et ce qu’ils ont à faire. » L’IA vous rend un e-mail qui suit la logique du lecteur. Ce qui manque encore, les montants restent entre crochets.",
   "Annoncer une hausse de prix avec l’IA, étape 3 sur 4, contenu. Vous ajoutez « Le contrat moyen passe de CHF 500 à CHF 520 par an. Nos tarifs n’ont pas bougé depuis 2023. » L’IA vous rend un e-mail avec vos chiffres et vos raisons. Vous vérifiez, chaque chiffre vient de votre prompt.",
-  "Annoncer une hausse de prix avec l’IA, étape 4 sur 4, cadre. Vous ajoutez « 120 mots au plus. Signale-moi ce que tu as dû inventer. » L’IA vous rend deux objets et un e-mail d’environ 105 mots, la liste de ce que l’IA a supposé. Votre part, vous relisez avant l’envoi.",
+  "Annoncer une hausse de prix avec l’IA, étape 4 sur 4, cadre. Vous ajoutez « 120 mots au plus. Signale-moi ce que tu as dû inventer. » L’IA vous rend deux objets et un e-mail d’environ 105 mots et la liste de ce que l’IA a supposé. Votre part, vous relisez avant l’envoi.",
   "Enregistrez ce post pour le retrouver. Le prompt complet est en commentaire, l’article détaillé en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
  ],
  "lien": "https://cimeria.ch/comment-ecrire-un-bon-prompt/",
