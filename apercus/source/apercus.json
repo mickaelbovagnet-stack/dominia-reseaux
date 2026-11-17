@@ -1,34 +1,144 @@
 {
-  "visuels": [
-    {"gabarit": "couverture_ia", "fichier": "01-couverture-ia.png", "rubrique": "Pratique", "total": 7,
-     "demande": "Écris un e-mail pour annoncer une hausse de prix à nos clients.",
-     "reponse_vague": "Chers clients, nous vous informons que nos tarifs évoluent à compter du 1er janvier…",
-     "verdict": "Trop vague",
-     "titre": "Un bon prompt tient en 4 C",
-     "accroche": "Exemple fictif, une PME genevoise annonce une hausse de 4 %. Quatre étapes pour un e-mail prêt à relire."},
-    {"gabarit": "lecon", "fichier": "02-lecon.png", "rubrique": "Aperçu du guide", "position": 2, "total": 7,
-     "titre": "Ce qui fait la différence",
-     "lignes": [["Contexte", "Qui vous êtes, votre entreprise, la situation."], ["Consigne", "Le résultat attendu et son lecteur."], ["Contenu", "Les faits, les chiffres et un exemple."], ["Cadre", "Le format, le ton et ce que l'IA doit signaler."]]},
-    {"gabarit": "etape_methode", "fichier": "03-etape-methode.png", "rubrique": "Aperçu du guide", "position": 6, "total": 7,
-     "numero": "4", "titre": "Le Cadre, fixer la forme",
-     "consigne": [["Contexte", "PME genevoise de 18 personnes, entretien de chauffages."], ["Consigne", "Garder les clients malgré une hausse de 4 %."], ["Contenu", "Le contrat moyen passe de CHF 500 à CHF 520 par an."], ["Cadre", "120 mots au plus, deux objets, signale ce que tu as supposé."]],
-     "rend": "Deux objets, un e-mail de moins de 120 mots et la liste de ce que l'IA a supposé.",
-     "verifie": "Chaque chiffre vient de votre prompt. Vous relisez, le texte part sous votre signature."},
-    {"gabarit": "fin", "fichier": "04-fin.png", "rubrique": "Pratique", "total": 7,
-     "texte": "Le prompt complet est en premier commentaire. L'article détaillé est en lien dans la bio.",
-     "auteur": "Mickaël Bovagnet", "fonction": "Auteur du guide, Cimeria", "photo": "../../gabarits/images/mickael-bovagnet.jpg"},
-    {"gabarit": "actualite", "fichier": "05-actualite.png", "date": "11 novembre 2026",
-     "titre": "Genève détaille trois voies pour contribuer au Sommet mondial sur l'IA",
-     "resume": "Le sommet se tient les 21 et 22 juin 2027 à Palexpo. Appel à propositions, programme Road to Geneva et événements en marge.",
-     "source": "État de Genève"},
-    {"gabarit": "fait", "fichier": "06-fait-hebdo.png", "position": 2, "total": 5,
-     "titre": "Le Valais met en service AVA, son IA souveraine",
-     "impact": "Une administration romande traite ses demandes d'IA en Suisse, sur ses propres serveurs.",
-     "source": "État du Valais, 5 novembre 2026"},
-    {"gabarit": "agenda", "fichier": "07-agenda.png", "titre": "À venir en Suisse romande",
-     "evenements": [{"date": "17 février 2027", "lieu": "Genève", "titre": "AI Days 2027"}, {"date": "9 mars 2027", "lieu": "Lausanne", "titre": "AMLD Intelligence Summit 2027"}, {"date": "21 juin 2027", "lieu": "Genève", "titre": "Geneva AI Summit 2027"}]},
-    {"gabarit": "cas", "fichier": "08-cas-pratique-reel.png",
-     "titre": "Une étude de marché en 4 étapes avec l'IA",
-     "accroche": "La méthode, les consignes et les vérifications.", "signature": "Mickaël Bovagnet"}
-  ]
+ "visuels": [
+  {
+   "gabarit": "couverture_ia",
+   "fichier": "01-couverture-ia.png",
+   "rubrique": "Pratique",
+   "total": 7,
+   "demande": "Écris un e-mail pour annoncer une hausse de prix à nos clients.",
+   "reponse_vague": "Chers clients, nous vous informons que nos tarifs évoluent à compter du 1er janvier…",
+   "verdict": "Trop vague",
+   "titre": "Un bon prompt tient en 4 C",
+   "accroche": "Exemple fictif, une PME genevoise annonce une hausse de 4 %. Quatre étapes pour un e-mail prêt à relire."
+  },
+  {
+   "gabarit": "lecon",
+   "fichier": "02-lecon.png",
+   "rubrique": "Aperçu du guide",
+   "position": 2,
+   "total": 7,
+   "titre": "Ce qui fait la différence",
+   "lignes": [
+    [
+     "Contexte",
+     "Qui vous êtes, votre entreprise, la situation."
+    ],
+    [
+     "Consigne",
+     "Le résultat attendu et son lecteur."
+    ],
+    [
+     "Contenu",
+     "Les faits, les chiffres et un exemple."
+    ],
+    [
+     "Cadre",
+     "Le format, le ton et ce que l'IA doit signaler."
+    ]
+   ]
+  },
+  {
+   "gabarit": "etape_methode",
+   "fichier": "03-etape-methode.png",
+   "rubrique": "Aperçu du guide",
+   "position": 5,
+   "total": 7,
+   "numero": "4",
+   "titre": "Le Cadre, fixer la forme",
+   "consigne": [
+    [
+     "Contexte",
+     "PME genevoise de 18 personnes, entretien de chauffages."
+    ],
+    [
+     "Consigne",
+     "Garder les clients malgré une hausse de 4 %."
+    ],
+    [
+     "Contenu",
+     "Le contrat moyen passe de CHF 500 à CHF 520."
+    ],
+    [
+     "Cadre",
+     "120 mots au plus, signale ce que tu as supposé."
+    ]
+   ],
+   "rend": "Un e-mail court et la liste de ce qu’elle a supposé.",
+   "verifie": "Chaque chiffre vient de votre prompt."
+  },
+  {
+   "gabarit": "capture",
+   "fichier": "04-capture.png",
+   "rubrique": "Aperçu du guide",
+   "position": 6,
+   "total": 7,
+   "numero": "3",
+   "titre": "Ce que Claude a vraiment rendu",
+   "capture": "capture-exemple.webp",
+   "masque": 0.3,
+   "legende": "Claude, mode incognito, 6 novembre 2026. Exemple fictif.",
+   "recadrage": [
+    25,
+    0,
+    1090,
+    700
+   ]
+  },
+  {
+   "gabarit": "fin",
+   "fichier": "05-fin.png",
+   "rubrique": "Pratique",
+   "total": 7,
+   "texte": "Le prompt complet est en premier commentaire. L'article détaillé est en lien dans la bio.",
+   "auteur": "Mickaël Bovagnet",
+   "fonction": "Auteur du guide, Cimeria",
+   "photo": "../../gabarits/images/mickael-bovagnet.jpg"
+  },
+  {
+   "gabarit": "actualite",
+   "fichier": "06-actualite.png",
+   "date": "11 novembre 2026",
+   "titre": "Genève détaille trois voies pour contribuer au Sommet mondial sur l'IA",
+   "resume": "Le sommet se tient les 21 et 22 juin 2027 à Palexpo. Appel à propositions, programme Road to Geneva et événements en marge.",
+   "source": "État de Genève"
+  },
+  {
+   "gabarit": "fait",
+   "fichier": "07-fait-hebdo.png",
+   "position": 2,
+   "total": 5,
+   "titre": "Le Valais met en service AVA, son IA souveraine",
+   "impact": "Une administration romande traite ses demandes d'IA en Suisse, sur ses propres serveurs.",
+   "source": "État du Valais, 5 novembre 2026"
+  },
+  {
+   "gabarit": "agenda",
+   "fichier": "08-agenda.png",
+   "titre": "À venir en Suisse romande",
+   "evenements": [
+    {
+     "date": "17 février 2027",
+     "lieu": "Genève",
+     "titre": "AI Days 2027"
+    },
+    {
+     "date": "9 mars 2027",
+     "lieu": "Lausanne",
+     "titre": "AMLD Intelligence Summit 2027"
+    },
+    {
+     "date": "21 juin 2027",
+     "lieu": "Genève",
+     "titre": "Geneva AI Summit 2027"
+    }
+   ]
+  },
+  {
+   "gabarit": "cas",
+   "fichier": "09-cas-pratique-reel.png",
+   "titre": "Une étude de marché en 4 étapes avec l'IA",
+   "accroche": "La méthode, les consignes et les vérifications.",
+   "signature": "Mickaël Bovagnet"
+  }
+ ]
 }

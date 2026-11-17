@@ -31,14 +31,15 @@ Relire l'article publié sur cimeria.ch en entier. Tous les chiffres, consignes 
 - Montrer la vraie consigne en 4 C (Contexte, Consigne, Contenu, Cadre) et les vérifications.
 - Ne jamais laisser croire qu'une question suffit. Le post n'est pas réducteur.
 
-### 3. Construire le carrousel Instagram en 7 diapositives (1080 x 1350)
+### 3. Construire le carrousel Instagram en 8 diapositives (1080 x 1350)
 
 | N° | Gabarit | Étiquette | Contenu |
 |---|---|---|---|
-| 1 | `couverture_ia` | Pratique | La demande naïve, la réponse vague de l'IA, le tampon « Trop vague ». Un titre sans mot répété. Une accroche concrète (durée, nombre d'étapes, exemple). |
+| 1 | `couverture_ia` | Pratique | Le titre en haut, gros et lisible en vignette (45 signes au plus), sans mot répété. Une accroche concrète (durée, nombre d'étapes, exemple). En dessous, la demande naïve, la réponse vague de l'IA et le tampon « Trop vague ». |
 | 2 | `lecon` | Aperçu du guide | « Ce qui fait la différence ». Les 4 C nommés, vos sources, votre contrôle. |
-| 3 à 6 | `etape_methode` | Aperçu du guide | Une étape par diapositive, en trois blocs : « Ce que vous écrivez, en 4 C » (consignes courtes), « L'IA vous rend », « Vous vérifiez ». Les termes techniques sont traduits (« un rapport à ouvrir dans le navigateur » plutôt que « HTML »). Les sigles sont écrits en toutes lettres. |
-| 7 | `fin` | Pratique | « Enregistrez ce post pour le retrouver. » La consigne complète de l'étape 1 annoncée en commentaire, le renvoi à l'article en lien dans la bio. Signature « Mickaël Bovagnet, Auteur du guide, Cimeria » avec le portrait. |
+| 3 à 6 | `etape_methode` | Aperçu du guide | Une étape par diapositive : le bloc « Ce que vous écrivez, en 4 C » (consignes courtes), puis deux lignes, « L'IA vous rend » et « Vous vérifiez ». 60 mots au plus par diapositive, le script prévient au-delà. Une étape plus riche se répartit sur deux diapositives. Les termes techniques sont traduits (« un rapport à ouvrir dans le navigateur » plutôt que « HTML »). Les sigles sont écrits en toutes lettres. |
+| 7 | `capture` | Aperçu du guide | Le résultat réel. Une vraie capture tirée de l'article (outil et date en légende), recadrée pour rester lisible sur téléphone, le bas effacé avec « La suite dans l'article ». Jamais d'image générée par IA ni de photo de banque d'images. |
+| 8 | `fin` | Pratique | « Enregistrez ce post pour le retrouver. » La consigne complète de l'étape 1 annoncée en commentaire, le renvoi à l'article en lien dans la bio. Signature « Mickaël Bovagnet, Auteur du guide, Cimeria » avec le portrait. |
 
 Le nombre d'étapes peut varier selon l'article. La structure reste la même.
 

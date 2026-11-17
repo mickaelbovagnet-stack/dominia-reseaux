@@ -10,6 +10,7 @@ Le JSON contient "visuels", une liste. Chaque visuel a un "gabarit" et ses champ
 - cas        : titre, accroche, photo                     (couverture de Reel, univers anthracite)
 - agenda     : titre, evenements [{date, lieu, titre}]
 - actualite  : date, titre, resume, source                (carte seule, LinkedIn et Facebook)
+- couverture_ia, lecon, etape_methode, capture, fin : carrousel de cas pratique (voir chaque fonction)
 Champ commun facultatif : "fichier". Les chemins d'image sont absolus ou relatifs au fichier JSON.
 Règles : textes courts et gros (lecture sur téléphone), rouge réservé à l'étiquette, au filet et au logo.
 """
@@ -31,7 +32,12 @@ CLAIR = dict(fond="#F6F5F2", carte="#FFFFFF", encre="#2B2B2D", douce="#5A5A5C", 
 SOMBRE = dict(fond="#2B2B2D", carte="#36363A", encre="#F6F5F2", douce="#BEBDB8", rouge="#F04A3B", rougeTexte="#FF6B5C", filet="#4A4A4E")
 RACINE = pathlib.Path(".")
 
-def e(t): return html.escape(str(t or ""))
+def e(t):
+    """Échappe le texte et pose les espaces insécables de la typographie française (CHF 500, 4 %, « »)."""
+    t = html.escape(str(t or ""))
+    for a, b in (("CHF ", "CHF\u00a0"), (" %", "\u00a0%"), ("« ", "«\u00a0"), (" »", "\u00a0»"), (" ?", "\u202f?"), (" !", "\u202f!")):
+        t = t.replace(a, b)
+    return t
 def img(chemin):
     p = pathlib.Path(chemin)
     return (p if p.is_absolute() else (RACINE / p)).resolve().as_uri()
@@ -247,16 +253,23 @@ def echange(v):
     return page(base(c, w, h), corps), (w, h)
 
 def couverture_ia(v):
+    """Couverture de cas pratique : le titre en haut, gros, lisible en vignette. L'échange naïf en dessous sert d'illustration.
+    Champs : rubrique, total, titre (45 signes au plus de préférence), accroche, demande, reponse_vague, verdict"""
     c = CLAIR; w, h = 1080, 1350
+    vague = (f"<div style='display:flex;margin-top:18px'><div style='max-width:86%;background:#FFFFFF;border:2px solid #E2E0DA;border-radius:24px 24px 24px 6px;padding:20px 30px;font-size:28px;color:#5A5A5C;line-height:1.3'>{e(v['reponse_vague'])}</div></div>"
+             f"<div style='position:absolute;right:10px;bottom:-34px;border:4px solid #DA291C;background:{c['fond']};color:#C42518;font-family:Jost;font-weight:500;font-size:34px;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;transform:rotate(-4deg)'>{e(v['verdict'])}</div>") if v.get('verdict') else ""
     corps = f"""<div class='cadre'>
       {tete(v, v['rubrique'], 1)}
-      <div style='margin-top:48px;display:flex;flex-direction:column'>
-        {bulle_vous(v['demande'], None, 34)}
-        {f"<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:24px 34px;font-size:32px;color:#5A5A5C;line-height:1.3'>{e(v['reponse_vague'])}</div></div><div style='margin-top:22px;display:inline-block;align-self:flex-start;border:4px solid #DA291C;color:#C42518;font-family:Jost;font-weight:500;font-size:34px;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;transform:rotate(-3deg)'>{e(v['verdict'])}</div>" if v.get('verdict') else "<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:26px 34px;display:flex;gap:14px'><div style='width:18px;height:18px;border-radius:50%;background:#C42518'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div></div></div>"}
-      </div>
+      <div class='titre' style='font-size:{tt(v['titre'],124,104,88)}px;line-height:1.02;margin-top:56px'>{e(v['titre'])}</div>
+      <div class='texte' style='margin-top:30px;font-size:40px'>{e(v.get('accroche',''))}</div>
       <div class='milieu'>
-        <div class='titre' style='font-size:{tt(v['titre'],96,84,72)}px'>{e(v['titre'])}</div>
-        <div class='texte' style='margin-top:32px'>{e(v.get('accroche',''))}</div>
+        <div style='position:relative;opacity:.96'>
+          <div style='display:flex;justify-content:flex-end'>
+            <div style='max-width:86%;background:#2B2B2D;color:#F6F5F2;border-radius:24px 24px 6px 24px;padding:22px 30px'>
+              <div style='font-size:22px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Vous demandez</div>
+              <div style='font-size:30px;line-height:1.25;font-weight:500'>{e(v['demande'])}</div></div></div>
+          {vague}
+        </div>
       </div>
       {pied(c, 'Faites défiler →')}
     </div>"""
@@ -275,38 +288,62 @@ def lecon(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
+def mots(*textes): return sum(len(str(t).split()) for t in textes)
+
 def etape_methode(v):
-    """Étape de méthode IA : la consigne structurée (4 C), ce que l'IA rend, ce que vous vérifiez. Univers clair.
-    Champs : rubrique, position, total, numero, titre, avant (facultatif), consigne [[label, texte]x4], rend, verifie"""
+    """Étape de méthode IA, version allégée : la consigne en 4 C, puis deux lignes, ce que l'IA rend et ce que vous vérifiez.
+    Champs : rubrique, position, total, numero, titre, consigne [[label, texte]x4], rend, verifie
+    Budget : 60 mots au plus pour consigne, rend et verifie réunis. Au-delà, le script prévient.
+    Une étape plus riche se répartit sur deux diapositives."""
     c = CLAIR; w, h = 1080, 1350
-    avant = f"<div style='font-size:30px;font-weight:600;margin-top:26px;color:{c['douce']}'>Avant · {e(v['avant'])}</div>" if v.get("avant") else ""
-    lignes = "".join(f"<div style='display:flex;gap:22px;padding:13px 0;border-top:1px solid #4A4A4E'><div style='width:190px;flex:none;font-size:28px;font-family:Jost;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:6px'>{e(a)}</div><div style='font-size:37px;line-height:1.2'>{e(b)}</div></div>" for a, b in v["consigne"])
+    lignes = "".join(f"<div style='display:flex;gap:24px;padding:20px 0;border-top:1px solid #4A4A4E'><div style='width:200px;flex:none;font-size:28px;font-family:Jost;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:6px'>{e(a)}</div><div style='font-size:38px;line-height:1.22'>{e(b)}</div></div>" for a, b in v["consigne"])
+    ligne = lambda lab, txt, coul: f"<div style='display:flex;gap:24px;padding:22px 0;border-top:2px solid {c['filet']}'><div style='width:200px;flex:none;font-size:26px;font-family:Jost;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:{coul};padding-top:6px;line-height:1.3'>{lab}</div><div style='font-size:36px;line-height:1.25'>{e(txt)}</div></div>"
     corps = f"""<div class='cadre'>
       {tete(v, v['rubrique'], v.get('position'))}
-      <div style='display:flex;align-items:baseline;gap:26px;margin-top:34px'>
-        <div class='titre' style='font-size:84px;line-height:.9;color:{c['rouge']}'>{e(v['numero'])}</div>
-        <div class='titre' style='font-size:{tt(v['titre'],64,56,50)}px'>{e(v['titre'])}</div>
+      <div style='display:flex;align-items:baseline;gap:26px;margin-top:40px'>
+        <div class='titre' style='font-size:96px;line-height:.9;color:{c['rouge']}'>{e(v['numero'])}</div>
+        <div class='titre' style='font-size:{tt(v['titre'],68,60,52)}px'>{e(v['titre'])}</div>
       </div>
-      {avant}
-      <div class='milieu' style='gap:22px'>
-        <div style='background:#2B2B2D;color:#F6F5F2;border-radius:20px;padding:26px 34px 16px'>
-          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Ce que vous écrivez, en 4 C</div>
+      <div class='milieu' style='padding-top:28px'>
+        <div style='background:#2B2B2D;color:#F6F5F2;border-radius:20px;padding:30px 36px 14px'>
+          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:12px'>Ce que vous écrivez, en 4 C</div>
           {lignes}
         </div>
-        <div style='background:{c['carte']};border:2px solid {c['filet']};border-radius:20px;padding:24px 34px'>
-          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:{c['rougeTexte']};margin-bottom:8px'>L’IA vous rend</div>
-          <div style='font-size:34px;line-height:1.25;font-weight:600'>{e(v['rend'])}</div>
-        </div>
-        <div style='border-left:8px solid {c['rouge']};padding:6px 0 6px 28px'>
-          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:{c['encre']};margin-bottom:8px'>Vous vérifiez</div>
-          <div style='font-size:34px;line-height:1.25'>{e(v['verifie'])}</div>
+        <div style='margin-top:40px'>
+          {ligne('L’IA vous rend', v['rend'], c['rougeTexte'])}
+          {ligne('Vous vérifiez', v['verifie'], c['encre'])}
         </div>
       </div>
       {pied(c)}
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-GABARITS = dict(etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+def capture(v):
+    """Le résultat réel : une vraie capture d'écran, dont le bas s'efface pour renvoyer à l'article. Univers clair.
+    Champs : rubrique, position, total, numero (facultatif), titre, capture, recadrage [x0,y0,x1,y1] (facultatif),
+    masque (part effacée en bas, 0,35 par défaut), legende (outil et date de la capture), suite (facultatif)"""
+    c = CLAIR; w, h = 1080, 1350
+    m = float(v.get("masque", .35))
+    num = f"<div class='titre' style='font-size:84px;line-height:.9;color:{c['rouge']}'>{e(v['numero'])}</div>" if v.get("numero") else ""
+    corps = f"""<div class='cadre'>
+      {tete(v, v['rubrique'], v.get('position'))}
+      <div style='display:flex;align-items:baseline;gap:26px;margin-top:40px'>
+        {num}<div class='titre' style='font-size:{tt(v['titre'],68,60,52)}px'>{e(v['titre'])}</div>
+      </div>
+      <div style='margin-top:40px;margin-right:-80px;flex:1;min-height:0;position:relative;border-radius:16px 0 0 16px;overflow:hidden;background:#FFFFFF;border:2px solid {c['filet']};border-right:none;box-shadow:0 24px 60px rgba(43,43,45,.12)'>
+        <img src='{img(v['chemin_recadre'])}' style='display:block;width:100%'>
+        <div style='position:absolute;left:0;right:0;bottom:0;height:{m*100:.0f}%;background:linear-gradient(rgba(255,255,255,0),#FFFFFF 70%)'></div>
+        <div style='position:absolute;left:0;right:80px;bottom:36px;text-align:center'>
+          <span style='display:inline-block;background:#2B2B2D;color:#F6F5F2;font-family:Jost;font-weight:500;font-size:28px;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;border-radius:999px'>{e(v.get('suite','La suite dans l’article'))}</span>
+        </div>
+      </div>
+      <div class='site' style='margin-top:22px;font-size:26px'>{e(v.get('legende',''))}</div>
+      <div style='height:28px'></div>
+      {pied(c)}
+    </div>"""
+    return page(base(c, w, h), corps), (w, h)
+
+GABARITS = dict(capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
 async def main(spec, sortie):
     global RACINE
@@ -316,7 +353,9 @@ async def main(spec, sortie):
     from PIL import Image
     for i, v in enumerate(visuels, 1):
         k = v.get("carte", {})
-        if k.get("type") == "image":
+        if v.get("gabarit") == "capture": k = v
+        if k is v or k.get("type") == "image":
+            if k is v: k.setdefault("chemin", v["capture"])
             src = pathlib.Path(k["chemin"]); src = src if src.is_absolute() else RACINE / src
             im = Image.open(src).convert("RGB")
             if k.get("recadrage"): im = im.crop(tuple(k["recadrage"]))
@@ -330,11 +369,14 @@ async def main(spec, sortie):
             await pg.goto(tmp.as_uri()); await pg.evaluate("document.fonts.ready"); await pg.wait_for_timeout(300)
             nom = v.get("fichier", f"{i:02d}-{v['gabarit']}.png")
             await pg.screenshot(path=str(sortie / nom))
+            if v["gabarit"] == "etape_methode" and (n := mots(*(b for _, b in v["consigne"]), v["rend"], v["verifie"])) > 60:
+                print(f"ATTENTION {nom} : {n} mots, 60 au plus, alléger ou répartir sur deux diapositives")
             if await pg.evaluate("(() => { const c=document.querySelector('.cadre'); return c.scrollHeight > c.clientHeight + 2; })()"):
                 print(f"ATTENTION {nom} : le texte déborde, raccourcir")
             print(sortie / nom)
             await pg.close(); tmp.unlink()
-            if v.get('carte',{}).get('chemin_recadre'): pathlib.Path(v['carte']['chemin_recadre']).unlink()
+            for k in (v.get('carte', {}), v):
+                if k.get('chemin_recadre'): pathlib.Path(k['chemin_recadre']).unlink(missing_ok=True)
         await nav.close()
 
 if __name__ == "__main__":
