@@ -352,6 +352,9 @@ def capture(v):
 # L'anthracite sert de bandeau (couverture, étapes) ou de fond plein (chiffre, point de vue).
 # =====================================================================
 ED_BLANC_C, ED_DOUCE_S, ED_ROUGE_S, ED_ROUGE_TS, ED_FILET_S = "#F6F5F2", "#BEBDB8", "#F04A3B", "#FF6B5C", "#4A4A4E"
+# Lisibilité sur téléphone (règle du 17 novembre 2026). Un visuel de 1080 px s'affiche sur environ 390 points d'écran,
+# soit un facteur 0,36. Aucun texte sous 30 px (11 points à l'écran), textes courants à 44 px au moins. Le script prévient.
+ED_MIN, ED_PETIT, ED_ETIQ, ED_TEXTE = 30, 32, 30, 44
 def ed_css(fond):
     c = CLAIR
     return POLICES + f"""
@@ -359,45 +362,55 @@ def ed_css(fond):
 html,body {{ width:1080px; height:1350px; overflow:hidden; }}
 body {{ background:{fond}; color:{c['encre']}; font-family:'Figtree',sans-serif; position:relative; }}
 .cadre {{ position:absolute; inset:0; }}
-.rub {{ position:absolute; left:80px; top:84px; font-family:'Jost',sans-serif; font-weight:500; font-size:28px; letter-spacing:.16em; text-transform:uppercase; color:{c['rougeTexte']}; }}
-.cpt {{ position:absolute; right:80px; top:84px; font-family:'Jost',sans-serif; font-weight:500; font-size:28px; color:{c['douce']}; }}
+.rub {{ position:absolute; left:80px; top:76px; font-family:'Jost',sans-serif; font-weight:500; font-size:{ED_PETIT}px; letter-spacing:.14em; text-transform:uppercase; color:{c['rougeTexte']}; }}
+.cpt {{ position:absolute; right:80px; top:76px; font-family:'Jost',sans-serif; font-weight:500; font-size:{ED_PETIT}px; color:{c['douce']}; }}
 .ed-titre {{ font-family:'Jost',sans-serif; font-weight:500; letter-spacing:-.015em; line-height:1.06; }}
-.etiq {{ font-family:'Jost',sans-serif; font-weight:500; font-size:28px; letter-spacing:.14em; text-transform:uppercase; color:{c['douce']}; }}
-.pied {{ position:absolute; left:80px; right:80px; bottom:60px; padding-top:28px; border-top:2px solid {c['filet']}; display:flex; justify-content:space-between; align-items:center; }}
-.site {{ font-family:'Jost',sans-serif; font-size:28px; letter-spacing:.02em; color:{c['douce']}; }}
+.etiq {{ font-family:'Jost',sans-serif; font-weight:500; font-size:{ED_ETIQ}px; letter-spacing:.12em; text-transform:uppercase; color:{c['douce']}; }}
+.pied {{ position:absolute; left:80px; right:80px; bottom:56px; padding-top:26px; border-top:2px solid {c['filet']}; display:flex; justify-content:space-between; align-items:center; }}
+.site {{ font-family:'Jost',sans-serif; font-size:{ED_MIN}px; letter-spacing:.02em; color:{c['douce']}; }}
+.ajuste {{ display:inline-block; white-space:nowrap; }}
 """
 def ed_pied(droite="cimeria.ch", sombre=False):
     if sombre:
-        return f"<div class='pied' style='border-top-color:{ED_FILET_S}'>{logotype(ED_BLANC_C, CLAIR['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(droite)}</div></div>"
-    return f"<div class='pied'>{logotype(CLAIR['encre'], CLAIR['rouge'], 210)}<div class='site'>{e(droite)}</div></div>"
+        return f"<div class='pied' style='border-top-color:{ED_FILET_S}'>{logotype(ED_BLANC_C, CLAIR['rouge'], 230)}<div class='site' style='color:{ED_DOUCE_S}'>{e(droite)}</div></div>"
+    return f"<div class='pied'>{logotype(CLAIR['encre'], CLAIR['rouge'], 230)}<div class='site'>{e(droite)}</div></div>"
 def ed_cpt(v, sombre=False):
     return f"<div class='cpt' style='color:{ED_DOUCE_S if sombre else CLAIR['douce']}'>{e(v['position'])} / {e(v['total'])}</div>" if v.get("position") and v.get("total") else ""
 def ed_page(fond, corps): return page(ed_css(fond), f"<div class='cadre'>{corps}</div>"), (1080, 1350)
+def ed_mention_ia(v):
+    return f"<div style='position:absolute;right:80px;bottom:160px;font-size:{ED_MIN}px;color:rgba(246,245,242,.8)'>Portrait réalisé avec l’IA</div>" if v.get('photo_ia') else ''
 
 def chiffre(v):
     """Chiffre clé, fond anthracite. Champs : rubrique, accent (partie rouge du chiffre), nombre (suite du chiffre), phrase, action, source.
-    Exemple : accent "1", nombre " sur 3". Le chiffre tient sur une ligne, 8 signes au plus."""
+    Exemple : accent "1", nombre " sur 3". Le chiffre est ajusté à la largeur, 8 signes au plus."""
     c = CLAIR
     corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Le chiffre'))}</div>
-    <div style='position:absolute;left:66px;top:140px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{v.get('taille',345)}px;line-height:1;letter-spacing:-.045em;color:{ED_BLANC_C}'><span style='color:{ED_ROUGE_S}'>{e(v.get('accent',''))}</span>{e(v.get('nombre',''))}</div>
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:560px;font-size:62px;line-height:1.14;color:{ED_BLANC_C}'>{e(v['phrase'])}</div>
-    <div style='position:absolute;left:80px;right:80px;top:850px;padding-top:44px;border-top:2px solid {ED_FILET_S};font-size:46px;line-height:1.35;color:{ED_DOUCE_S}'>{e(v.get('action',''))}</div>
-    <div style='position:absolute;left:80px;right:80px;top:1168px;font-size:26px;color:{ED_DOUCE_S}'>Source · {e(v['source'])}</div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:130px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
+      <div style='margin-left:-14px;font-family:Jost;font-weight:500;line-height:1;letter-spacing:-.045em;color:{ED_BLANC_C}'><span class='ajuste' data-max='{v.get('taille',360)}'><span style='color:{ED_ROUGE_S}'>{e(v.get('accent',''))}</span>{e(v.get('nombre',''))}</span></div>
+      <div class='ed-titre' style='margin-top:40px;font-size:{v.get('taille_phrase', 64)}px;line-height:1.12;color:{ED_BLANC_C}'>{e(v['phrase'])}</div>
+      <div style='flex:1;min-height:40px'></div>
+      <div style='padding-top:36px;border-top:2px solid {ED_FILET_S};font-size:46px;line-height:1.3;color:{ED_BLANC_C}'>{e(v.get('action',''))}</div>
+      <div style='margin-top:36px;font-size:{ED_PETIT}px;line-height:1.3;color:{ED_DOUCE_S}'>Source · {e(v['source'])}</div>
+    </div>
     {ed_pied(v.get('droite','cimeria.ch'), True)}"""
     return ed_page(c['encre'], corps)
 
 def liste(v):
     """Liste à garder, fond clair. Champs : rubrique, titre, sous, elements [[libellé, "d" ou "i"]] (10 au plus), legende (true pour Débutant / Intermédiaire), note, droite.
-    Le niveau est facultatif : sans lui, pas de pastille."""
+    Le niveau est facultatif : sans lui, pas de pastille. Les lignes se répartissent sur toute la hauteur disponible."""
     c = CLAIR
-    pastille = lambda n: "" if not n else f"<div style='width:16px;height:16px;border-radius:50%;flex:none;{'background:'+c['encre'] if n=='d' else 'border:3px solid '+c['encre']}'></div>"
-    n = len(v["elements"]); pad, fs = (9, 35) if n > 8 else (16, 38) if n > 6 else (24, 42)
-    lignes = "".join(f"<div style='display:flex;align-items:center;gap:30px;padding:{pad}px 0;border-top:2px solid {c['filet']}'><div style='font-family:Jost;font-weight:500;font-size:{fs+1}px;width:{fs+22}px;flex:none'>{k:02d}</div><div style='font-size:{fs}px;line-height:1.2;flex:1'>{e(x[0])}</div>{pastille(x[1] if len(x) > 1 else '')}</div>" for k, x in enumerate(v["elements"], 1))
-    leg = f"<div><span style='display:inline-block;width:16px;height:16px;border-radius:50%;background:{c['encre']}'></span>&nbsp; Débutant &nbsp;&nbsp;&nbsp;<span style='display:inline-block;width:16px;height:16px;border-radius:50%;border:3px solid {c['encre']}'></span>&nbsp; Intermédiaire</div>" if v.get("legende") else "<div></div>"
+    pastille = lambda n, t=22: "" if not n else f"<div style='width:{t}px;height:{t}px;border-radius:50%;flex:none;{'background:'+c['encre'] if n=='d' else 'border:4px solid '+c['encre']}'></div>"
+    n = len(v["elements"]); fs = 56 if n <= 5 else 50 if n <= 7 else 40; serre = n > 7
+    if max(len(x[0]) for x in v['elements']) > 40: fs -= 8
+    lignes = "".join(f"<div style='flex:1;display:flex;align-items:center;gap:30px;border-top:2px solid {c['filet']}'><div style='font-family:Jost;font-weight:500;font-size:{fs}px;width:{int(fs*1.45)}px;flex:none;color:{c['douce']}'>{k:02d}</div><div style='font-size:{fs}px;line-height:1.15;flex:1'>{e(x[0])}</div>{pastille(x[1] if len(x) > 1 else '')}</div>" for k, x in enumerate(v["elements"], 1))
+    leg = f"<div style='display:flex;align-items:center;gap:14px;white-space:nowrap'>{pastille('d',20)}Débutant<span style='width:16px'></span>{pastille('i',20)}Intermédiaire</div>" if v.get("legende") else "<div></div>"
     corps = f"""<div class='rub'>{e(v.get('rubrique','À garder'))}</div>{ed_cpt(v)}
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['titre'],72,64,58)}px'>{e(v['titre'])}<div style='font-family:Figtree;font-size:36px;line-height:1.3;color:{c['douce']};letter-spacing:0;margin-top:26px'>{e(v.get('sous',''))}</div></div>
-    <div style='position:absolute;left:80px;right:80px;top:420px'>{lignes}</div>
-    <div style='position:absolute;left:80px;right:80px;top:1172px;display:flex;justify-content:space-between;font-size:26px;color:{c['douce']}'>{leg}<div>{e(v.get('note',''))}</div></div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
+      <div class='ed-titre' style='font-size:{tt(v['titre'],72,64,58) if serre else tt(v['titre'],80,72,64)}px'>{e(v['titre'])}</div>
+      {f"<div style='font-size:{40 if serre else ED_TEXTE}px;line-height:1.25;color:{c['douce']};margin-top:18px'>{e(v['sous'])}</div>" if v.get('sous') else ''}
+      <div style='flex:1;display:flex;flex-direction:column;margin-top:{24 if serre else 34}px;border-bottom:2px solid {c['filet']}'>{lignes}</div>
+      <div style='display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 30px;margin-top:22px;font-size:{ED_PETIT}px;color:{c['douce']}'>{leg}<div style='white-space:nowrap'>{e(v.get('note',''))}</div></div>
+    </div>
     {ed_pied(v.get('droite','cimeria.ch'))}"""
     return ed_page(c['fond'], corps)
 
@@ -405,12 +418,14 @@ def point_de_vue(v):
     """Citation de Mickaël et portrait en moitié basse. Champs : rubrique, citation (sans guillemets), auteur, photo (facultatif), photo_ia (true pour une variante générée, voir images/portraits/README.md)."""
     c = CLAIR; photo = v.get("photo", str(ICI / "images/mickael-bovagnet.jpg"))
     corps = f"""<div class='rub'>{e(v.get('rubrique','Point de vue'))}</div>
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['citation'],70,70,58)}px;line-height:1.08'>{e('« ' + v['citation'] + ' »')}</div>
-    <div style='position:absolute;left:80px;top:470px;font-size:30px;color:{c['douce']}'>{e(v.get('auteur','Mickaël Bovagnet, auteur du guide'))}</div>
-    <div style='position:absolute;left:0;right:0;top:600px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
-    <div style='position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.85))'></div>
-    {f"<div style='position:absolute;right:80px;bottom:150px;font-size:22px;color:rgba(246,245,242,.7)'>Portrait réalisé avec l’IA</div>" if v.get('photo_ia') else ''}
-    <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','cimeria.ch'))}</div></div>"""
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;height:470px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden'>
+      <div class='ed-titre' style='font-size:{tt(v['citation'],88,80,68)}px;line-height:1.06'>{e('« ' + v['citation'] + ' »')}</div>
+      <div style='font-size:{ED_TEXTE}px;color:{c['douce']}'>{e(v.get('auteur','Mickaël Bovagnet, auteur du guide'))}</div>
+    </div>
+    <div style='position:absolute;left:0;right:0;top:640px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
+    <div style='position:absolute;left:0;right:0;bottom:0;height:240px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.88))'></div>
+    {ed_mention_ia(v)}
+    <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 230)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','cimeria.ch'))}</div></div>"""
     return ed_page(c['fond'], corps)
 
 def cas_couverture(v):
@@ -418,12 +433,15 @@ def cas_couverture(v):
     Champs : rubrique, position, total, titre (50 signes au plus), sous, illustration (nom d'un fichier de gabarits/illustrations, sans .svg), note, droite."""
     c = CLAIR
     ill = (ICI / f"illustrations/{v['illustration']}.svg").read_text() if v.get("illustration") else ""
-    ill = ill.replace("<svg ", "<svg width='620' height='434' ", 1)
-    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:700px;background:{c['encre']}'></div>
+    ill = ill.replace("<svg ", "<svg width='600' height='420' ", 1)
+    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:720px;background:{c['encre']}'></div>
     <div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Cas pratique'))}</div>{ed_cpt(v, True)}
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['titre'],118,104,92)}px;line-height:1.02;color:{ED_BLANC_C}'>{e(v['titre'])}<div style='font-family:Figtree;font-size:42px;line-height:1.3;color:{ED_DOUCE_S};letter-spacing:0;margin-top:30px'>{e(v.get('sous',''))}</div></div>
-    <div style='position:absolute;left:0;right:0;top:730px;display:flex;justify-content:center'>{ill}</div>
-    <div style='position:absolute;left:80px;right:80px;top:1172px;font-size:26px;color:{c['douce']};text-align:center'>{e(v.get('note',''))}</div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;height:550px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden'>
+      <div class='ed-titre' style='font-size:{tt(v['titre'],124,110,96)}px;line-height:1.0;color:{ED_BLANC_C}'>{e(v['titre'])}</div>
+      <div style='font-size:48px;line-height:1.25;color:{ED_DOUCE_S}'>{e(v.get('sous',''))}</div>
+    </div>
+    <div style='position:absolute;left:0;right:0;top:740px;display:flex;justify-content:center'>{ill}</div>
+    <div style='position:absolute;left:80px;right:80px;bottom:150px;font-size:{ED_PETIT}px;color:{c['douce']};text-align:center'>{e(v.get('note',''))}</div>
     {ed_pied(v.get('droite','Faites défiler →'))}"""
     return ed_page(c['fond'], corps)
 
@@ -432,95 +450,115 @@ def cas_etape(v):
     Champs : etape, etapes (nombre total d'étapes), mot (12 signes au plus), ajout (25 mots au plus, sans guillemets), rend [1 ou 2 lignes courtes],
     reste, lib_reste (« Ce qui manque encore » par défaut, « Votre part » à la dernière étape), position, total."""
     c = CLAIR; n, tot = int(v["etape"]), int(v.get("etapes", 4))
+    long = mots(v['ajout']) > 18 or sum(len(x) for x in v['rend']) + len(v['reste']) > 90; fa, fr = (46, 46) if long else (52, 50)
     barre = "<div style='display:flex;gap:12px'>" + "".join(f"<div style='flex:1;height:12px;border-radius:6px;background:{ED_ROUGE_S if i < n else ED_FILET_S}'></div>" for i in range(tot)) + "</div>"
-    puce = lambda plein: f"<div style='width:30px;height:30px;border-radius:50%;flex:none;margin-top:13px;{'background:'+c['encre'] if plein else 'border:5px solid '+c['encre']}'></div>"
-    rend = "".join(f"<div style='display:flex;gap:26px;font-size:46px;line-height:1.28;margin-top:20px'>{puce(True)}<div>{e(x)}</div></div>" for x in v["rend"])
+    puce = lambda plein: f"<div style='width:30px;height:30px;border-radius:50%;flex:none;margin-top:16px;{'background:'+c['encre'] if plein else 'border:5px solid '+c['encre']}'></div>"
+    rend = "".join(f"<div style='display:flex;gap:26px;font-size:{fr}px;line-height:1.25;margin-top:16px'>{puce(True)}<div>{e(x)}</div></div>" for x in v["rend"])
     lib = v.get("lib_reste", "Votre part" if n == tot else "Ce qui manque encore")
     corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:500px;background:{c['encre']}'></div>
     <div class='rub' style='color:{ED_ROUGE_TS}'>Étape {n} sur {tot}</div>{ed_cpt(v, True)}
-    <div style='position:absolute;left:80px;right:80px;top:150px'>{barre}</div>
-    <div style='position:absolute;left:72px;top:200px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{200 if len(v['mot']) <= 9 else 160}px;line-height:1;letter-spacing:-.035em;color:{ED_BLANC_C}'>{e(v['mot'])}</div>
-    <div id='corps' style='position:absolute;left:80px;right:80px;top:430px;bottom:170px;display:flex;flex-direction:column'>
-      <div style='background:#FFFFFF;border-radius:18px;padding:44px 52px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
+    <div style='position:absolute;left:80px;right:80px;top:140px'>{barre}</div>
+    <div style='position:absolute;left:72px;top:192px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{210 if len(v['mot']) <= 9 else 168}px;line-height:1;letter-spacing:-.035em;color:{ED_BLANC_C}'>{e(v['mot'])}</div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:430px;bottom:160px;display:flex;flex-direction:column'>
+      <div style='background:#FFFFFF;border-radius:18px;padding:42px 50px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
         <div class='etiq'>Vous ajoutez</div>
-        <div style='font-size:50px;line-height:1.28;margin-top:16px'>{e('« ' + v['ajout'] + ' »')}</div></div>
-      <div style='flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:36px'>
-        <div class='etiq'>L’IA vous rend</div>{rend}
-        <div class='etiq' style='margin-top:52px'>{e(lib)}</div>
-        <div style='display:flex;gap:26px;font-size:46px;line-height:1.28;margin-top:20px;color:{c['douce']}'>{puce(False)}<div>{e(v['reste'])}</div></div></div></div>
+        <div style='font-size:{fa}px;line-height:1.25;margin-top:16px'>{e('« ' + v['ajout'] + ' »')}</div></div>
+      <div style='flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding-top:20px'>
+        <div><div class='etiq'>L’IA vous rend</div>{rend}</div>
+        <div><div class='etiq'>{e(lib)}</div>
+        <div style='display:flex;gap:26px;font-size:{fr}px;line-height:1.25;margin-top:16px;color:{c['douce']}'>{puce(False)}<div>{e(v['reste'])}</div></div></div></div></div>
     {ed_pied(v.get('droite','cimeria.ch'))}"""
     return ed_page(c['fond'], corps)
 
 def cas_fin(v):
-    """Dernière diapositive d'un cas pratique, même grille que le point de vue. Champs : titre, texte, auteur, photo (facultatif), photo_ia (true pour une variante générée), position, total."""
+    """Dernière diapositive d'un carrousel : appel à l'action en partie claire, portrait de Mickaël en moitié basse.
+    Champs : rubrique, titre, texte, auteur, fonction, photo (facultatif), photo_ia (true pour une variante générée), position, total."""
     c = CLAIR; photo = v.get("photo", str(ICI / "images/mickael-bovagnet.jpg"))
     corps = f"""<div class='rub'>{e(v.get('rubrique','À retenir'))}</div>{ed_cpt(v)}
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:80px'>{e(v.get('titre','Enregistrez ce post pour le retrouver.'))}</div>
-    <div style='position:absolute;left:80px;right:80px;top:350px;font-size:36px;line-height:1.3;color:{c['douce']}'>{e(v.get('texte','Le prompt complet est en commentaire. L’article détaillé est en lien dans la bio.'))}</div>
-    <div style='position:absolute;left:0;right:0;top:600px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
-    <div style='position:absolute;left:0;right:0;bottom:0;height:260px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.88))'></div>
-    <div style='position:absolute;left:80px;bottom:170px;font-size:32px;color:{ED_BLANC_C}'><b style='font-weight:600'>{e(v.get('auteur','Mickaël Bovagnet'))}</b> · {e(v.get('fonction','Auteur du guide, Cimeria'))}</div>
-    {f"<div style='position:absolute;right:80px;bottom:150px;font-size:22px;color:rgba(246,245,242,.7)'>Portrait réalisé avec l’IA</div>" if v.get('photo_ia') else ''}
-    <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','@cimeria.ch'))}</div></div>"""
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;height:470px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden'>
+      <div class='ed-titre' style='font-size:{(100 if len(v.get('titre','Enregistrez ce post pour le retrouver.')) <= 40 else 86)}px;line-height:1.04'>{e(v.get('titre','Enregistrez ce post pour le retrouver.'))}</div>
+      <div style='font-size:46px;line-height:1.25;color:{c['douce']}'>{e(v.get('texte','Le prompt complet est en commentaire. L’article détaillé est en lien dans la bio.'))}</div>
+    </div>
+    <div style='position:absolute;left:0;right:0;top:640px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
+    <div style='position:absolute;left:0;right:0;bottom:0;height:300px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.9))'></div>
+    <div style='position:absolute;left:80px;right:80px;bottom:{205 if v.get('photo_ia') else 160}px;font-size:38px;line-height:1.25;color:{ED_BLANC_C}'><b style='font-weight:600'>{e(v.get('auteur','Mickaël Bovagnet'))}</b><br>{e(v.get('fonction','Auteur du guide, Cimeria'))}</div>
+    {ed_mention_ia(v)}
+    <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 230)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','@cimeria.ch'))}</div></div>"""
     return ed_page(c['fond'], corps)
 
 
 def actualite(v):
     """Une actualité vérifiée, sur la grille éditoriale. Bandeau anthracite avec la date et le titre, puis le résumé, qui est concerné et la source.
-    Champs : date, titre (90 signes au plus), resume (40 mots au plus), concerne (facultatif), source, rubrique, position et total (dans le carrousel hebdomadaire), droite."""
+    Champs : date, titre (90 signes au plus), resume (35 mots au plus), concerne (facultatif), source, rubrique, position et total, droite.
+    Pour un carrousel, préférer fait_cle, plus rythmé."""
     c = CLAIR
-    conc = f"<div class='etiq' style='margin-top:36px'>Qui est concerné</div><div style='font-size:33px;line-height:1.3;margin-top:12px'>{e(v['concerne'])}</div>" if v.get("concerne") else ""
-    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:600px;background:{c['encre']}'></div>
+    conc = f"<div class='etiq' style='margin-top:40px'>Qui est concerné</div><div style='font-size:{ED_TEXTE}px;line-height:1.3;margin-top:12px'>{e(v['concerne'])}</div>" if v.get("concerne") else ""
+    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:620px;background:{c['encre']}'></div>
     <div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Actualité IA'))}</div>{ed_cpt(v, True)}
-    <div style='position:absolute;left:80px;right:80px;top:146px;font-family:Jost;font-weight:500;font-size:30px;color:{ED_DOUCE_S}'>{e(v['date'])}</div>
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:200px;font-size:{tt(v['titre'],84,72,62)}px;line-height:1.08;color:{ED_BLANC_C}'>{e(v['titre'])}</div>
-    <div id='corps' style='position:absolute;left:80px;right:80px;top:650px;bottom:220px;overflow:hidden'>
-      <div style='font-size:37px;line-height:1.3'>{e(v.get('resume',''))}</div>{conc}</div>
-    <div style='position:absolute;left:80px;right:80px;bottom:170px;font-size:26px;color:{c['douce']}'>Source · {e(v['source'])}</div>
+    <div style='position:absolute;left:80px;right:80px;top:136px;font-family:Jost;font-weight:500;font-size:36px;color:{ED_DOUCE_S}'>{e(v['date'])}</div>
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:196px;font-size:{tt(v['titre'],92,80,70)}px;line-height:1.06;color:{ED_BLANC_C}'>{e(v['titre'])}</div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:670px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
+      <div style='font-size:48px;line-height:1.28'>{e(v.get('resume',''))}</div>{conc}
+      <div style='flex:1;min-height:24px'></div>
+      <div style='font-size:{ED_PETIT}px;color:{c['douce']}'>Source · {e(v['source'])}</div></div>
     {ed_pied(v.get('droite','cimeria.ch'))}"""
     return ed_page(c['fond'], corps)
 
 def agenda(v):
-    """Agenda des événements IA, fond anthracite. Champs : titre, sous (facultatif), evenements [{date, titre, lieu}] (7 au plus), note, droite.
-    Seuls les organisateurs de dominia-site/src/content/organisateurs.json sont nommés."""
-    c = CLAIR; n = len(v["evenements"]); pad = 18 if n > 5 else 26
-    lignes = "".join(f"<div style='display:flex;gap:36px;padding:{pad}px 0;border-top:2px solid {ED_FILET_S}'>"
-                     f"<div style='width:230px;flex:none;font-family:Jost;font-weight:500;font-size:34px;line-height:1.15;color:{ED_BLANC_C}'>{e(x['date'])}</div>"
-                     f"<div style='flex:1'><div style='font-size:34px;line-height:1.2;font-weight:600;color:{ED_BLANC_C}'>{e(x['titre'])}</div>"
-                     f"<div style='font-size:26px;margin-top:4px;color:{ED_DOUCE_S}'>{e(x['lieu'])}</div></div></div>" for x in v["evenements"])
+    """Agenda des événements IA, fond anthracite. Champs : titre, sous (facultatif), evenements [{date, titre, lieu}] (5 au plus, au-delà un carrousel de deux visuels), rubrique, position, total, note, droite.
+    Les lignes se répartissent sur toute la hauteur. Seuls les organisateurs de dominia-site/src/content/organisateurs.json sont nommés."""
+    c = CLAIR; n = len(v["evenements"]); fd, ft, fl = (52, 54, 38) if n <= 3 else (44, 46, 34)
+    lignes = "".join(f"<div style='flex:1;display:flex;align-items:center;gap:36px;border-top:2px solid {ED_FILET_S}'>"
+                     f"<div style='width:{int(fd*6.2)}px;flex:none;font-family:Jost;font-weight:500;font-size:{fd}px;line-height:1.1;color:{ED_BLANC_C}'>{e(x['date'])}</div>"
+                     f"<div style='flex:1'><div style='font-size:{ft}px;line-height:1.15;font-weight:600;color:{ED_BLANC_C}'>{e(x['titre'])}</div>"
+                     f"<div style='font-size:{fl}px;line-height:1.25;margin-top:6px;color:{ED_DOUCE_S}'>{e(x['lieu'])}</div></div></div>" for x in v["evenements"])
     corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Agenda'))}</div>{ed_cpt(v, True)}
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:72px;color:{ED_BLANC_C}'>{e(v.get('titre','À noter en Suisse romande'))}<div style='font-family:Figtree;font-size:34px;line-height:1.3;color:{ED_DOUCE_S};letter-spacing:0;margin-top:20px'>{e(v.get('sous',''))}</div></div>
-    <div id='corps' style='position:absolute;left:80px;right:80px;top:{330 if v.get('sous') else 280}px;bottom:200px;overflow:hidden'>{lignes}</div>
-    <div style='position:absolute;left:80px;right:80px;bottom:160px;font-size:26px;color:{ED_DOUCE_S}'>{e(v.get('note','Tout l’agenda est sur cimeria.ch/agenda.'))}</div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
+      <div class='ed-titre' style='font-size:80px;color:{ED_BLANC_C}'>{e(v.get('titre','À noter en Suisse romande'))}</div>
+      {f"<div style='font-size:{ED_TEXTE}px;line-height:1.25;color:{ED_DOUCE_S};margin-top:18px'>{e(v['sous'])}</div>" if v.get('sous') else ''}
+      <div style='flex:1;display:flex;flex-direction:column;margin-top:30px;border-bottom:2px solid {ED_FILET_S}'>{lignes}</div>
+      <div style='margin-top:22px;font-size:{ED_PETIT}px;color:{ED_DOUCE_S}'>{e(v.get('note','Tout l’agenda est sur cimeria.ch/agenda.'))}</div>
+    </div>
     {ed_pied(v.get('droite','cimeria.ch/agenda'), True)}"""
     return ed_page(c['encre'], corps)
 
 
 def fait_cle(v):
-    """Un fait ancré par un élément clé en très grand (date, chiffre, nom, mot). Alterne fond anthracite et fond clair pour rythmer les carrousels.
-    Champs : rubrique, kicker (date et source, facultatif), cle (12 signes au plus), cle_legende, titre (90 signes au plus), resume (35 mots au plus),
-    pour_label et pour (facultatifs, une ligne d'usage), source, sombre (true ou false), position, total, droite."""
+    """Un fait ancré par un élément clé en très grand (date, chiffre, nom, mot), ajusté à la largeur. Alterne fond anthracite et fond clair pour rythmer les carrousels.
+    Champs : rubrique, kicker (date et source, facultatif), cle (12 signes au plus), cle_legende (une ligne si possible), titre (70 signes au plus),
+    resume (25 mots au plus), pour_label et pour (facultatifs, une ligne d'usage), source, sombre (true ou false), position, total, droite."""
     c = CLAIR; s = bool(v.get("sombre"))
     encre, douce, filet = (ED_BLANC_C, ED_DOUCE_S, ED_FILET_S) if s else (c['encre'], c['douce'], c['filet'])
-    n = len(v["cle"]); taille = 300 if n <= 5 else 230 if n <= 8 else 170 if n <= 12 else 130
-    kick = f"<div style='font-family:Jost;font-weight:500;font-size:30px;color:{douce}'>{e(v['kicker'])}</div>" if v.get("kicker") else ""
-    pour = (f"<div style='margin-top:30px;padding-top:26px;border-top:2px solid {filet}'><div class='etiq' style='color:{douce}'>{e(v.get('pour_label','Pour quel usage'))}</div>"
-            f"<div style='font-size:36px;line-height:1.3;margin-top:10px;color:{encre}'>{e(v['pour'])}</div></div>") if v.get("pour") else ""
+    kick = f"<div style='font-family:Jost;font-weight:500;font-size:36px;color:{douce};margin-bottom:10px'>{e(v['kicker'])}</div>" if v.get("kicker") else ""
+    pour = (f"<div style='margin-top:34px;padding-top:28px;border-top:2px solid {filet}'><div class='etiq' style='color:{douce}'>{e(v.get('pour_label','Pour quel usage'))}</div>"
+            f"<div style='font-size:46px;line-height:1.25;margin-top:12px;color:{encre};font-weight:500'>{e(v['pour'])}</div></div>") if v.get("pour") else ""
     corps = f"""<div class='rub' style='color:{ED_ROUGE_TS if s else c['rougeTexte']}'>{e(v.get('rubrique',''))}</div>{ed_cpt(v, s)}
-    <div id='corps' style='position:absolute;left:80px;right:80px;top:146px;bottom:170px;display:flex;flex-direction:column;overflow:hidden'>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
       {kick}
-      <div style='margin-left:-8px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{taille}px;line-height:1;letter-spacing:-.04em;color:{encre};margin-top:18px'>{e(v['cle'])}</div>
-      <div style='font-size:34px;line-height:1.3;color:{douce};margin-top:16px'>{e(v.get('cle_legende',''))}</div>
-      <div style='flex:1;min-height:30px'></div>
-      <div class='ed-titre' style='font-size:{tt(v['titre'],62,56,50)}px;line-height:1.1;color:{encre}'>{e(v['titre'])}</div>
-      <div style='font-size:35px;line-height:1.32;color:{douce};margin-top:22px'>{e(v.get('resume',''))}</div>
+      <div style='margin-left:-10px;font-family:Jost;font-weight:500;line-height:1;letter-spacing:-.04em;color:{encre}'><span class='ajuste' data-max='{v.get('taille', 330)}'>{e(v['cle'])}</span></div>
+      <div style='font-size:42px;line-height:1.25;color:{douce};margin-top:18px'>{e(v.get('cle_legende',''))}</div>
+      <div style='flex:1;min-height:36px'></div>
+      <div class='ed-titre' style='font-size:{tt(v['titre'],74,66,60)}px;line-height:1.08;color:{encre}'>{e(v['titre'])}</div>
+      <div style='font-size:{ED_TEXTE}px;line-height:1.3;color:{douce};margin-top:22px'>{e(v.get('resume',''))}</div>
       {pour}
-      <div style='font-size:24px;color:{douce};margin-top:26px'>{('Source · ' + e(v['source'])) if v.get('source') else ''}</div>
+      {f"<div style='font-size:{ED_PETIT}px;color:{douce};margin-top:28px'>Source · {e(v['source'])}</div>" if v.get('source') else ''}
     </div>
     {ed_pied(v.get('droite','cimeria.ch'), s)}"""
     return ed_page(c['encre'] if s else c['fond'], corps)
 
 GABARITS = dict(fait_cle=fait_cle, chiffre=chiffre, liste=liste, point_de_vue=point_de_vue, cas_couverture=cas_couverture, cas_etape=cas_etape, cas_fin=cas_fin, capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+
+EDITORIAUX = {"fait_cle", "chiffre", "liste", "point_de_vue", "cas_couverture", "cas_etape", "cas_fin", "actualite", "agenda"}
+# Agrandit chaque élément .ajuste jusqu'à la largeur disponible, sans dépasser data-max (en px).
+AJUSTE = """(() => { for (const el of document.querySelectorAll('.ajuste')) {
+  const max = +el.dataset.max || 300; el.style.fontSize = max + 'px';
+  const dispo = el.parentElement.clientWidth; const w = el.getBoundingClientRect().width;
+  if (w > dispo) el.style.fontSize = Math.floor(max * dispo / w) + 'px'; } })()"""
+# Liste les textes visibles plus petits que le plancher de lisibilité.
+PETITS = """(() => { const r = []; for (const el of document.body.querySelectorAll('*')) {
+  if (el.closest('svg')) continue;
+  const t = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join(' ').trim();
+  if (t && parseFloat(getComputedStyle(el).fontSize) < %d) r.push(t.slice(0, 40)); } return r; })()""" % ED_MIN
 
 async def main(spec, sortie):
     global RACINE
@@ -544,6 +582,7 @@ async def main(spec, sortie):
             tmp = ICI / f".rendu-{i}.html"; tmp.write_text(doc)
             pg = await nav.new_page(viewport={"width": w, "height": h})
             await pg.goto(tmp.as_uri()); await pg.evaluate("document.fonts.ready"); await pg.wait_for_timeout(300)
+            await pg.evaluate(AJUSTE)
             nom = v.get("fichier", f"{i:02d}-{v['gabarit']}.png")
             await pg.screenshot(path=str(sortie / nom))
             if v["gabarit"] == "cas_etape" and (n := mots(v["ajout"])) > 25:
@@ -552,6 +591,8 @@ async def main(spec, sortie):
                 print(f"ATTENTION {nom} : {n} mots, 60 au plus, alléger ou répartir sur deux diapositives")
             if await pg.evaluate("(() => { const c=document.getElementById('corps') || document.querySelector('.cadre'); return c.scrollHeight > c.clientHeight + 2; })()"):
                 print(f"ATTENTION {nom} : le texte déborde, raccourcir")
+            if v["gabarit"] in EDITORIAUX and (petits := await pg.evaluate(PETITS)):
+                print(f"ATTENTION {nom} : texte sous {ED_MIN} px, illisible sur téléphone : " + " | ".join(petits[:4]))
             print(sortie / nom)
             await pg.close(); tmp.unlink()
             for k in (v.get('carte', {}), v):

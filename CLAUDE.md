@@ -63,6 +63,10 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
   - étiquette IA activée par Mick sur Instagram.
 
   Les variantes servent sur les réseaux seulement, jamais en photo de profil ni sur le site.
+- Lisibilité sur téléphone (demande de Mick du 17 novembre 2026). Un visuel de 1080 px s'affiche sur environ 390 points d'écran.
+  - Aucun texte sous 30 px, textes courants à 44 px au moins. Le script signale tout texte plus petit.
+  - Les gabarits remplissent la hauteur disponible. Un texte trop long se raccourcit, il ne se réduit pas.
+  - `fait_cle` : titre de 70 signes au plus, résumé de 25 mots au plus. L'élément clé s'ajuste seul à la largeur.
 - Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit. Les gabarits `couverture_ia`, `lecon`, `etape_methode`, `capture` et `fin` sont conservés pour l'archive et ne servent plus.
 
 ### 5. Relire deux fois avant d'envoyer à Mick
@@ -93,7 +97,7 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 
 1. Partir d'une source officielle vérifiée, liée dans le post, ou de l'article hebdomadaire « L'IA cette semaine » publié le lundi sur cimeria.ch.
 2. Un visuel unique (gabarit `fait_cle`) pour LinkedIn et Facebook. Le carrousel hebdomadaire d'Instagram enchaîne un sommaire (`liste`, rubrique « L'IA cette semaine »), une diapositive `fait_cle` par fait (5 au plus), fonds anthracite et clair en alternance, chacune ancrée par un élément clé en très grand (date, chiffre, mot), avec la section de l'article en rubrique (À la une, En Suisse, Tech et outils, Économie de l'IA), et une fin (`cas_fin`, « Abonnez-vous pour suivre l'actualité IA. »).
-3. L'agenda des événements (gabarit `agenda`, 7 au plus) part des fichiers de `dominia-site/src/content/evenements`. Seuls les organisateurs de `organisateurs.json` sont nommés.
+3. L'agenda des événements (gabarit `agenda`, 5 événements au plus par visuel, au-delà un carrousel de deux visuels) part des fichiers de `dominia-site/src/content/evenements`. Seuls les organisateurs de `organisateurs.json` sont nommés.
 4. Une seule relecture, celle du client type.
 5. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.
 

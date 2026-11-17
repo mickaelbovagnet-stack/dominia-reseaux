@@ -5,5 +5,11 @@
  "alts": [
   "Le chiffre, 1 sur 3. Seule une PME suisse sur trois qui utilise l’IA a fixé des règles claires pour protéger ses données. Une page suffit. Elle dit ce qui entre dans l’outil, ce qui n’y entre jamais et qui relit avant l’envoi. Source, AXA, étude sur le marché du travail des PME, édition 2025."
  ],
- "lien": "https://cimeria.ch/ia-pour-pme-usages-concrets/"
+ "lien": "https://cimeria.ch/ia-pour-pme-usages-concrets/",
+ "fichiers_v3": [
+  "v3-01-chiffre.png"
+ ],
+ "alts_v3": [
+  "Le chiffre, 1 sur 3. Seule une PME suisse sur trois qui utilise l’IA a fixé des règles claires pour protéger ses données. Une page suffit. Elle dit ce qui entre dans l’outil, ce qui n’y entre jamais et qui relit avant l’envoi. Source, AXA, étude sur le marché du travail des PME, édition 2025."
+ ]
 }

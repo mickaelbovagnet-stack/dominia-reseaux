@@ -5,5 +5,13 @@
  "alts": [
   "Agenda Cimeria, à noter en Suisse romande, les prochains événements IA de novembre à juin. 25 novembre, EPFL Investor Day 2026 à Lausanne. 26 novembre, Formation IA pour les PME à Genève. 9 décembre, Robots, Agents and the Future of Work à l’Université de Fribourg. 10 décembre, Introduction à l’intelligence artificielle à l’Université de Fribourg. 17 au 19 février, AI Days 2027 de la HES-SO à Genève, Yverdon-les-Bains et Fribourg. 9 au 11 mars, AMLD Intelligence Summit 2027 à Lausanne. 21 et 22 juin, Geneva AI Summit 2027 à Palexpo, Genève."
  ],
- "lien": "https://cimeria.ch/agenda/"
+ "lien": "https://cimeria.ch/agenda/",
+ "fichiers_v3": [
+  "v3-01-agenda.png",
+  "v3-02-agenda.png"
+ ],
+ "alts_v3": [
+  "Agenda Cimeria, 1 sur 2. À noter d’ici la fin de l’année. Les prochains événements IA en Suisse romande. 25 novembre, EPFL Investor Day 2026, Lausanne, EPFL. 26 novembre, Formation IA pour les PME, Genève, République et canton de Genève. 9 décembre, Robots, Agents and the Future of Work, Fribourg, Université de Fribourg. 10 décembre, Introduction à l’intelligence artificielle, Fribourg, Université de Fribourg.",
+  "Agenda Cimeria, 2 sur 2. À noter en 2027. Les grands rendez-vous IA du premier semestre. 17 au 19 février 2027, AI Days 2027, Genève, Yverdon-les-Bains, Fribourg, HES-SO. 9 au 11 mars 2027, AMLD Intelligence Summit 2027, Lausanne, EPFL. 21 et 22 juin 2027, Geneva AI Summit 2027, Genève, Palexpo, Confédération suisse. Tout l’agenda est sur cimeria.ch/agenda."
+ ]
 }

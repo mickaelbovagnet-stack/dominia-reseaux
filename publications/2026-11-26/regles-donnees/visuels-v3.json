@@ -1,0 +1,13 @@
+{
+ "visuels": [
+  {
+   "gabarit": "chiffre",
+   "fichier": "v3-01-chiffre.png",
+   "accent": "1",
+   "nombre": " sur 3",
+   "phrase": "Seule une PME suisse sur trois qui utilise l’IA a fixé des règles claires pour protéger ses données.",
+   "action": "Une page suffit. Elle dit ce qui entre dans l’outil, ce qui n’y entre jamais et qui relit avant l’envoi.",
+   "source": "AXA, étude sur le marché du travail des PME, édition 2025."
+  }
+ ]
+}

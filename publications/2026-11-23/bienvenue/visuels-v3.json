@@ -1,0 +1,33 @@
+{
+ "visuels": [
+  {
+   "gabarit": "liste",
+   "fichier": "v3-01-bienvenue.png",
+   "rubrique": "Bienvenue",
+   "titre": "Ce que vous trouverez sur Cimeria",
+   "sous": "Le média IA des dirigeants et cadres romands.",
+   "elements": [
+    [
+     "Des cas pratiques pas à pas avec l’IA"
+    ],
+    [
+     "L’actualité IA de la semaine"
+    ],
+    [
+     "Des décryptages pour décider"
+    ],
+    [
+     "L’agenda des événements IA romands"
+    ],
+    [
+     "Le lexique de l’IA en termes simples"
+    ],
+    [
+     "La lettre mensuelle, sur inscription"
+    ]
+   ],
+   "note": "Tout est sur cimeria.ch.",
+   "droite": "Lien en bio"
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "fichier": "v3-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "rubrique": "Décryptage",
+   "titre": "Trois IA suisses, trois rôles différents",
+   "sous": "Euria, Lumo et Apertus comparés pour un usage professionnel.",
+   "illustration": "trois-bulles",
+   "note": "Offres et versions vérifiées les 3 et 4 novembre 2026."
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-02-euria.png",
+   "position": 2,
+   "total": 6,
+   "rubrique": "Décryptage",
+   "cle": "Euria",
+   "cle_legende": "Infomaniak, Genève",
+   "titre": "L’assistant gratuit, hébergé en Suisse",
+   "resume": "Rédaction, résumé, traduction et transcription, traités exclusivement en Suisse selon Infomaniak. Il s’ouvre sans compte.",
+   "pour": "Les tâches courantes sur des contenus non sensibles.",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-03-lumo.png",
+   "position": 3,
+   "total": 6,
+   "rubrique": "Décryptage",
+   "cle": "Lumo",
+   "cle_legende": "Proton, Plan-les-Ouates",
+   "titre": "L’assistant chiffré, sans journal",
+   "resume": "Chiffrement à accès zéro de l’historique. Aucun journal conservé, aucun entraînement sur vos échanges. Traitement en Europe.",
+   "pour": "Relire un document sensible sans offre entreprise.",
+   "sombre": false
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-04-apertus.png",
+   "position": 4,
+   "total": 6,
+   "rubrique": "Décryptage",
+   "cle": "Apertus",
+   "cle_legende": "EPFL, ETH Zurich et CSCS",
+   "titre": "Le modèle ouvert, sans application propre",
+   "resume": "Entraîné en Suisse et publié sous licence Apache 2.0. On l’essaie dans Euria ou Lumo. Une entreprise peut l’installer sur ses serveurs.",
+   "pour": "Un déploiement interne en entreprise.",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-05-20points.png",
+   "position": 5,
+   "total": 6,
+   "rubrique": "Décryptage",
+   "cle": "+20 points",
+   "cle_legende": "L’avance des meilleurs modèles d’Anthropic et d’OpenAI sur les meilleurs Qwen et GLM.",
+   "titre": "La confidentialité d’un côté, la puissance de l’autre",
+   "resume": "Les trois IA suisses excluent l’entraînement sur vos échanges. Pour les analyses décisives, Claude Team ou ChatGPT Business restent devant.",
+   "source": "Indice Artificial Analysis, consulté le 4 novembre 2026",
+   "sombre": false
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v3-06-fin.png",
+   "position": 6,
+   "total": 6,
+   "titre": "Enregistrez ce post pour choisir votre outil.",
+   "texte": "Le comparatif complet est dans l’article, en lien dans la bio."
+  }
+ ]
+}

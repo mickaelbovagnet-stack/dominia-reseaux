@@ -1,0 +1,78 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "fichier": "v3-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "titre": "Annoncer une hausse de prix avec l’IA",
+   "sous": "Un e-mail prêt à relire en 4 étapes.",
+   "illustration": "enveloppe",
+   "note": "Exemple fictif d’une PME genevoise de 18 collaborateurs."
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-02-etape-1.png",
+   "position": 2,
+   "total": 6,
+   "etapes": 4,
+   "etape": 1,
+   "mot": "Contexte",
+   "ajout": "Je dirige une PME genevoise d’entretien de chauffages. Hausse de 4 % au 1er janvier.",
+   "rend": [
+    "Un e-mail qui parle de vos clients."
+   ],
+   "reste": "Le montant et les raisons restent vagues."
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-03-etape-2.png",
+   "position": 3,
+   "total": 6,
+   "etapes": 4,
+   "etape": 2,
+   "mot": "Consigne",
+   "ajout": "Que nos clients gardent leur contrat. Ils doivent comprendre en 20 secondes ce qui change et ce qu’ils ont à faire.",
+   "rend": [
+    "Un e-mail qui suit la logique du lecteur."
+   ],
+   "reste": "Les montants restent entre crochets."
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-04-etape-3.png",
+   "position": 4,
+   "total": 6,
+   "etapes": 4,
+   "etape": 3,
+   "mot": "Contenu",
+   "ajout": "Le contrat moyen passe de CHF 500 à CHF 520 par an. Nos tarifs n’ont pas bougé depuis 2023.",
+   "rend": [
+    "Un e-mail avec vos chiffres et vos raisons."
+   ],
+   "reste": "Chaque chiffre vient de votre prompt.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-05-etape-4.png",
+   "position": 5,
+   "total": 6,
+   "etapes": 4,
+   "etape": 4,
+   "mot": "Cadre",
+   "ajout": "120 mots au plus. Signale-moi ce que tu as dû inventer.",
+   "rend": [
+    "Deux objets et un e-mail d’environ 105 mots.",
+    "La liste de ce que l’IA a supposé."
+   ],
+   "reste": "Vous relisez avant l’envoi."
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v3-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}

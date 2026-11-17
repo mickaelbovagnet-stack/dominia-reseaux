@@ -5,5 +5,11 @@
  "alts": [
   "Visuel Cimeria intitulé « Ce que vous trouverez sur Cimeria », le média IA des dirigeants et cadres romands. Six rubriques numérotées, des cas pratiques pas à pas avec l’IA, l’actualité IA de la semaine, des décryptages pour décider, l’agenda des événements IA romands, le lexique de l’IA en termes simples et la lettre mensuelle sur inscription. Tout est sur cimeria.ch."
  ],
- "lien": "https://cimeria.ch"
+ "lien": "https://cimeria.ch",
+ "fichiers_v3": [
+  "v3-01-bienvenue.png"
+ ],
+ "alts_v3": [
+  "Visuel Cimeria intitulé « Ce que vous trouverez sur Cimeria », le média IA des dirigeants et cadres romands. Six rubriques numérotées, des cas pratiques pas à pas avec l’IA, l’actualité IA de la semaine, des décryptages pour décider, l’agenda des événements IA romands, le lexique de l’IA en termes simples et la lettre mensuelle sur inscription. Tout est sur cimeria.ch."
+ ]
 }
