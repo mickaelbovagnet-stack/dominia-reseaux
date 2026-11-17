@@ -103,12 +103,12 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 
 ## Plan de communication automatisé (validé par Mick le 17 novembre 2026, simplifié le même jour)
 
-Les posts suivent la production du site, sans contenu de remplissage. La tâche planifiée « Posts réseaux Cimeria » tourne du lundi au vendredi à 18 h 38 (heure de Zurich) et applique cette section avec tout le reste de ce fichier.
+Les posts suivent la production du site, sans contenu de remplissage. La tâche planifiée « Posts réseaux Cimeria » tourne du lundi au vendredi à 18 h 08 (heure de Zurich), juste après le déploiement du soir du site (17:07 UTC, soit 18 h 07 en hiver et 19 h 07 en été) et applique cette section avec tout le reste de ce fichier.
 
 ### Deux déclencheurs, rien d'autre
-1. **Un nouvel article publié.** Un article est publié quand son fichier est sur la branche `main` de dominia-site, que sa date `publie` est passée et que sa page répond sur cimeria.ch. Seuls comptent les articles publiés à partir du 17 novembre 2026 et absents de `publications/registre.json`. Les articles plus anciens restent sans post.
+1. **Un nouvel article publié.** Un article est publié quand son fichier est sur la branche `main` de dominia-site et que sa date `publie` est passée ou tombe avant 20 h le jour même. Il passe en ligne au déploiement du soir. Seuls comptent les articles publiés à partir du 17 novembre 2026 et absents de `publications/registre.json`. Les articles plus anciens restent sans post.
    - Format selon la rubrique : Actualité (carrousel Instagram, `fait_cle` seul sur LinkedIn et Facebook), Pratique (cas pratique en 6 diapositives et premier commentaire), Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`).
-   - Brouillon le jour ouvré suivant la publication, à 8 h (heure de Zurich). Si ce jour a déjà un post à 8 h, le jour ouvré libre suivant.
+   - Brouillon le soir même à 20 h (heure de Zurich). Si ce créneau de 20 h est déjà pris, le soir ouvré libre suivant. Un article fusionné après le passage de la tâche sort le lendemain soir.
 2. **L'agenda, une fois par semaine.** Chaque vendredi à 12 h (heure de Zurich), un visuel `agenda` des événements à venir de `dominia-site/src/content/evenements` (5 au plus par visuel, au-delà un carrousel de deux visuels). Pas d'agenda la semaine où aucun événement n'est à venir.
 
 ### Règles communes
