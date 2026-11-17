@@ -401,13 +401,14 @@ def liste(v):
     return ed_page(c['fond'], corps)
 
 def point_de_vue(v):
-    """Citation de Mickaël et portrait en moitié basse. Champs : rubrique, citation (sans guillemets), auteur, photo (facultatif)."""
+    """Citation de Mickaël et portrait en moitié basse. Champs : rubrique, citation (sans guillemets), auteur, photo (facultatif), photo_ia (true pour une variante générée, voir images/portraits/README.md)."""
     c = CLAIR; photo = v.get("photo", str(ICI / "images/mickael-bovagnet.jpg"))
     corps = f"""<div class='rub'>{e(v.get('rubrique','Point de vue'))}</div>
-    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['citation'],70,70,58)}px;line-height:1.08'>« {e(v['citation'])} »</div>
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['citation'],70,70,58)}px;line-height:1.08'>{e('« ' + v['citation'] + ' »')}</div>
     <div style='position:absolute;left:80px;top:470px;font-size:30px;color:{c['douce']}'>{e(v.get('auteur','Mickaël Bovagnet, auteur du guide'))}</div>
     <div style='position:absolute;left:0;right:0;top:600px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
     <div style='position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.85))'></div>
+    {f"<div style='position:absolute;right:80px;bottom:150px;font-size:22px;color:rgba(246,245,242,.7)'>Portrait réalisé avec l’IA</div>" if v.get('photo_ia') else ''}
     <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','cimeria.ch'))}</div></div>"""
     return ed_page(c['fond'], corps)
 
@@ -441,7 +442,7 @@ def cas_etape(v):
     <div style='position:absolute;left:80px;right:80px;top:430px;bottom:170px;display:flex;flex-direction:column'>
       <div style='background:#FFFFFF;border-radius:18px;padding:44px 52px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
         <div class='etiq'>Vous ajoutez</div>
-        <div style='font-size:50px;line-height:1.28;margin-top:16px'>« {e(v['ajout'])} »</div></div>
+        <div style='font-size:50px;line-height:1.28;margin-top:16px'>{e('« ' + v['ajout'] + ' »')}</div></div>
       <div style='flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:36px'>
         <div class='etiq'>L’IA vous rend</div>{rend}
         <div class='etiq' style='margin-top:52px'>{e(lib)}</div>
@@ -450,7 +451,7 @@ def cas_etape(v):
     return ed_page(c['fond'], corps)
 
 def cas_fin(v):
-    """Dernière diapositive d'un cas pratique, même grille que le point de vue. Champs : titre, texte, auteur, photo (facultatif), position, total."""
+    """Dernière diapositive d'un cas pratique, même grille que le point de vue. Champs : titre, texte, auteur, photo (facultatif), photo_ia (true pour une variante générée), position, total."""
     c = CLAIR; photo = v.get("photo", str(ICI / "images/mickael-bovagnet.jpg"))
     corps = f"""<div class='rub'>{e(v.get('rubrique','À retenir'))}</div>{ed_cpt(v)}
     <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:80px'>{e(v.get('titre','Enregistrez ce post pour le retrouver.'))}</div>
@@ -458,6 +459,7 @@ def cas_fin(v):
     <div style='position:absolute;left:0;right:0;top:600px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
     <div style='position:absolute;left:0;right:0;bottom:0;height:260px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.88))'></div>
     <div style='position:absolute;left:80px;bottom:170px;font-size:32px;color:{ED_BLANC_C}'><b style='font-weight:600'>{e(v.get('auteur','Mickaël Bovagnet'))}</b> · {e(v.get('fonction','Auteur du guide, Cimeria'))}</div>
+    {f"<div style='position:absolute;right:80px;bottom:150px;font-size:22px;color:rgba(246,245,242,.7)'>Portrait réalisé avec l’IA</div>" if v.get('photo_ia') else ''}
     <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','@cimeria.ch'))}</div></div>"""
     return ed_page(c['fond'], corps)
 

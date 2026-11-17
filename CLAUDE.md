@@ -54,8 +54,14 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
 - Le rouge (#DA291C, #F04A3B sur anthracite) est réservé à la rubrique, au carré du logo, à la barre de progression et à la partie `accent` d'un chiffre clé. Jamais de surlignage, de cadre ni d'aplat rouge.
 - Jost pour les titres, étiquettes et chiffres, Figtree pour les textes.
 - Logotype Cimeria en pied de chaque visuel, d'un seul bloc, sans jamais isoler « ia ». Aucun quadrillage sur les visuels des réseaux.
-- Les illustrations sont des dessins au trait anthracite, un seul détail rouge, rangés dans `gabarits/illustrations/` (SVG 600 x 420). Jamais d'image générée par IA, de photo de banque d'images ni de logo d'un éditeur.
-- Les photos sont celles de Mickaël, fournies par lui.
+- Les illustrations sont des dessins au trait anthracite, un seul détail rouge, rangés dans `gabarits/illustrations/` (SVG 600 x 420). Jamais de photo de banque d'images ni de logo d'un éditeur.
+- Les photos sont celles de Mickaël. Les seules images générées par IA autorisées sont des variantes de son portrait, tirées de sa vraie photo de référence, selon la règle de `gabarits/images/portraits/README.md` (validée le 17 novembre 2026) :
+  - ressemblance stricte ;
+  - aucune mise en scène inventée ;
+  - mention « Portrait réalisé avec l'IA » sur le visuel (`photo_ia: true`) et dans le texte alternatif ;
+  - étiquette IA activée par Mick sur Instagram.
+
+  Les variantes servent sur les réseaux seulement, jamais en photo de profil ni sur le site.
 - Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit. Les gabarits `couverture_ia`, `lecon`, `etape_methode`, `capture` et `fin` sont conservés pour l'archive et ne servent plus.
 
 ### 5. Relire deux fois avant d'envoyer à Mick
@@ -80,7 +86,7 @@ Organisation 6af56cc922ccef12afddbdf0 (« My organization », offre gratuite : 3
 - **Facebook** (6afb1540ece6dfde5fe51193, page cimeria.ch) : les mêmes images en album, avec une légende proche d'Instagram et un lien direct vers l'article.
 
 ### 8. Soumettre à Mick
-Envoyer la planche, le premier commentaire et un court récapitulatif. Mick valide, publie et poste le commentaire.
+Envoyer la planche, le premier commentaire et un court récapitulatif. Mick valide, publie et poste le commentaire. Quand un visuel contient un portrait généré, le récapitulatif le signale pour qu'il active l'étiquette IA d'Instagram.
 
 ## Version allégée pour l'actualité
 
@@ -92,7 +98,8 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 
 ## Arborescence
 
-- `gabarits/` : générateur, polices Jost et Figtree, portrait, illustrations au trait.
+- `gabarits/` : générateur, polices Jost et Figtree, illustrations au trait.
+- `gabarits/images/portraits/` : photo de référence, variantes validées, règle, modèle de prompt et registre.
 - `maquettes/2026-11-17/` : les maquettes qui ont mené à la grille éditoriale.
 - `publications/2026-11-12/` : archive de l'époque Dominia, à ne pas republier telle quelle.
 - `publications/AAAA-MM-JJ/sujet/` : `sources/`, fichiers JSON de chaque version, images, `planche.png`, `premier-commentaire.txt`.
