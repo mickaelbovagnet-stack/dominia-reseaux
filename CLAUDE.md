@@ -81,7 +81,7 @@ Organisation 6af56cc922ccef12afddbdf0 (« My organization », offre gratuite : 3
 
 - **Instagram** (6afb1db8ece6dfde5fe5a18f, @cimeria.ch) : metadata `{type: "post", shouldShareToFeed: true}`, un texte alternatif par image.
   - Légende dans cet ordre : accroche, conditions de réussite, exemple, nuance (« le jugement reste le vôtre »), appel à enregistrer, renvoi au premier commentaire et à la bio, 5 hashtags.
-  - Le premier commentaire n'est pas programmable sur l'offre gratuite de Buffer. Il est écrit dans `premier-commentaire.txt` et Mick le poste à la main juste après la publication.
+  - Le premier commentaire n'est pas programmable sur l'offre gratuite de Buffer (refus vérifié le 17 novembre 2026). Il est écrit dans `premier-commentaire.txt` et recopié dans le document du projet Claude `claude/premiers-commentaires-instagram.md`, où Mick le copie depuis son téléphone pour le poster à la main juste après la publication.
 - **LinkedIn** (6afb14e7ece6dfde5fe50e82, page cimeria-ch) : le même carrousel en document PDF, avec une légende plus développée et un lien direct vers l'article.
 - **Facebook** (6afb1540ece6dfde5fe51193, page cimeria.ch) : les mêmes images en album, avec une légende proche d'Instagram et un lien direct vers l'article.
 
@@ -90,11 +90,11 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 
 ## Version allégée pour l'actualité
 
-1. Partir d'une source officielle vérifiée, liée dans le post.
-2. Un visuel unique (gabarit `actualite`).
-3. Une seule relecture, celle du client type.
-4. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.
-5. Un carrousel d'actualité hebdomadaire pour Instagram.
+1. Partir d'une source officielle vérifiée, liée dans le post, ou de l'article hebdomadaire « L'IA cette semaine » publié le lundi sur cimeria.ch.
+2. Un visuel unique (gabarit `actualite`) pour LinkedIn et Facebook. Le carrousel hebdomadaire d'Instagram enchaîne un sommaire (`liste`, rubrique « L'IA cette semaine »), une diapositive `actualite` par fait (5 au plus) et une fin (`cas_fin`, « Abonnez-vous pour suivre l'actualité IA. »).
+3. L'agenda des événements (gabarit `agenda`, 7 au plus) part des fichiers de `dominia-site/src/content/evenements`. Seuls les organisateurs de `organisateurs.json` sont nommés.
+4. Une seule relecture, celle du client type.
+5. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.
 
 ## Arborescence
 
