@@ -96,7 +96,7 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 ## Version allégée pour l'actualité
 
 1. Partir d'une source officielle vérifiée, liée dans le post, ou de l'article hebdomadaire « L'IA cette semaine » publié le lundi sur cimeria.ch.
-2. Un visuel unique (gabarit `fait_cle`) pour LinkedIn et Facebook. Le carrousel hebdomadaire d'Instagram enchaîne un sommaire (`liste`, rubrique « L'IA cette semaine »), une diapositive `fait_cle` par fait (5 au plus), fonds anthracite et clair en alternance, chacune ancrée par un élément clé en très grand (date, chiffre, mot), avec la section de l'article en rubrique (À la une, En Suisse, Tech et outils, Économie de l'IA), et une fin (`cas_fin`, « Abonnez-vous pour suivre l'actualité IA. »).
+2. Un carrousel sur les trois réseaux, avec les principaux faits de la semaine et jamais un seul (demande de Mick du 17 novembre 2026). Instagram en carrousel, LinkedIn en document PDF, Facebook en album. Le carrousel enchaîne un sommaire (`liste`, rubrique « L'IA cette semaine »), une diapositive `fait_cle` par fait (5 au plus), fonds anthracite et clair en alternance, chacune ancrée par un élément clé en très grand (date, chiffre, mot), avec la section de l'article en rubrique (À la une, En Suisse, Tech et outils, Économie de l'IA), et une fin (`cas_fin`, « Abonnez-vous pour suivre l'actualité IA. »).
 3. L'agenda des événements (gabarit `agenda`, 5 événements au plus par visuel, au-delà un carrousel de deux visuels) part des fichiers de `dominia-site/src/content/evenements`. Seuls les organisateurs de `organisateurs.json` sont nommés.
 4. Une seule relecture, celle du client type.
 5. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.
@@ -107,7 +107,7 @@ Les posts suivent la production du site, sans contenu de remplissage. La tâche 
 
 ### Deux déclencheurs, rien d'autre
 1. **Un nouvel article publié.** Un article est publié quand son fichier est sur la branche `main` de dominia-site et que sa date `publie` est passée ou tombe avant 20 h le jour même. Il passe en ligne au déploiement du soir. Seuls comptent les articles absents de `publications/registre.json`.
-   - Format selon la rubrique : Actualité (carrousel Instagram, `fait_cle` seul sur LinkedIn et Facebook), Pratique (cas pratique en 6 diapositives et premier commentaire), Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`).
+   - Format selon la rubrique : Actualité (carrousel des principaux faits de la semaine sur les trois réseaux), Pratique (cas pratique en 6 diapositives et premier commentaire), Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`).
    - Brouillon le soir même à 20 h (heure de Zurich). Si ce créneau de 20 h est déjà pris, le soir ouvré libre suivant. Un article fusionné après le passage de la tâche sort le lendemain soir.
 2. **L'agenda, une fois par semaine.** Chaque vendredi à 12 h (heure de Zurich), un visuel `agenda` des événements à venir de `dominia-site/src/content/evenements` (5 au plus par visuel, au-delà un carrousel de deux visuels). Pas d'agenda la semaine où aucun événement n'est à venir.
 
