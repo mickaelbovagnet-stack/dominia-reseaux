@@ -1,0 +1,47 @@
+{
+ "visuels": [
+  {
+   "gabarit": "agenda",
+   "fichier": "01-agenda.png",
+   "titre": "À noter en Suisse romande",
+   "sous": "Les prochains événements IA, de novembre à juin.",
+   "evenements": [
+    {
+     "date": "25 nov.",
+     "titre": "EPFL Investor Day 2026",
+     "lieu": "Lausanne · EPFL"
+    },
+    {
+     "date": "26 nov.",
+     "titre": "Formation IA pour les PME",
+     "lieu": "Genève · République et canton de Genève"
+    },
+    {
+     "date": "9 déc.",
+     "titre": "Robots, Agents and the Future of Work",
+     "lieu": "Fribourg · Université de Fribourg"
+    },
+    {
+     "date": "10 déc.",
+     "titre": "Introduction à l’intelligence artificielle",
+     "lieu": "Fribourg · Université de Fribourg"
+    },
+    {
+     "date": "17 au 19 févr.",
+     "titre": "AI Days 2027",
+     "lieu": "Genève, Yverdon-les-Bains, Fribourg · HES-SO"
+    },
+    {
+     "date": "9 au 11 mars",
+     "titre": "AMLD Intelligence Summit 2027",
+     "lieu": "Lausanne · EPFL"
+    },
+    {
+     "date": "21 et 22 juin",
+     "titre": "Geneva AI Summit 2027",
+     "lieu": "Genève, Palexpo · Confédération suisse"
+    }
+   ]
+  }
+ ]
+}

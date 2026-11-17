@@ -148,7 +148,7 @@ def cas(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-def agenda(v):
+def agenda_ancien(v):
     c = CLAIR; w, h = 1080, 1350
     lignes = "".join(
         f"<div style='padding:30px 0;border-top:2px solid {c['filet']}'>"
@@ -165,7 +165,7 @@ def agenda(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-def actualite(v):
+def actualite_ancien(v):
     c = CLAIR; w, h = 1080, 1350
     corps = f"""<div class='cadre'>
       {tete(v, 'Actualité IA · ' + v['date'])}
@@ -463,6 +463,37 @@ def cas_fin(v):
     {f"<div style='position:absolute;right:80px;bottom:150px;font-size:22px;color:rgba(246,245,242,.7)'>Portrait réalisé avec l’IA</div>" if v.get('photo_ia') else ''}
     <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','@cimeria.ch'))}</div></div>"""
     return ed_page(c['fond'], corps)
+
+
+def actualite(v):
+    """Une actualité vérifiée, sur la grille éditoriale. Bandeau anthracite avec la date et le titre, puis le résumé, qui est concerné et la source.
+    Champs : date, titre (90 signes au plus), resume (40 mots au plus), concerne (facultatif), source, rubrique, position et total (dans le carrousel hebdomadaire), droite."""
+    c = CLAIR
+    conc = f"<div class='etiq' style='margin-top:36px'>Qui est concerné</div><div style='font-size:33px;line-height:1.3;margin-top:12px'>{e(v['concerne'])}</div>" if v.get("concerne") else ""
+    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:600px;background:{c['encre']}'></div>
+    <div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Actualité IA'))}</div>{ed_cpt(v, True)}
+    <div style='position:absolute;left:80px;right:80px;top:146px;font-family:Jost;font-weight:500;font-size:30px;color:{ED_DOUCE_S}'>{e(v['date'])}</div>
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:200px;font-size:{tt(v['titre'],84,72,62)}px;line-height:1.08;color:{ED_BLANC_C}'>{e(v['titre'])}</div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:650px;bottom:220px;overflow:hidden'>
+      <div style='font-size:37px;line-height:1.3'>{e(v.get('resume',''))}</div>{conc}</div>
+    <div style='position:absolute;left:80px;right:80px;bottom:170px;font-size:26px;color:{c['douce']}'>Source · {e(v['source'])}</div>
+    {ed_pied(v.get('droite','cimeria.ch'))}"""
+    return ed_page(c['fond'], corps)
+
+def agenda(v):
+    """Agenda des événements IA, fond anthracite. Champs : titre, sous (facultatif), evenements [{date, titre, lieu}] (7 au plus), note, droite.
+    Seuls les organisateurs de dominia-site/src/content/organisateurs.json sont nommés."""
+    c = CLAIR; n = len(v["evenements"]); pad = 18 if n > 5 else 26
+    lignes = "".join(f"<div style='display:flex;gap:36px;padding:{pad}px 0;border-top:2px solid {ED_FILET_S}'>"
+                     f"<div style='width:230px;flex:none;font-family:Jost;font-weight:500;font-size:34px;line-height:1.15;color:{ED_BLANC_C}'>{e(x['date'])}</div>"
+                     f"<div style='flex:1'><div style='font-size:34px;line-height:1.2;font-weight:600;color:{ED_BLANC_C}'>{e(x['titre'])}</div>"
+                     f"<div style='font-size:26px;margin-top:4px;color:{ED_DOUCE_S}'>{e(x['lieu'])}</div></div></div>" for x in v["evenements"])
+    corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Agenda'))}</div>{ed_cpt(v, True)}
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:72px;color:{ED_BLANC_C}'>{e(v.get('titre','À noter en Suisse romande'))}<div style='font-family:Figtree;font-size:34px;line-height:1.3;color:{ED_DOUCE_S};letter-spacing:0;margin-top:20px'>{e(v.get('sous',''))}</div></div>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:{330 if v.get('sous') else 280}px;bottom:200px;overflow:hidden'>{lignes}</div>
+    <div style='position:absolute;left:80px;right:80px;bottom:160px;font-size:26px;color:{ED_DOUCE_S}'>{e(v.get('note','Tout l’agenda est sur cimeria.ch/agenda.'))}</div>
+    {ed_pied(v.get('droite','cimeria.ch/agenda'), True)}"""
+    return ed_page(c['encre'], corps)
 
 GABARITS = dict(chiffre=chiffre, liste=liste, point_de_vue=point_de_vue, cas_couverture=cas_couverture, cas_etape=cas_etape, cas_fin=cas_fin, capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
