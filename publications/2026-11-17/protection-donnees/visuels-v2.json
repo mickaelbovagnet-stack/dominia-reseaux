@@ -1,0 +1,77 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Décryptage",
+   "titre": "IA et protection des données en Suisse",
+   "sous": "Ce que dit la loi et ce que vous pouvez confier à une IA.",
+   "note": "Vérifié le 4 novembre 2026.",
+   "droite": "Faites défiler →",
+   "fichier": "v2-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "graphisme": "ia-protection-donnees-suisse"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "La loi",
+   "cle": "nLPD",
+   "cle_legende": "en vigueur depuis le 1er septembre 2023",
+   "titre": "La loi sur la protection des données s'applique telle quelle à l'IA",
+   "resume": "Le Préposé fédéral à la protection des données et à la transparence l'a rappelé en 2023 puis en 2025.",
+   "sombre": true,
+   "fichier": "v2-02-fait.png",
+   "position": 2,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Recommandations",
+   "cle": "16 oct.",
+   "cle_legende": "2026, quatre recommandations officielles",
+   "titre": "Deux autorités fédérales encadrent l'IA générative au travail",
+   "resume": "L'Office fédéral de la cybersécurité et le Préposé fédéral à la protection des données les ont publiées ensemble.",
+   "sombre": false,
+   "fichier": "v2-03-fait.png",
+   "position": 3,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Comptes personnels",
+   "cle": "Sauf refus",
+   "cle_legende": "ChatGPT et Claude s'entraînent sur vos conversations",
+   "titre": "Un compte personnel n'est pas un compte entreprise",
+   "resume": "La nouvelle application Copilot du 18 août 2026 ne le fait pas. Les comptes professionnels l'excluent par contrat.",
+   "sombre": true,
+   "fichier": "v2-04-fait.png",
+   "position": 4,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Précaution",
+   "cle": "Anonymisé",
+   "cle_legende": "pour toute donnée sensible",
+   "titre": "Les données sensibles restent hors des IA grand public",
+   "resume": "Elles n'entrent dans une IA qu'anonymisées ou dans un outil cadré par contrat, comme les secrets protégés par la loi.",
+   "sombre": false,
+   "fichier": "v2-05-fait.png",
+   "position": 5,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "Les six cas concrets sont dans l'article, en lien dans la bio.",
+   "fichier": "v2-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}

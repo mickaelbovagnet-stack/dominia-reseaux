@@ -386,10 +386,10 @@ def chiffre(v):
     c = CLAIR
     corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Le chiffre'))}</div>
     <div id='corps' style='position:absolute;left:80px;right:80px;top:130px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
-      <div style='margin-left:-14px;font-family:Jost;font-weight:500;line-height:1;letter-spacing:-.045em;color:{ED_BLANC_C}'><span class='ajuste' data-max='{v.get('taille',360)}'><span style='color:{ED_ROUGE_S}'>{e(v.get('accent',''))}</span>{e(v.get('nombre',''))}</span></div>
-      <div class='ed-titre' style='margin-top:40px;font-size:{v.get('taille_phrase', 64)}px;line-height:1.12;color:{ED_BLANC_C}'>{e(v['phrase'])}</div>
-      <div style='flex:1;min-height:40px'></div>
-      <div style='padding-top:36px;border-top:2px solid {ED_FILET_S};font-size:46px;line-height:1.3;color:{ED_BLANC_C}'>{e(v.get('action',''))}</div>
+      <div style='margin-left:-14px;font-family:Jost;font-weight:500;line-height:1;letter-spacing:-.045em;color:{ED_BLANC_C}'><span class='ajuste' data-max='{v.get('taille',360)}' data-max0='{v.get('taille',360)}'><span style='color:{ED_ROUGE_S}'>{e(v.get('accent',''))}</span>{e(v.get('nombre',''))}</span></div>
+      <div class='ed-titre' data-gonfle='{v.get('taille_phrase', 64)}' style='margin-top:40px;font-size:{v.get('taille_phrase', 64)}px;line-height:1.12;color:{ED_BLANC_C}'>{e(v['phrase'])}</div>
+      <div style='flex:1;min-height:56px'></div>
+      <div data-gonfle='46' style='padding-top:36px;border-top:2px solid {ED_FILET_S};font-size:46px;line-height:1.3;color:{ED_BLANC_C}'>{e(v.get('action',''))}</div>
       <div style='margin-top:36px;font-size:{ED_PETIT}px;line-height:1.3;color:{ED_DOUCE_S}'>Source · {e(v['source'])}</div>
     </div>
     {ed_pied(v.get('droite','cimeria.ch'), True)}"""
@@ -430,8 +430,19 @@ def point_de_vue(v):
 
 def cas_couverture(v):
     """Couverture de cas pratique : bandeau anthracite avec le titre, illustration au trait en partie claire.
-    Champs : rubrique, position, total, titre (50 signes au plus), sous, illustration (nom d'un fichier de gabarits/illustrations, sans .svg), note, droite."""
+    Champs : rubrique, position, total, titre (50 signes au plus), sous, graphisme (image de l'article sans quadrillage, dans gabarits/graphismes, sans .png, prioritaire et toute anthracite), illustration (nom d'un fichier de gabarits/illustrations, sans .svg), note, droite."""
     c = CLAIR
+    if v.get("graphisme"):
+        g = (ICI / f"graphismes/{v['graphisme']}.png").as_uri()
+        corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Cas pratique'))}</div>{ed_cpt(v, True)}
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;height:470px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden'>
+      <div class='ed-titre' style='font-size:{tt(v['titre'],104,94,88)}px;line-height:1.0;color:{ED_BLANC_C}'>{e(v['titre'])}</div>
+      <div style='font-size:44px;line-height:1.25;color:{ED_DOUCE_S}'>{e(v.get('sous',''))}</div>
+    </div>
+    <div style='position:absolute;left:0;right:0;top:625px;height:520px;background:url({g}) center/cover no-repeat'></div>
+    <div style='position:absolute;left:80px;right:80px;bottom:150px;font-size:{ED_PETIT}px;color:{ED_DOUCE_S};text-align:center'>{e(v.get('note',''))}</div>
+    {ed_pied(v.get('droite','Faites défiler →'), True)}"""
+        return ed_page(c['encre'], corps)
     ill = (ICI / f"illustrations/{v['illustration']}.svg").read_text() if v.get("illustration") else ""
     ill = ill.replace("<svg ", "<svg width='600' height='420' ", 1)
     corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:720px;background:{c['encre']}'></div>
@@ -535,11 +546,11 @@ def fait_cle(v):
     corps = f"""<div class='rub' style='color:{ED_ROUGE_TS if s else c['rougeTexte']}'>{e(v.get('rubrique',''))}</div>{ed_cpt(v, s)}
     <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
       {kick}
-      <div style='margin-left:-10px;font-family:Jost;font-weight:500;line-height:1;letter-spacing:-.04em;color:{encre}'><span class='ajuste' data-max='{v.get('taille', 330)}'>{e(v['cle'])}</span></div>
-      <div style='font-size:42px;line-height:1.25;color:{douce};margin-top:18px'>{e(v.get('cle_legende',''))}</div>
-      <div style='flex:1;min-height:36px'></div>
-      <div class='ed-titre' style='font-size:{tt(v['titre'],74,66,60)}px;line-height:1.08;color:{encre}'>{e(v['titre'])}</div>
-      <div style='font-size:{ED_TEXTE}px;line-height:1.3;color:{douce};margin-top:22px'>{e(v.get('resume',''))}</div>
+      <div style='margin-left:-10px;font-family:Jost;font-weight:500;line-height:1;letter-spacing:-.04em;color:{encre}'><span class='ajuste' data-max='{v.get('taille', 330)}' data-max0='{v.get('taille', 330)}'>{e(v['cle'])}</span></div>
+      <div data-gonfle='42' style='font-size:42px;line-height:1.25;color:{douce};margin-top:18px'>{e(v.get('cle_legende',''))}</div>
+      <div style='flex:1;min-height:56px;display:flex;align-items:center'><div style='width:100%;border-top:2px solid {filet}'></div></div>
+      <div class='ed-titre' data-gonfle='{tt(v['titre'],74,66,60)}' style='font-size:{tt(v['titre'],74,66,60)}px;line-height:1.08;color:{encre}'>{e(v['titre'])}</div>
+      <div data-gonfle='{ED_TEXTE}' style='font-size:{ED_TEXTE}px;line-height:1.3;color:{douce};margin-top:22px'>{e(v.get('resume',''))}</div>
       {pour}
       {f"<div style='font-size:{ED_PETIT}px;color:{douce};margin-top:28px'>Source · {e(v['source'])}</div>" if v.get('source') else ''}
     </div>
@@ -554,6 +565,15 @@ AJUSTE = """(() => { for (const el of document.querySelectorAll('.ajuste')) {
   const max = +el.dataset.max || 300; el.style.fontSize = max + 'px';
   const dispo = el.parentElement.clientWidth; const w = el.getBoundingClientRect().width;
   if (w > dispo) el.style.fontSize = Math.floor(max * dispo / w) + 'px'; } })()"""
+# Agrandit les textes marqués data-gonfle (et l'élément clé) jusqu'à remplir #corps, sans vide au milieu (demande de Mick du 17 novembre 2026).
+REMPLIR = """(() => { const c = document.getElementById('corps'); if (!c) return;
+  const g = [...c.querySelectorAll('[data-gonfle]')], a = [...c.querySelectorAll('.ajuste[data-max0]')]; if (!g.length) return;
+  const fixe = f => { g.forEach(el => el.style.fontSize = (+el.dataset.gonfle * f) + 'px');
+    a.forEach(el => { const m = +el.dataset.max0 * Math.min(1 + (f - 1) * 1.5, 1.45); el.style.fontSize = m + 'px';
+      const d = el.parentElement.clientWidth, w = el.getBoundingClientRect().width; if (w > d) el.style.fontSize = Math.floor(m * d / w) + 'px'; }); };
+  const ok = () => c.scrollHeight <= c.clientHeight + 1;
+  let lo = 1, hi = 1.45; fixe(hi); if (ok()) return; fixe(lo); if (!ok()) return;
+  for (let i = 0; i < 14; i++) { const m = (lo + hi) / 2; fixe(m); if (ok()) lo = m; else hi = m; } fixe(lo); })()"""
 # Liste les textes visibles plus petits que le plancher de lisibilité.
 PETITS = """(() => { const r = []; for (const el of document.body.querySelectorAll('*')) {
   if (el.closest('svg')) continue;
@@ -585,6 +605,7 @@ async def main(spec, sortie):
             pg = await nav.new_page(viewport={"width": w, "height": h})
             await pg.goto(tmp.as_uri()); await pg.evaluate("document.fonts.ready"); await pg.wait_for_timeout(300)
             await pg.evaluate(AJUSTE)
+            await pg.evaluate(REMPLIR)
             nom = v.get("fichier", f"{i:02d}-{v['gabarit']}.png")
             await pg.screenshot(path=str(sortie / nom))
             if v["gabarit"] == "cas_etape" and (n := mots(v["ajout"])) > 25:

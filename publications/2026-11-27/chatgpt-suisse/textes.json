@@ -1,38 +1,54 @@
 {
- "fichiers": [
-  "01-couverture.png",
-  "02-euria.png",
-  "03-lumo.png",
-  "04-apertus.png",
-  "05-20points.png",
-  "06-fin.png"
- ],
- "ig": "Trois IA suisses, trois rôles différents.\n\nEuria, d’Infomaniak, est l’assistant gratuit hébergé en Suisse, pour l’usage quotidien. Lumo, de Proton, chiffre l’historique et ne conserve aucun journal. Apertus, le modèle ouvert de l’EPFL et de l’ETH Zurich, s’utilise dans Euria, dans Lumo ou chez un hébergeur suisse.\n\nLes trois excluent l’entraînement sur vos échanges. Pour les analyses qui pèsent sur vos décisions, les meilleurs modèles d’Anthropic et d’OpenAI gardent plus de 20 points d’avance sur l’indice Artificial Analysis.\n\nTestez la même tâche sur deux outils avant de choisir. Le jugement reste le vôtre.\n\nEnregistrez ce post pour choisir votre outil. Le comparatif complet est en lien dans la bio.\n\n#intelligenceartificielle #IAsuisse #euria #lumo #suisseromande",
- "li": "Trois IA suisses, trois rôles différents.\n\n• Euria, d’Infomaniak à Genève, est l’assistant gratuit hébergé en Suisse. Il couvre la rédaction, le résumé, la traduction et la transcription, sans compte.\n• Lumo, de Proton à Plan-les-Ouates, protège l’historique par un chiffrement à accès zéro. Proton ne conserve aucun journal. Le traitement a lieu en Europe.\n• Apertus, le modèle ouvert de l’EPFL, de l’ETH Zurich et du CSCS, n’a pas d’application propre. On l’essaie dans Euria ou Lumo et une entreprise peut le faire tourner sur ses propres serveurs.\n\nLes trois excluent l’entraînement sur vos échanges. Pour la puissance, l’indice Artificial Analysis place les meilleurs modèles d’Anthropic et d’OpenAI plus de 20 points devant les meilleurs Qwen et GLM (4 novembre 2026).\n\nLe bon outil dépend donc de la sensibilité des données et de la complexité de la tâche. Testez la même tâche sur deux outils avant de choisir.\n\nLe comparatif complet avec Claude et ChatGPT, offres et hébergement compris, est dans l’article.\nhttps://cimeria.ch/chatgpt-suisse-euria-lumo-apertus/\n\n#intelligenceartificielle #IAsuisse #suisseromande",
- "fb": "Trois IA suisses, trois rôles différents.\n\nEuria, d’Infomaniak, est l’assistant gratuit hébergé en Suisse. Lumo, de Proton, chiffre l’historique et ne conserve aucun journal. Apertus, le modèle ouvert de l’EPFL et de l’ETH Zurich, s’utilise dans Euria, dans Lumo ou chez un hébergeur suisse.\n\nTestez la même tâche sur deux outils avant de choisir. Le comparatif complet est dans l’article.\nhttps://cimeria.ch/chatgpt-suisse-euria-lumo-apertus/",
- "alts": [
-  "Couverture du Décryptage Cimeria « Trois IA suisses, trois rôles différents », Euria, Lumo et Apertus comparés pour un usage professionnel. Dessin de trois bulles de conversation. Offres et versions vérifiées les 3 et 4 novembre 2026.",
-  "Décryptage, trois IA suisses. En grand, Euria. Infomaniak, Genève. L’assistant gratuit, hébergé en Suisse. Rédaction, résumé, traduction et transcription, avec un traitement exclusivement en Suisse selon Infomaniak. Il s’ouvre sans compte. Pour quel usage, les tâches courantes sur des contenus non sensibles.",
-  "Décryptage, trois IA suisses. En grand, Lumo. Proton, Plan-les-Ouates. L’assistant chiffré, sans journal. Un chiffrement à accès zéro protège l’historique. Proton ne conserve aucun journal et n’entraîne aucun modèle sur vos échanges. Le traitement a lieu en Europe. Pour quel usage, relire un document sensible sans offre entreprise.",
-  "Décryptage, trois IA suisses. En grand, Apertus. EPFL, ETH Zurich et CSCS. Le modèle ouvert, sans application propre. Entraîné en Suisse et publié sous licence Apache 2.0. On l’essaie dans Euria ou Lumo. Une entreprise peut le faire tourner sur ses propres serveurs. Pour quel usage, un déploiement interne en entreprise.",
-  "Décryptage, trois IA suisses. En grand, +20 points. L’avance des meilleurs modèles d’Anthropic et d’OpenAI sur les meilleurs Qwen et GLM. La confidentialité d’un côté, la puissance de l’autre. Les trois IA suisses excluent l’entraînement sur vos échanges. Pour les analyses qui pèsent sur vos décisions, Claude Team ou ChatGPT Business restent devant. Source, Indice Artificial Analysis, consulté le 4 novembre 2026.",
-  "Enregistrez ce post pour choisir votre outil. Le comparatif complet avec Claude et ChatGPT est dans l’article, en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
- ],
- "lien": "https://cimeria.ch/chatgpt-suisse-euria-lumo-apertus/",
- "fichiers_v3": [
-  "v3-01-couverture.png",
-  "v3-02-euria.png",
-  "v3-03-lumo.png",
-  "v3-04-apertus.png",
-  "v3-05-20points.png",
-  "v3-06-fin.png"
- ],
- "alts_v3": [
-  "Couverture du Décryptage Cimeria « Trois IA suisses, trois rôles différents », Euria, Lumo et Apertus comparés pour un usage professionnel. Dessin de trois bulles de conversation. Offres et versions vérifiées les 3 et 4 novembre 2026.",
-  "Décryptage, trois IA suisses. En grand, Euria. Infomaniak, Genève. L’assistant gratuit, hébergé en Suisse. Rédaction, résumé, traduction et transcription, traités exclusivement en Suisse selon Infomaniak. Il s’ouvre sans compte. Pour quel usage, les tâches courantes sur des contenus non sensibles.",
-  "Décryptage, trois IA suisses. En grand, Lumo. Proton, Plan-les-Ouates. L’assistant chiffré, sans journal. Chiffrement à accès zéro de l’historique. Aucun journal conservé, aucun entraînement sur vos échanges. Traitement en Europe. Pour quel usage, relire un document sensible sans offre entreprise.",
-  "Décryptage, trois IA suisses. En grand, Apertus. EPFL, ETH Zurich et CSCS. Le modèle ouvert, sans application propre. Entraîné en Suisse et publié sous licence Apache 2.0. On l’essaie dans Euria ou Lumo. Une entreprise peut l’installer sur ses serveurs. Pour quel usage, un déploiement interne en entreprise.",
-  "Décryptage, trois IA suisses. En grand, +20 points. L’avance des meilleurs modèles d’Anthropic et d’OpenAI sur les meilleurs Qwen et GLM. La confidentialité d’un côté, la puissance de l’autre. Les trois IA suisses excluent l’entraînement sur vos échanges. Pour les analyses décisives, Claude Team ou ChatGPT Business restent devant. Source, Indice Artificial Analysis, consulté le 4 novembre 2026.",
-  "Enregistrez ce post pour choisir votre outil. Le comparatif complet est dans l’article, en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
- ]
+  "fichiers": [
+    "01-couverture.png",
+    "02-euria.png",
+    "03-lumo.png",
+    "04-apertus.png",
+    "05-20points.png",
+    "06-fin.png"
+  ],
+  "ig": "Trois IA suisses, trois rôles différents.\n\nEuria, d’Infomaniak, est l’assistant gratuit hébergé en Suisse, pour l’usage quotidien. Lumo, de Proton, chiffre l’historique et ne conserve aucun journal. Apertus, le modèle ouvert de l’EPFL et de l’ETH Zurich, s’utilise dans Euria, dans Lumo ou chez un hébergeur suisse.\n\nLes trois excluent l’entraînement sur vos échanges. Pour les analyses qui pèsent sur vos décisions, les meilleurs modèles d’Anthropic et d’OpenAI gardent plus de 20 points d’avance sur l’indice Artificial Analysis.\n\nTestez la même tâche sur deux outils avant de choisir. Le jugement reste le vôtre.\n\nEnregistrez ce post pour choisir votre outil. Le comparatif complet est en lien dans la bio.\n\n#intelligenceartificielle #IAsuisse #euria #lumo #suisseromande",
+  "li": "Trois IA suisses, trois rôles différents.\n\n• Euria, d’Infomaniak à Genève, est l’assistant gratuit hébergé en Suisse. Il couvre la rédaction, le résumé, la traduction et la transcription, sans compte.\n• Lumo, de Proton à Plan-les-Ouates, protège l’historique par un chiffrement à accès zéro. Proton ne conserve aucun journal. Le traitement a lieu en Europe.\n• Apertus, le modèle ouvert de l’EPFL, de l’ETH Zurich et du CSCS, n’a pas d’application propre. On l’essaie dans Euria ou Lumo et une entreprise peut le faire tourner sur ses propres serveurs.\n\nLes trois excluent l’entraînement sur vos échanges. Pour la puissance, l’indice Artificial Analysis place les meilleurs modèles d’Anthropic et d’OpenAI plus de 20 points devant les meilleurs Qwen et GLM (4 novembre 2026).\n\nLe bon outil dépend donc de la sensibilité des données et de la complexité de la tâche. Testez la même tâche sur deux outils avant de choisir.\n\nLe comparatif complet avec Claude et ChatGPT, offres et hébergement compris, est dans l’article.\nhttps://cimeria.ch/chatgpt-suisse-euria-lumo-apertus/\n\n#intelligenceartificielle #IAsuisse #suisseromande",
+  "fb": "Trois IA suisses, trois rôles différents.\n\nEuria, d’Infomaniak, est l’assistant gratuit hébergé en Suisse. Lumo, de Proton, chiffre l’historique et ne conserve aucun journal. Apertus, le modèle ouvert de l’EPFL et de l’ETH Zurich, s’utilise dans Euria, dans Lumo ou chez un hébergeur suisse.\n\nTestez la même tâche sur deux outils avant de choisir. Le comparatif complet est dans l’article.\nhttps://cimeria.ch/chatgpt-suisse-euria-lumo-apertus/",
+  "alts": [
+    "Couverture du Décryptage Cimeria « Trois IA suisses, trois rôles différents », Euria, Lumo et Apertus comparés pour un usage professionnel. Dessin de trois bulles de conversation. Offres et versions vérifiées les 3 et 4 novembre 2026.",
+    "Décryptage, trois IA suisses. En grand, Euria. Infomaniak, Genève. L’assistant gratuit, hébergé en Suisse. Rédaction, résumé, traduction et transcription, avec un traitement exclusivement en Suisse selon Infomaniak. Il s’ouvre sans compte. Pour quel usage, les tâches courantes sur des contenus non sensibles.",
+    "Décryptage, trois IA suisses. En grand, Lumo. Proton, Plan-les-Ouates. L’assistant chiffré, sans journal. Un chiffrement à accès zéro protège l’historique. Proton ne conserve aucun journal et n’entraîne aucun modèle sur vos échanges. Le traitement a lieu en Europe. Pour quel usage, relire un document sensible sans offre entreprise.",
+    "Décryptage, trois IA suisses. En grand, Apertus. EPFL, ETH Zurich et CSCS. Le modèle ouvert, sans application propre. Entraîné en Suisse et publié sous licence Apache 2.0. On l’essaie dans Euria ou Lumo. Une entreprise peut le faire tourner sur ses propres serveurs. Pour quel usage, un déploiement interne en entreprise.",
+    "Décryptage, trois IA suisses. En grand, +20 points. L’avance des meilleurs modèles d’Anthropic et d’OpenAI sur les meilleurs Qwen et GLM. La confidentialité d’un côté, la puissance de l’autre. Les trois IA suisses excluent l’entraînement sur vos échanges. Pour les analyses qui pèsent sur vos décisions, Claude Team ou ChatGPT Business restent devant. Source, Indice Artificial Analysis, consulté le 4 novembre 2026.",
+    "Enregistrez ce post pour choisir votre outil. Le comparatif complet avec Claude et ChatGPT est dans l’article, en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+  ],
+  "lien": "https://cimeria.ch/chatgpt-suisse-euria-lumo-apertus/",
+  "fichiers_v3": [
+    "v3-01-couverture.png",
+    "v3-02-euria.png",
+    "v3-03-lumo.png",
+    "v3-04-apertus.png",
+    "v3-05-20points.png",
+    "v3-06-fin.png"
+  ],
+  "alts_v3": [
+    "Couverture du Décryptage Cimeria « Trois IA suisses, trois rôles différents », Euria, Lumo et Apertus comparés pour un usage professionnel. Dessin de trois bulles de conversation. Offres et versions vérifiées les 3 et 4 novembre 2026.",
+    "Décryptage, trois IA suisses. En grand, Euria. Infomaniak, Genève. L’assistant gratuit, hébergé en Suisse. Rédaction, résumé, traduction et transcription, traités exclusivement en Suisse selon Infomaniak. Il s’ouvre sans compte. Pour quel usage, les tâches courantes sur des contenus non sensibles.",
+    "Décryptage, trois IA suisses. En grand, Lumo. Proton, Plan-les-Ouates. L’assistant chiffré, sans journal. Chiffrement à accès zéro de l’historique. Aucun journal conservé, aucun entraînement sur vos échanges. Traitement en Europe. Pour quel usage, relire un document sensible sans offre entreprise.",
+    "Décryptage, trois IA suisses. En grand, Apertus. EPFL, ETH Zurich et CSCS. Le modèle ouvert, sans application propre. Entraîné en Suisse et publié sous licence Apache 2.0. On l’essaie dans Euria ou Lumo. Une entreprise peut l’installer sur ses serveurs. Pour quel usage, un déploiement interne en entreprise.",
+    "Décryptage, trois IA suisses. En grand, +20 points. L’avance des meilleurs modèles d’Anthropic et d’OpenAI sur les meilleurs Qwen et GLM. La confidentialité d’un côté, la puissance de l’autre. Les trois IA suisses excluent l’entraînement sur vos échanges. Pour les analyses décisives, Claude Team ou ChatGPT Business restent devant. Source, Indice Artificial Analysis, consulté le 4 novembre 2026.",
+    "Enregistrez ce post pour choisir votre outil. Le comparatif complet est dans l’article, en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+  ],
+  "fichiers_v4": [
+    "v4-01-couverture.png",
+    "v4-02-euria.png",
+    "v4-03-lumo.png",
+    "v4-04-apertus.png",
+    "v4-05-20points.png",
+    "v4-06-fin.png"
+  ],
+  "alts_v4": [
+    "Couverture du Décryptage Cimeria « Trois IA suisses, trois rôles différents », Euria, Lumo et Apertus comparés pour un usage professionnel. Graphisme de l’article sur fond anthracite. Offres et versions vérifiées les 3 et 4 novembre 2026.",
+    "Décryptage, trois IA suisses. En grand, Euria. Infomaniak, Genève. L’assistant gratuit, hébergé en Suisse. Rédaction, résumé, traduction et transcription, traités exclusivement en Suisse selon Infomaniak. Il s’ouvre sans compte. Pour quel usage, les tâches courantes sur des contenus non sensibles.",
+    "Décryptage, trois IA suisses. En grand, Lumo. Proton, Plan-les-Ouates. L’assistant chiffré, sans journal. Chiffrement à accès zéro de l’historique. Aucun journal conservé, aucun entraînement sur vos échanges. Traitement en Europe. Pour quel usage, relire un document sensible sans offre entreprise.",
+    "Décryptage, trois IA suisses. En grand, Apertus. EPFL, ETH Zurich et CSCS. Le modèle ouvert, sans application propre. Entraîné en Suisse et publié sous licence Apache 2.0. On l’essaie dans Euria ou Lumo. Une entreprise peut l’installer sur ses serveurs. Pour quel usage, un déploiement interne en entreprise.",
+    "Décryptage, trois IA suisses. En grand, +20 points. L’avance des meilleurs modèles d’Anthropic et d’OpenAI sur les meilleurs Qwen et GLM. La confidentialité d’un côté, la puissance de l’autre. Les trois IA suisses excluent l’entraînement sur vos échanges. Pour les analyses décisives, Claude Team ou ChatGPT Business restent devant. Source, Indice Artificial Analysis, consulté le 4 novembre 2026.",
+    "Enregistrez ce post pour choisir votre outil. Le comparatif complet est dans l’article, en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+  ]
 }

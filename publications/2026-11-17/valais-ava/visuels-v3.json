@@ -1,0 +1,111 @@
+{
+ "visuels": [
+  {
+   "gabarit": "liste",
+   "fichier": "v3-01-sommaire.png",
+   "rubrique": "L’IA cette semaine",
+   "position": 1,
+   "total": 7,
+   "titre": "L’IA en Suisse romande, semaine du 2 novembre",
+   "sous": "Les faits vérifiés de la semaine, sources à l’appui.",
+   "elements": [
+    [
+     "Le Valais met en service AVA, son IA souveraine"
+    ],
+    [
+     "Microsoft limite Copilot Chat sans licence"
+    ],
+    [
+     "Les systèmes Helios d’AMD entrent en service"
+    ],
+    [
+     "Anthropic prévoit une offre d’actions en Suisse"
+    ],
+    [
+     "Le Nasdaq 100 perd 6,4 % en une séance"
+    ]
+   ],
+   "note": "Faites défiler →",
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-02-fait.png",
+   "position": 2,
+   "total": 7,
+   "rubrique": "À la une",
+   "kicker": "5 novembre 2026 · État du Valais",
+   "cle": "AVA",
+   "cle_legende": "Assistant Valaisan Augmenté, pour tous les collaborateurs de l’État.",
+   "titre": "Le Valais met en service AVA, son IA souveraine",
+   "resume": "Développée par le service informatique cantonal. Données sur ses serveurs, traitement en Suisse. Plus de 2'000 utilisateurs pendant la phase pilote.",
+   "source": "État du Valais et ICTjournal, 5 et 6 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-03-fait.png",
+   "position": 3,
+   "total": 7,
+   "rubrique": "Tech et outils",
+   "kicker": "4 novembre 2026 · Microsoft",
+   "cle": "Limites",
+   "cle_legende": "Pour Copilot Chat sans licence Microsoft 365 Copilot.",
+   "titre": "Microsoft étend les limites de Copilot Chat sans licence",
+   "resume": "Seuils non publiés, invisibles pour les administrateurs. Depuis le 9 novembre 2026 dans les organisations de plus de 2'000 postes.",
+   "source": "Microsoft, annonce du 4 novembre 2026",
+   "sombre": false
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-04-fait.png",
+   "position": 4,
+   "total": 7,
+   "rubrique": "Tech et outils",
+   "kicker": "3 novembre 2026 · AMD",
+   "cle": "+97 %",
+   "cle_legende": "Chiffre d’affaires des centres de données d’AMD sur un an.",
+   "titre": "Les systèmes Helios d’AMD tournent chez Anthropic et OpenAI",
+   "resume": "Les puces Instinct MI450 équipent aussi Meta, Microsoft et Oracle Cloud Infrastructure. AMD ne précise pas de déploiement en Suisse.",
+   "source": "AMD, résultats du 3 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-05-fait.png",
+   "position": 5,
+   "total": 7,
+   "rubrique": "Économie de l’IA",
+   "kicker": "2 novembre 2026 · Anthropic",
+   "cle": "Suisse",
+   "cle_legende": "Offre publique d’actions prévue, sans cotation en Suisse.",
+   "titre": "Anthropic prévoit une offre publique d’actions en Suisse",
+   "resume": "Son prospectus amendé ajoute un chiffre d’affaires du troisième trimestre en hausse de 1'127 % sur un an. Le prix par action reste en blanc.",
+   "source": "Anthropic, prospectus à la SEC, 2 novembre 2026",
+   "sombre": false
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v3-06-fait.png",
+   "position": 6,
+   "total": 7,
+   "rubrique": "Économie de l’IA",
+   "kicker": "5 novembre 2026 · Bloomberg",
+   "cle": "−6,4 %",
+   "cle_legende": "Pire séance du Nasdaq 100 depuis mars 2020.",
+   "titre": "Le Nasdaq 100 chute, entraîné par les fabricants de puces",
+   "resume": "Bloomberg cite des craintes d’une régulation plus stricte de l’IA aux États-Unis après les élections de mi-mandat.",
+   "source": "Bloomberg via swissinfo.ch, 5 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v3-07-fin.png",
+   "position": 7,
+   "total": 7,
+   "rubrique": "Chaque semaine",
+   "titre": "Abonnez-vous pour suivre l’actualité IA.",
+   "texte": "Chaque lundi, les faits vérifiés de l’IA en Suisse romande. L’article complet est en lien dans la bio."
+  }
+ ]
+}

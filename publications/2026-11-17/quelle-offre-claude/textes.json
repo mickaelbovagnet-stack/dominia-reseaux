@@ -20,5 +20,21 @@
     "Quelle offre Claude choisir. Par profil. En grand, 2 personnes, le seuil du passage à Team. Un dirigeant de PME passe à Team dès le deuxième utilisateur. Un cadre paie lui-même Free ou Pro et n'y saisit aucune donnée de son employeur.",
     "Enregistrez ce post pour le retrouver. Le choix détaillé par profil est en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
   ],
-  "titre_doc": "Quelle offre Claude choisir"
+  "titre_doc": "Quelle offre Claude choisir",
+  "fichiers_v2": [
+    "v2-01-couverture.png",
+    "v2-02-fait.png",
+    "v2-03-fait.png",
+    "v2-04-fait.png",
+    "v2-05-fait.png",
+    "v2-06-fin.png"
+  ],
+  "alts_v2": [
+    "Couverture Cimeria « Quelle offre Claude choisir ». Deux questions, qui paie et quelles données. Graphisme de l’article sur fond anthracite. Offres vérifiées le 13 novembre 2026.",
+    "Quelle offre Claude choisir. Les offres. En grand, 6 offres, quatre individuelles, deux pour les organisations. Free, Pro, Max, Ultra, Team et Enterprise. Team s'adresse aux équipes de 2 à 150 personnes, Enterprise aux organisations dès 20 sièges. Source, Anthropic, page des offres, 13 novembre 2026.",
+    "Quelle offre Claude choisir. Usage. En grand, 5 heures, une première limite, puis une limite hebdomadaire. Les offres payantes donnent davantage d'usage. Max donne cinq fois l'usage de Pro. Ultra en donne dix fois par semaine.",
+    "Quelle offre Claude choisir. Confidentialité. En grand, Team, exclut l'entraînement par défaut. Les offres individuelles servent à l'entraînement sauf refus. Team et Enterprise l'excluent par défaut. Anthropic stocke les données de ses produits commerciaux aux États-Unis.",
+    "Quelle offre Claude choisir. Par profil. En grand, 2 personnes, le seuil du passage à Team. Un dirigeant de PME passe à Team dès le deuxième utilisateur. Un cadre paie lui-même Free ou Pro et n'y saisit aucune donnée de son employeur.",
+    "Enregistrez ce post pour le retrouver. Le choix détaillé par profil est en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+  ]
 }

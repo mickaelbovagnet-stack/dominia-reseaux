@@ -1,0 +1,105 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Cas pratique",
+   "titre": "Copilot dans Outlook et Teams, 5 usages",
+   "sous": "Une tâche de lecture ou de premier jet par outil Microsoft 365.",
+   "note": "Exemple fictif d'un sous-traitant de Carouge de 35 personnes.",
+   "droite": "Faites défiler →",
+   "fichier": "v2-01-couverture.png",
+   "position": 1,
+   "total": 7,
+   "graphisme": "utiliser-copilot-outlook-teams"
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 1,
+   "etapes": 5,
+   "mot": "Outlook",
+   "ajout": "Rédige une réponse qui confirme les deux livraisons et propose un appel de 15 minutes cette semaine.",
+   "rend": [
+    "Un brouillon de réponse dans le fil.",
+    "Les informations absentes du fil."
+   ],
+   "reste": "Le dernier message du client, relu avant d'envoyer.",
+   "lib_reste": "À vérifier",
+   "fichier": "v2-02-etape.png",
+   "position": 2,
+   "total": 7
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 2,
+   "etapes": 5,
+   "mot": "Teams",
+   "ajout": "Établis la liste des décisions, des actions avec responsable et échéance, puis des points ouverts.",
+   "rend": [
+    "Un tableau des décisions et des actions.",
+    "La transcription citée pour chaque échéance."
+   ],
+   "reste": "Chaque responsable et chaque échéance.",
+   "lib_reste": "À vérifier",
+   "fichier": "v2-03-etape.png",
+   "position": 3,
+   "total": 7
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 3,
+   "etapes": 5,
+   "mot": "Word",
+   "ajout": "Rédige un projet de note interne qui expose la raison du changement et les trois questions à trancher.",
+   "rend": [
+    "Un projet de note de 400 mots au plus.",
+    "Les chiffres absents des sources, signalés."
+   ],
+   "reste": "La liste des chiffres ajoutés par Copilot.",
+   "lib_reste": "À vérifier",
+   "fichier": "v2-04-etape.png",
+   "position": 4,
+   "total": 7
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 4,
+   "etapes": 5,
+   "mot": "Excel",
+   "ajout": "Calcule le retard de chaque commande et le retard moyen par client, sans modifier les colonnes existantes.",
+   "rend": [
+    "Une colonne Retard en jours.",
+    "Un tableau croisé et un graphique."
+   ],
+   "reste": "Une ligne contrôlée à la main.",
+   "lib_reste": "À vérifier",
+   "fichier": "v2-05-etape.png",
+   "position": 5,
+   "total": 7
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 5,
+   "etapes": 5,
+   "mot": "PowerPoint",
+   "ajout": "Crée une présentation de six diapositives qui résume la note et prépare la décision.",
+   "rend": [
+    "Six diapositives, notes comprises.",
+    "Les trois décisions attendues."
+   ],
+   "reste": "Garder visibles les propositions signalées.",
+   "lib_reste": "Votre part",
+   "fichier": "v2-06-etape.png",
+   "position": 6,
+   "total": 7
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "Le prompt d'Outlook est en commentaire. L'article est en lien dans la bio.",
+   "fichier": "v2-07-fin.png",
+   "position": 7,
+   "total": 7
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "fichier": "v4-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "titre": "Une étude de marché avec l’IA",
+   "sous": "Une première lecture documentaire en 4 étapes, environ une heure.",
+   "note": "Exemple fictif d’un traiteur de Carouge de 14 collaborateurs.",
+   "graphisme": "etude-de-marche-ia-claude"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v4-02-etape-1.png",
+   "position": 2,
+   "total": 6,
+   "etapes": 4,
+   "etape": 1,
+   "mot": "Cadrer",
+   "ajout": "Formule la question centrale de l’étude, trois hypothèses à vérifier et leurs sources publiques possibles.",
+   "rend": [
+    "La question de l’étude et ses hypothèses."
+   ],
+   "reste": "Les hypothèses sont bien les vôtres.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v4-03-etape-2.png",
+   "position": 3,
+   "total": 6,
+   "etapes": 4,
+   "etape": 2,
+   "mot": "Concurrents",
+   "ajout": "Liste les offres existantes, avec leurs sources publiques. N’invente aucune donnée.",
+   "rend": [
+    "Quinze acteurs au plus, avec leurs sources."
+   ],
+   "reste": "Vous ouvrez chaque lien.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v4-04-etape-3.png",
+   "position": 4,
+   "total": 6,
+   "etapes": 4,
+   "etape": 3,
+   "mot": "Tendances",
+   "ajout": "Voici les tableaux de la statistique cantonale. Sépare les faits sourcés des signaux faibles.",
+   "rend": [
+    "Les tendances, avec sources et dates.",
+    "Un ordre de grandeur de la demande."
+   ],
+   "reste": "La date de chaque chiffre.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v4-05-etape-4.png",
+   "position": 5,
+   "total": 6,
+   "etapes": 4,
+   "etape": 4,
+   "mot": "Vérifier",
+   "ajout": "Sépare ce qui est établi de ce qui reste à vérifier, puis fais-en un rapport à ouvrir dans le navigateur.",
+   "rend": [
+    "Une note de vérification.",
+    "Un rapport interactif à envoyer tel quel."
+   ],
+   "reste": "Les entretiens sur le terrain."
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v4-06-fin.png",
+   "position": 6,
+   "total": 6,
+   "texte": "Le prompt de l’étape 1 est en commentaire. L’article et l’exemple de rapport sont en lien dans la bio."
+  }
+ ]
+}
