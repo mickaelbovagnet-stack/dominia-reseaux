@@ -1,6 +1,6 @@
-# Charte des réseaux sociaux Dominia
+# Charte des réseaux sociaux Cimeria
 
-Ce dépôt héberge les visuels publics des réseaux sociaux de Dominia (Instagram @dominiamedia, LinkedIn, Facebook). Ces consignes s'appliquent à toute conversation du projet Dominia et à toute tâche planifiée qui prépare un post. Processus validé par Mick le 12 novembre 2026.
+Ce dépôt héberge les visuels publics des réseaux sociaux de Cimeria (Dominia jusqu'au 16 novembre 2026, le dépôt garde son nom dominia-reseaux). Comptes : Instagram @cimeria.ch, LinkedIn linkedin.com/company/cimeria-ch, Facebook facebook.com/cimeria.ch. Ces consignes s'appliquent à toute conversation du projet et à toute tâche planifiée qui prépare un post. Processus validé par Mick le 12 novembre 2026, passé aux couleurs de Cimeria le 17 novembre 2026.
 
 ## Règles absolues
 
@@ -24,7 +24,7 @@ Ce dépôt héberge les visuels publics des réseaux sociaux de Dominia (Instagr
 ## Processus complet d'un cas pratique
 
 ### 1. Partir d'un article en ligne
-Relire l'article publié sur dominia.ch en entier. Tous les chiffres, consignes et vérifications du post en viennent, sans aucun ajout. Un exemple fictif est signalé comme tel.
+Relire l'article publié sur cimeria.ch en entier. Tous les chiffres, consignes et vérifications du post en viennent, sans aucun ajout. Un exemple fictif est signalé comme tel.
 
 ### 2. Choisir l'angle
 - Mettre en avant la méthode IA, jamais la méthode métier.
@@ -38,15 +38,17 @@ Relire l'article publié sur dominia.ch en entier. Tous les chiffres, consignes 
 | 1 | `couverture_ia` | Pratique | La demande naïve, la réponse vague de l'IA, le tampon « Trop vague ». Un titre sans mot répété. Une accroche concrète (durée, nombre d'étapes, exemple). |
 | 2 | `lecon` | Aperçu du guide | « Ce qui fait la différence ». Les 4 C nommés, vos sources, votre contrôle. |
 | 3 à 6 | `etape_methode` | Aperçu du guide | Une étape par diapositive, en trois blocs : « Ce que vous écrivez, en 4 C » (consignes courtes), « L'IA vous rend », « Vous vérifiez ». Les termes techniques sont traduits (« un rapport à ouvrir dans le navigateur » plutôt que « HTML »). Les sigles sont écrits en toutes lettres. |
-| 7 | `fin` | Pratique | « Enregistrez ce post pour le retrouver. » La consigne complète de l'étape 1 annoncée en commentaire, le renvoi à l'article en lien dans la bio. Signature « Mickaël Bovagnet, Auteur du guide, Dominia » avec le portrait. |
+| 7 | `fin` | Pratique | « Enregistrez ce post pour le retrouver. » La consigne complète de l'étape 1 annoncée en commentaire, le renvoi à l'article en lien dans la bio. Signature « Mickaël Bovagnet, Auteur du guide, Cimeria » avec le portrait. |
 
 Le nombre d'étapes peut varier selon l'article. La structure reste la même.
 
 ### 4. Respecter la charte visuelle
-- Univers clair (fond #F6F5F2, encre #2B2B2D).
-- Le rouge (#DA291C) est réservé aux accents.
-- Police Archivo.
-- Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée.
+- Charte Cimeria (artifact « Cimeria, identité », https://claude.ai/artifact/WV2b8yPKi2L1bGXnSqTtfR).
+- Univers clair (fond #F6F5F2, cartes #FFFFFF, encre #2B2B2D). L'univers anthracite reste réservé aux couvertures de cas pratique avec portrait.
+- Le rouge (#DA291C) est réservé aux accents et au carré du logo, jamais en aplat.
+- Jost pour les titres, étiquettes et chiffres, Figtree pour les textes.
+- Logotype Cimeria en pied de chaque visuel, d'un seul bloc, sans jamais isoler « ia ». Aucun quadrillage sur les visuels des réseaux.
+- Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit.
 
 ### 5. Relire deux fois avant d'envoyer à Mick
 1. En expert des réseaux sociaux : accroche, rythme, lisibilité sur téléphone, appel à l'action.
@@ -61,13 +63,13 @@ Appliquer les corrections avant tout envoi.
 4. Pousser sur `main` (autorisé dans ce dépôt), puis vérifier que chaque URL raw répond 200.
 
 ### 7. Préparer les brouillons Buffer
-Organisation 6af56cc922ccef12afddbdf0. Toujours `saveToDraft: true`.
+Organisation 6af56cc922ccef12afddbdf0 (« My organization », offre gratuite : 3 comptes, 10 publications programmées au plus). Toujours `saveToDraft: true`.
 
-- **Instagram** (6af56ded62b70b94b004577d) : metadata `{type: "post", shouldShareToFeed: true}`, un texte alternatif par image.
+- **Instagram** (6afb1db8ece6dfde5fe5a18f, @cimeria.ch) : metadata `{type: "post", shouldShareToFeed: true}`, un texte alternatif par image.
   - Légende dans cet ordre : accroche, conditions de réussite, exemple, nuance (« le jugement reste le vôtre »), appel à enregistrer, renvoi au premier commentaire et à la bio, 5 hashtags.
   - Le premier commentaire n'est pas programmable sur l'offre gratuite de Buffer. Il est écrit dans `premier-commentaire.txt` et Mick le poste à la main juste après la publication.
-- **LinkedIn** (6af56d0962b70b94b00451db) : le même carrousel en document PDF, avec une légende plus développée et un lien direct vers l'article.
-- **Facebook** (6af56d2c62b70b94b00452a5) : les mêmes images en album, avec une légende proche d'Instagram et un lien direct vers l'article.
+- **LinkedIn** (6afb14e7ece6dfde5fe50e82, page cimeria-ch) : le même carrousel en document PDF, avec une légende plus développée et un lien direct vers l'article.
+- **Facebook** (6afb1540ece6dfde5fe51193, page cimeria.ch) : les mêmes images en album, avec une légende proche d'Instagram et un lien direct vers l'article.
 
 ### 8. Soumettre à Mick
 Envoyer la planche, le premier commentaire et un court récapitulatif. Mick valide, publie et poste le commentaire.
@@ -82,6 +84,7 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 
 ## Arborescence
 
-- `gabarits/` : générateur, polices, portrait.
+- `gabarits/` : générateur, polices Jost et Figtree, portrait.
+- `publications/2026-11-12/` : archive de l'époque Dominia, à ne pas republier telle quelle.
 - `publications/AAAA-MM-JJ/sujet/` : `sources/`, fichiers JSON de chaque version, images, `planche.png`, `premier-commentaire.txt`.
-- `apercus/` : exemples de gabarits.
+- `apercus/` : un exemple de chaque gabarit, régénéré par `python3 gabarits/generer.py apercus/source/apercus.json apercus`.

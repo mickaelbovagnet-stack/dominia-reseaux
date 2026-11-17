@@ -1,4 +1,4 @@
-"""Génère les visuels Dominia pour les réseaux sociaux à partir d'une description JSON.
+"""Génère les visuels Cimeria pour les réseaux sociaux à partir d'une description JSON.
 
 Usage : python3 gabarits/generer.py visuels.json dossier/de/sortie
 
@@ -17,8 +17,16 @@ import asyncio, json, pathlib, sys, html
 from playwright.async_api import async_playwright
 
 ICI = pathlib.Path(__file__).resolve().parent
-POLICE = (ICI / "polices/archivo-latin-wght-normal.woff2").as_uri()
-POLICE_EXT = (ICI / "polices/archivo-latin-ext-wght-normal.woff2").as_uri()
+def police(nom): return (ICI / f"polices/{nom}.woff2").as_uri()
+POLICES = "".join(
+    f"@font-face {{ font-family:'{fam}'; font-weight:{poids}; src:url('{police(f'{fam}-{poids}')}') format('woff2'); }}"
+    f"@font-face {{ font-family:'{fam}'; font-weight:{poids}; src:url('{police(f'{fam}-{poids}-ext')}') format('woff2'); unicode-range:U+0100-024F,U+1E00-1EFF; }}"
+    for fam, poids in [("Jost", 400), ("Jost", 500), ("Figtree", 400), ("Figtree", 500), ("Figtree", 600)])
+# Logotype Cimeria, tracés repris de dominia-site/scripts/marque.mjs (charte Cimeria). Le mot reste d'un seul bloc.
+LETTRES = "M33.2 -70Q33.2 -85 39.9 -96.1Q46.6 -107.2 57.4 -113.3Q68.2 -119.4 81 -119.4Q91 -119.4 99.1 -116.8Q107.2 -114.2 113.6 -109.7Q120 -105.2 124.8 -99.6V-127.6Q116.2 -135 105.9 -138.8Q95.6 -142.6 80.2 -142.6Q64.8 -142.6 51.5 -137.3Q38.2 -132 28.4 -122.3Q18.6 -112.6 13.1 -99.3Q7.6 -86 7.6 -70Q7.6 -54.2 13.1 -40.9Q18.6 -27.6 28.4 -17.8Q38.2 -8 51.5 -2.8Q64.8 2.4 80.2 2.4Q95.6 2.4 105.9 -1.4Q116.2 -5.2 124.8 -12.4V-40.6Q120 -34.8 113.6 -30.3Q107.2 -25.8 99.1 -23.2Q91 -20.6 81 -20.6Q68.2 -20.6 57.4 -26.8Q46.6 -33 39.9 -44.1Q33.2 -55.2 33.2 -70ZM181.8 -140V0H205.8V-140ZM290.8 -85.2 333.4 -13 376.2 -85.2 385.8 0H410.2L391 -147L333.4 -52L276 -147L256.8 0H281.2ZM476 0H546.6V-20.8H476ZM476 -119.2H546.6V-140H476ZM476 -64.8H542.6V-85.2H476ZM461.4 -140V0H484.6V-140ZM632.6 -66.8 677 0H705.6L658 -66.8ZM603.6 -140V0H627.2V-140ZM617.6 -119.6H645.8Q654 -119.6 660 -116.8Q666 -114 669.4 -108.8Q672.8 -103.6 672.8 -96Q672.8 -88.6 669.4 -83.3Q666 -78 660 -75.3Q654 -72.6 645.8 -72.6H617.6V-53H646.8Q662.2 -53 673.4 -58.4Q684.6 -63.8 690.9 -73.6Q697.2 -83.4 697.2 -96.6Q697.2 -109.8 690.9 -119.5Q684.6 -129.2 673.4 -134.6Q662.2 -140 646.8 -140H617.6ZM750.6 -140V0H774.6V-140ZM850.4 -36H924.4L920 -56H855ZM887 -100.4 909.4 -48.4 909.8 -42.6 928.8 0H955.6L887 -147.8L818.6 0H845.2L864.6 -43.8L865 -49Z"
+def logotype(encre, rouge, largeur=250):
+    return (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='7.6 -147.8 993 150.2' style='width:{largeur}px;height:auto;display:block' role='img' aria-label='Cimeria'>"
+            f"<path d='{LETTRES}' fill='{encre}'/><rect x='972.6' y='-140' width='28' height='28' fill='{rouge}'/></svg>")
 CLAIR = dict(fond="#F6F5F2", carte="#FFFFFF", encre="#2B2B2D", douce="#5A5A5C", rouge="#DA291C", rougeTexte="#C42518", filet="#E2E0DA")
 SOMBRE = dict(fond="#2B2B2D", carte="#36363A", encre="#F6F5F2", douce="#BEBDB8", rouge="#F04A3B", rougeTexte="#FF6B5C", filet="#4A4A4E")
 RACINE = pathlib.Path(".")
@@ -30,26 +38,24 @@ def img(chemin):
 
 def base(c, w, h):
     return f"""
-@font-face {{ font-family:'Archivo'; font-weight:100 900; src:url('{POLICE}') format('woff2'); }}
-@font-face {{ font-family:'Archivo'; font-weight:100 900; src:url('{POLICE_EXT}') format('woff2'); unicode-range:U+0100-024F; }}
+{POLICES}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 html,body {{ width:{w}px; height:{h}px; }}
-body {{ background:{c['fond']}; color:{c['encre']}; font-family:'Archivo',sans-serif; overflow:hidden; position:relative; }}
+body {{ background:{c['fond']}; color:{c['encre']}; font-family:'Figtree',sans-serif; overflow:hidden; position:relative; }}
 .cadre {{ position:absolute; inset:80px; display:flex; flex-direction:column; }}
 .tete {{ display:flex; justify-content:space-between; align-items:baseline; }}
-.etiquette {{ color:{c['rougeTexte']}; font-weight:700; font-size:32px; letter-spacing:.16em; text-transform:uppercase; }}
-.compteur {{ font-size:32px; font-weight:600; color:{c['douce']}; }}
+.etiquette {{ color:{c['rougeTexte']}; font-family:'Jost',sans-serif; font-weight:500; font-size:32px; letter-spacing:.16em; text-transform:uppercase; }}
+.compteur {{ font-family:'Jost',sans-serif; font-size:32px; font-weight:500; color:{c['douce']}; }}
 .accent {{ width:80px; height:8px; background:{c['rouge']}; }}
-.titre {{ font-weight:700; letter-spacing:-.03em; line-height:1.05; }}
-.texte {{ font-weight:500; color:{c['douce']}; letter-spacing:-.01em; line-height:1.3; font-size:46px; }}
+.titre {{ font-family:'Jost',sans-serif; font-weight:500; letter-spacing:-.015em; line-height:1.08; }}
+.texte {{ font-weight:400; color:{c['douce']}; letter-spacing:-.01em; line-height:1.3; font-size:46px; }}
 .milieu {{ flex:1; display:flex; flex-direction:column; justify-content:center; min-height:0; }}
 .pied {{ padding-top:32px; border-top:2px solid {c['filet']}; display:flex; justify-content:space-between; align-items:baseline; }}
-.logo {{ font-weight:700; font-size:50px; letter-spacing:-.035em; }}
-.logo span {{ color:{c['rouge']}; }}
-.site {{ font-size:32px; font-weight:500; color:{c['douce']}; }}
+.logo {{ display:flex; align-items:center; }}
+.site {{ font-family:'Jost',sans-serif; font-size:30px; font-weight:400; letter-spacing:.02em; color:{c['douce']}; }}
 """
-def pied(c, droite="dominia.ch"):
-    return f"<div class='pied'><div class='logo'>Domin<span>IA</span></div><div class='site'>{e(droite)}</div></div>"
+def pied(c, droite="cimeria.ch"):
+    return f"<div class='pied'><div class='logo'>{logotype(c['encre'], c['rouge'])}</div><div class='site'>{e(droite)}</div></div>"
 def tete(v, etiquette, n=None):
     cpt = f"<div class='compteur'>{e(n)} / {e(v['total'])}</div>" if v.get("total") and n else ""
     return f"<div class='tete'><div class='etiquette'>{e(etiquette)}</div>{cpt}</div>"
@@ -108,14 +114,14 @@ def fait(v):
 def fin(v):
     c = CLAIR; w, h = 1080, 1350
     corps = f"""<div class='cadre'>
-      {tete(v, v.get('rubrique','Dominia'), v.get('total'))}
+      {tete(v, v.get('rubrique','Cimeria'), v.get('total'))}
       <div class='milieu'>
         <div class='accent' style='margin-bottom:44px'></div>
         <div class='titre' style='font-size:96px'>{e(v.get('titre','Enregistrez ce post pour le retrouver.'))}</div>
         <div class='texte' style='margin-top:44px'>{e(v.get('texte','Une question sur votre cas ? Écrivez-nous en message privé. L’article complet est en lien dans la bio.'))}</div>
-        {f"<div style='display:flex;align-items:center;gap:28px;margin-top:56px'><div style='width:120px;height:120px;border-radius:50%;background:url({img(v['photo'])}) center 20%/cover'></div><div style='font-size:34px;line-height:1.3'><div style='font-weight:700'>{e(v['auteur'])}</div><div style='color:{c['douce']}'>{e(v.get('fonction',''))}</div></div></div>" if v.get('auteur') else ""}
+        {f"<div style='display:flex;align-items:center;gap:28px;margin-top:56px'><div style='width:120px;height:120px;border-radius:50%;background:url({img(v['photo'])}) center 20%/cover'></div><div style='font-size:34px;line-height:1.3'><div style='font-weight:600'>{e(v['auteur'])}</div><div style='color:{c['douce']}'>{e(v.get('fonction',''))}</div></div></div>" if v.get('auteur') else ""}
       </div>
-      {pied(c, '@dominiamedia')}
+      {pied(c, '@cimeria.ch')}
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
@@ -131,7 +137,7 @@ def cas(v):
       <div class='titre' style='font-size:{tt(v['titre'],104,88,74)}px;margin-top:28px'>{e(v['titre'])}</div>
       <div class='texte' style='margin-top:28px;font-size:42px'>{e(v.get('accroche',''))}</div>
       <div style='flex:1'></div>
-      <div class='pied' style='border-color:#3a3a3e'><div class='logo'>Domin<span>IA</span></div><div class='site'>{e(v.get('signature','Mickaël Bovagnet'))}</div></div>
+      <div class='pied' style='border-color:#3a3a3e'><div class='logo'>{logotype(c['encre'], c['rouge'])}</div><div class='site'>{e(v.get('signature','Mickaël Bovagnet'))}</div></div>
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
@@ -148,7 +154,7 @@ def agenda(v):
         <div class='titre' style='font-size:84px;margin-bottom:40px'>{e(v.get('titre','Cette semaine en Suisse romande'))}</div>
         {lignes}
       </div>
-      {pied(c, 'dominia.ch/agenda')}
+      {pied(c, 'cimeria.ch/agenda')}
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
@@ -173,11 +179,11 @@ def demo(v):
     c = SOMBRE; w, h = 1080, 1350
     k = v["carte"]; t = k["type"]
     if t == "citation":
-        contenu = f"<div style='font-size:60px;line-height:1.22;font-weight:700;letter-spacing:-.02em'>« {e(k['texte'])} »</div>"
+        contenu = f"<div style='font-size:60px;line-height:1.22;font-weight:600;letter-spacing:-.02em'>« {e(k['texte'])} »</div>"
     elif t == "liste":
-        contenu = "".join(f"<div style='display:flex;gap:24px;padding:30px 0;border-top:2px solid #ECEBE7'><div style='width:18px;height:18px;margin-top:22px;flex:none;background:#DA291C'></div><div style='font-size:48px;line-height:1.2'><b style='font-weight:700'>{e(x['fort'])}</b> {e(x.get('texte',''))}</div></div>" for x in k["elements"])
+        contenu = "".join(f"<div style='display:flex;gap:24px;padding:30px 0;border-top:2px solid #ECEBE7'><div style='width:18px;height:18px;margin-top:22px;flex:none;background:#DA291C'></div><div style='font-size:48px;line-height:1.2'><b style='font-weight:600'>{e(x['fort'])}</b> {e(x.get('texte',''))}</div></div>" for x in k["elements"])
     elif t == "chiffre":
-        contenu = f"<div style='font-size:230px;font-weight:800;letter-spacing:-.04em;line-height:1'>{e(k['valeur'])}</div><div style='font-size:54px;font-weight:700;margin-top:24px;line-height:1.15;letter-spacing:-.015em'>{e(k['legende'])}</div><div style='font-size:38px;color:#5A5A5C;margin-top:28px;line-height:1.3'>{e(k.get('detail',''))}</div>"
+        contenu = f"<div style='font-size:230px;font-family:Jost;font-weight:500;letter-spacing:-.02em;line-height:1'>{e(k['valeur'])}</div><div style='font-size:54px;font-weight:600;margin-top:24px;line-height:1.15;letter-spacing:-.015em'>{e(k['legende'])}</div><div style='font-size:38px;color:#5A5A5C;margin-top:28px;line-height:1.3'>{e(k.get('detail',''))}</div>"
     else:
         contenu = f"<img src='{img(k['chemin_recadre'])}' style='display:block;width:100%;border-radius:4px'>"
     corps = f"""<div class='cadre'>
@@ -188,7 +194,7 @@ def demo(v):
       </div>
       <div class='milieu'>
         <div style='background:#FFFFFF;color:#2B2B2D;border-radius:12px;padding:56px 56px;box-shadow:0 24px 60px rgba(0,0,0,.45)'>
-          <div style='font-size:30px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C42518;margin-bottom:32px'>{e(k['etiquette'])}</div>
+          <div style='font-size:30px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#C42518;margin-bottom:32px'>{e(k['etiquette'])}</div>
           {contenu}
         </div>
       </div>
@@ -200,13 +206,13 @@ def bulle_vous(texte, joint=None, taille=40):
     pj = f"<div style='display:inline-block;margin-bottom:18px;padding:10px 18px;border:2px solid #5A5A5C;border-radius:8px;font-size:28px;font-weight:600;color:#F6F5F2'>Fichiers joints · {e(joint)}</div><br>" if joint else ""
     return f"""<div style='display:flex;justify-content:flex-end'>
       <div style='max-width:86%;background:#2B2B2D;color:#F6F5F2;border-radius:28px 28px 6px 28px;padding:32px 38px'>
-        <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:14px'>Vous demandez</div>
+        <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:14px'>Vous demandez</div>
         {pj}<div style='font-size:{taille}px;line-height:1.25;font-weight:500'>{e(texte)}</div></div></div>"""
 
 def bulle_ia(contenu):
     return f"""<div style='display:flex;margin-top:30px'>
       <div style='width:92%;background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:34px 38px;box-shadow:0 18px 40px rgba(43,43,45,.10)'>
-        <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C42518;margin-bottom:18px'>L’IA vous rend</div>
+        <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#C42518;margin-bottom:18px'>L’IA vous rend</div>
         {contenu}</div></div>"""
 
 def reponse(k):
@@ -215,9 +221,9 @@ def reponse(k):
         return f"<div style='font-size:42px;line-height:1.25;font-weight:600;letter-spacing:-.01em'>{e(k['texte'])}</div>" + (f"<div style='font-size:32px;color:#5A5A5C;margin-top:18px;line-height:1.3'>{e(k['note'])}</div>" if k.get('note') else "")
     if t == "tableau":
         lignes = "".join(f"<div style='display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-top:2px solid #ECEBE7;font-size:36px'><span style='font-weight:600'>{e(a)}</span><span style='color:{'#C42518' if b=='non trouvé' else '#5A5A5C'};text-decoration:{'none' if b=='non trouvé' else 'underline'}'>{e(b)}</span></div>" for a, b in k["lignes"])
-        return f"<div style='display:flex;justify-content:space-between;font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5A5A5C;padding-bottom:12px'><span>{e(k['colonnes'][0])}</span><span>{e(k['colonnes'][1])}</span></div>{lignes}"
+        return f"<div style='display:flex;justify-content:space-between;font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#5A5A5C;padding-bottom:12px'><span>{e(k['colonnes'][0])}</span><span>{e(k['colonnes'][1])}</span></div>{lignes}"
     if t == "chiffre":
-        return f"<div style='font-size:150px;font-weight:800;letter-spacing:-.04em;line-height:1'>{e(k['valeur'])}</div><div style='font-size:42px;font-weight:700;margin-top:14px;line-height:1.15'>{e(k['legende'])}</div><div style='font-size:32px;color:#5A5A5C;margin-top:16px;line-height:1.3'>{e(k.get('detail',''))}</div>"
+        return f"<div style='font-size:150px;font-family:Jost;font-weight:500;letter-spacing:-.02em;line-height:1'>{e(k['valeur'])}</div><div style='font-size:42px;font-weight:600;margin-top:14px;line-height:1.15'>{e(k['legende'])}</div><div style='font-size:32px;color:#5A5A5C;margin-top:16px;line-height:1.3'>{e(k.get('detail',''))}</div>"
     if t == "image":
         return f"<div style='font-size:26px;color:#5A5A5C;margin-bottom:14px'>{e(k.get('legende',''))}</div><img src='{img(k['chemin_recadre'])}' style='display:block;width:100%;border:2px solid #ECEBE7;border-radius:6px'>"
     return ""
@@ -246,7 +252,7 @@ def couverture_ia(v):
       {tete(v, v['rubrique'], 1)}
       <div style='margin-top:48px;display:flex;flex-direction:column'>
         {bulle_vous(v['demande'], None, 34)}
-        {f"<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:24px 34px;font-size:32px;color:#5A5A5C;line-height:1.3'>{e(v['reponse_vague'])}</div></div><div style='margin-top:22px;display:inline-block;align-self:flex-start;border:4px solid #DA291C;color:#C42518;font-weight:800;font-size:34px;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;transform:rotate(-3deg)'>{e(v['verdict'])}</div>" if v.get('verdict') else "<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:26px 34px;display:flex;gap:14px'><div style='width:18px;height:18px;border-radius:50%;background:#C42518'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div></div></div>"}
+        {f"<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:24px 34px;font-size:32px;color:#5A5A5C;line-height:1.3'>{e(v['reponse_vague'])}</div></div><div style='margin-top:22px;display:inline-block;align-self:flex-start;border:4px solid #DA291C;color:#C42518;font-family:Jost;font-weight:500;font-size:34px;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;transform:rotate(-3deg)'>{e(v['verdict'])}</div>" if v.get('verdict') else "<div style='display:flex;margin-top:22px'><div style='background:#FFFFFF;border:2px solid #E2E0DA;border-radius:28px 28px 28px 6px;padding:26px 34px;display:flex;gap:14px'><div style='width:18px;height:18px;border-radius:50%;background:#C42518'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div><div style='width:18px;height:18px;border-radius:50%;background:#BEBDB8'></div></div></div>"}
       </div>
       <div class='milieu'>
         <div class='titre' style='font-size:{tt(v['titre'],96,84,72)}px'>{e(v['titre'])}</div>
@@ -274,7 +280,7 @@ def etape_methode(v):
     Champs : rubrique, position, total, numero, titre, avant (facultatif), consigne [[label, texte]x4], rend, verifie"""
     c = CLAIR; w, h = 1080, 1350
     avant = f"<div style='font-size:30px;font-weight:600;margin-top:26px;color:{c['douce']}'>Avant · {e(v['avant'])}</div>" if v.get("avant") else ""
-    lignes = "".join(f"<div style='display:flex;gap:22px;padding:13px 0;border-top:1px solid #4A4A4E'><div style='width:190px;flex:none;font-size:28px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:6px'>{e(a)}</div><div style='font-size:37px;line-height:1.2'>{e(b)}</div></div>" for a, b in v["consigne"])
+    lignes = "".join(f"<div style='display:flex;gap:22px;padding:13px 0;border-top:1px solid #4A4A4E'><div style='width:190px;flex:none;font-size:28px;font-family:Jost;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#FF6B5C;padding-top:6px'>{e(a)}</div><div style='font-size:37px;line-height:1.2'>{e(b)}</div></div>" for a, b in v["consigne"])
     corps = f"""<div class='cadre'>
       {tete(v, v['rubrique'], v.get('position'))}
       <div style='display:flex;align-items:baseline;gap:26px;margin-top:34px'>
@@ -284,15 +290,15 @@ def etape_methode(v):
       {avant}
       <div class='milieu' style='gap:22px'>
         <div style='background:#2B2B2D;color:#F6F5F2;border-radius:20px;padding:26px 34px 16px'>
-          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Ce que vous écrivez, en 4 C</div>
+          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#BEBDB8;margin-bottom:10px'>Ce que vous écrivez, en 4 C</div>
           {lignes}
         </div>
-        <div style='background:#FFFFFF;border:2px solid {c['filet']};border-radius:20px;padding:24px 34px'>
-          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:{c['rougeTexte']};margin-bottom:8px'>L’IA vous rend</div>
+        <div style='background:{c['carte']};border:2px solid {c['filet']};border-radius:20px;padding:24px 34px'>
+          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:{c['rougeTexte']};margin-bottom:8px'>L’IA vous rend</div>
           <div style='font-size:34px;line-height:1.25;font-weight:600'>{e(v['rend'])}</div>
         </div>
         <div style='border-left:8px solid {c['rouge']};padding:6px 0 6px 28px'>
-          <div style='font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:{c['encre']};margin-bottom:8px'>Vous vérifiez</div>
+          <div style='font-size:24px;font-family:Jost;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:{c['encre']};margin-bottom:8px'>Vous vérifiez</div>
           <div style='font-size:34px;line-height:1.25'>{e(v['verifie'])}</div>
         </div>
       </div>

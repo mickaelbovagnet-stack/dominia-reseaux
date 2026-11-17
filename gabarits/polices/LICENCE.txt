@@ -1,0 +1,5 @@
+Jost, police de caractères de The Jost Project Authors (https://github.com/indestructible-type/Jost).
+Figtree, police de caractères de The Figtree Project Authors (https://github.com/erikdkennedy/figtree).
+Fichiers woff2 des sous-ensembles latin et latin étendu, issus de Fontsource 5.3.0 (identiques à ceux de la charte Cimeria).
+Les deux polices sont distribuées sous la licence SIL Open Font License, version 1.1.
+Texte complet de la licence : https://openfontlicense.org/open-font-license-official-text/
