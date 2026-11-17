@@ -19,7 +19,7 @@ Ce dépôt héberge les visuels publics des réseaux sociaux de Cimeria (Dominia
 ## Deux formats
 
 1. **Cas pratique**, 1 à 2 par semaine. Processus complet ci-dessous.
-2. **Actualité**, quotidienne et automatisée. Version allégée décrite en fin de fichier.
+2. **Actualité**, hebdomadaire et automatisée. Version allégée décrite en fin de fichier.
 
 ## Processus complet d'un cas pratique
 
@@ -101,28 +101,19 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 4. Une seule relecture, celle du client type.
 5. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.
 
-## Plan de communication automatisé (validé par Mick le 17 novembre 2026)
+## Plan de communication automatisé (validé par Mick le 17 novembre 2026, simplifié le même jour)
 
-Les posts suivent la production du site. La tâche planifiée « Posts réseaux Cimeria » tourne du lundi au vendredi à 18 h 38 (heure de Zurich) et applique cette section avec tout le reste de ce fichier.
+Les posts suivent la production du site, sans contenu de remplissage. La tâche planifiée « Posts réseaux Cimeria » tourne du lundi au vendredi à 18 h 38 (heure de Zurich) et applique cette section avec tout le reste de ce fichier.
 
-### Ce qui déclenche un post
-- Un article est publié quand son fichier est sur la branche `main` de dominia-site, que sa date `publie` est passée et que sa page répond sur cimeria.ch.
-- `publications/registre.json` liste les articles déjà déclinés. Un article publié absent du registre attend son post. Chaque production l'y inscrit dans le même commit.
+### Deux déclencheurs, rien d'autre
+1. **Un nouvel article publié.** Un article est publié quand son fichier est sur la branche `main` de dominia-site, que sa date `publie` est passée et que sa page répond sur cimeria.ch. Seuls comptent les articles publiés à partir du 17 novembre 2026 et absents de `publications/registre.json`. Les articles plus anciens restent sans post.
+   - Format selon la rubrique : Actualité (carrousel Instagram, `fait_cle` seul sur LinkedIn et Facebook), Pratique (cas pratique en 6 diapositives et premier commentaire), Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`).
+   - Brouillon le jour ouvré suivant la publication, à 8 h (heure de Zurich). Si ce jour a déjà un post à 8 h, le jour ouvré libre suivant.
+2. **L'agenda, une fois par semaine.** Chaque vendredi à 12 h (heure de Zurich), un visuel `agenda` des événements à venir de `dominia-site/src/content/evenements` (5 au plus par visuel, au-delà un carrousel de deux visuels). Pas d'agenda la semaine où aucun événement n'est à venir.
 
-### Grille de la semaine (brouillons à 8 h, heure de Zurich, un seul post par jour)
-| Jour | Post | Source |
-|---|---|---|
-| Mardi | Actualité de la semaine (carrousel Instagram, `fait_cle` seul sur LinkedIn et Facebook) | article Actualité du lundi |
-| Mercredi | Format court (`chiffre`, `liste` ou `point_de_vue`) | un article publié, en priorité un article sans post |
-| Jeudi | Cas pratique (6 diapositives et premier commentaire) | article Pratique du mercredi |
-| Vendredi | Agenda (`agenda`) une semaine sur deux s'il reste au moins 3 événements à venir non annoncés, sinon un format court | `dominia-site/src/content/evenements` |
-| Lundi | Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`) | article Décryptage du vendredi précédent |
-
-- Un article publié hors de son jour normal prend le prochain créneau de sa rubrique encore libre.
-- Un créneau sans article frais reçoit un post de rattrapage tiré du plus récent article publié sans post. Un Décryptage ou une Pratique en retard garde son format complet. Sinon, un format court.
-- Les créneaux se remplissent sept jours à l'avance au plus.
-- Avant de déposer un brouillon, la tâche liste les brouillons Buffer existants. Elle ne crée jamais deux posts le même jour sur un même réseau et ne touche jamais un brouillon existant.
-- Un créneau déjà pris dans Buffer (par exemple par un post préparé à la main) est respecté. Le post à faire glisse au créneau libre suivant de même type.
+### Règles communes
+- Chaque production inscrit l'article ou l'agenda dans `publications/registre.json`, dans le même commit.
+- Avant de déposer un brouillon, la tâche liste les brouillons Buffer existants. Elle ne touche jamais un brouillon existant et respecte un créneau déjà pris (par exemple par un post préparé à la main).
 
 ### Ce que la tâche ne fait jamais
 Elle ne publie rien et ne programme rien hors brouillon. Elle ne modifie pas dominia-site. Elle ne crée aucun portrait par IA. Elle n'invente aucun fait absent de l'article. En cas de doute sur un fait, un nom ou une règle de ce fichier, elle s'abstient et le signale à Mick.
