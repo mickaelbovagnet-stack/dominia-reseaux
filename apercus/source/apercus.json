@@ -119,15 +119,6 @@
    "source": "État de Genève"
   },
   {
-   "gabarit": "fait",
-   "fichier": "09-fait-hebdo.png",
-   "position": 2,
-   "total": 5,
-   "titre": "Le Valais met en service AVA, son IA souveraine",
-   "impact": "Une administration romande traite ses demandes d'IA en Suisse, sur ses propres serveurs.",
-   "source": "État du Valais, 5 novembre 2026"
-  },
-  {
    "gabarit": "agenda",
    "fichier": "10-agenda.png",
    "titre": "À venir en Suisse romande",
@@ -148,6 +139,30 @@
      "titre": "Geneva AI Summit 2027"
     }
    ]
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "11-fait-cle-sombre.png",
+   "rubrique": "À la une",
+   "kicker": "11 novembre 2026 · État de Genève",
+   "cle": "18 déc.",
+   "cle_legende": "Clôture de l’appel à contributions du Sommet mondial sur l’IA.",
+   "titre": "Genève détaille trois voies pour contribuer au Sommet mondial sur l’IA",
+   "resume": "Un appel à contributions ouvert à tous, le programme Road to Geneva et des événements en marge du sommet, les 21 et 22 juin 2027 à Palexpo.",
+   "source": "État de Genève, communiqué du 11 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "12-fait-cle-clair.png",
+   "rubrique": "En Suisse",
+   "kicker": "12 novembre 2026 · EPFL",
+   "cle": "2027",
+   "cle_legende": "Rentrée du nouveau Bachelor en intelligence artificielle de l’EPFL.",
+   "titre": "L’EPFL annonce un Bachelor en intelligence artificielle",
+   "resume": "Première année commune avec l’informatique et cours obligatoire sur l’éthique et les politiques de l’IA. L’annonce ne mentionne pas la formation continue.",
+   "source": "EPFL, annonce du 12 novembre 2026",
+   "sombre": false
   }
  ]
 }
