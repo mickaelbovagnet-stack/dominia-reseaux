@@ -37,7 +37,7 @@ Direction validée par Mick le 17 novembre 2026, sur le modèle de The Economist
 
 | N° | Gabarit | Contenu |
 |---|---|---|
-| 1 | `cas_couverture` | Bandeau anthracite avec le titre (50 signes au plus) et un sous-titre concret. En partie claire, une illustration au trait tirée de `gabarits/illustrations/`. « Exemple fictif » en note quand c'est le cas. |
+| 1 | `cas_couverture` | Fond anthracite plein avec le titre (50 signes au plus) et un sous-titre concret, puis le graphisme de l'article (champ `graphisme`, image de `gabarits/graphismes/`). « Exemple fictif » en note quand c'est le cas. |
 | 2 à 5 | `cas_etape` | Une étape par diapositive. Bandeau anthracite avec la barre de progression et le mot de l'étape (Contexte, Consigne, Contenu, Cadre). Carte « Vous ajoutez » de 25 mots au plus, le script prévient au-delà. Puis « L'IA vous rend » (une ou deux lignes courtes) et « Ce qui manque encore », qui devient « Votre part » à la dernière étape. Les termes techniques sont traduits et les sigles écrits en toutes lettres. |
 | 6 | `cas_fin` | « Enregistrez ce post pour le retrouver. » Le prompt complet annoncé en commentaire, l'article en lien dans la bio. Portrait de Mickaël en moitié basse avec la signature « Mickaël Bovagnet, Auteur du guide, Cimeria ». |
 
@@ -55,7 +55,7 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
 - Le rouge (#DA291C, #F04A3B sur anthracite) est réservé à la rubrique, au carré du logo, à la barre de progression et à la partie `accent` d'un chiffre clé. Jamais de surlignage, de cadre ni d'aplat rouge.
 - Jost pour les titres, étiquettes et chiffres, Figtree pour les textes.
 - Logotype Cimeria en pied de chaque visuel, d'un seul bloc, sans jamais isoler « ia ». Aucun quadrillage sur les visuels des réseaux.
-- Les illustrations sont des dessins au trait anthracite, un seul détail rouge, rangés dans `gabarits/illustrations/` (SVG 600 x 420). Jamais de photo de banque d'images ni de logo d'un éditeur.
+- Les couvertures reprennent le graphisme de l'article publié sur le site (concept validé par Mick le 7 novembre 2026), sans quadrillage. Les pictogrammes au trait de `gabarits/illustrations/` ne servent plus (jugés trop simples par Mick le 17 novembre 2026). Pour un nouvel article, le graphisme se produit depuis dominia-site avec `scripts/visuels.mjs`, la grille désactivée (`svg(contenu, grille = false)` dans une copie temporaire du script), puis se dépose dans `gabarits/graphismes/<slug>.png`. Jamais de photo de banque d'images ni de logo d'un éditeur.
 - Les photos sont celles de Mickaël. Les seules images générées par IA autorisées sont des variantes de son portrait, tirées de sa vraie photo de référence, selon la règle de `gabarits/images/portraits/README.md` (validée le 17 novembre 2026) :
   - ressemblance stricte ;
   - aucune mise en scène inventée ;
@@ -65,7 +65,7 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
   Les variantes servent sur les réseaux seulement, jamais en photo de profil ni sur le site.
 - Lisibilité sur téléphone (demande de Mick du 17 novembre 2026). Un visuel de 1080 px s'affiche sur environ 390 points d'écran.
   - Aucun texte sous 30 px, textes courants à 44 px au moins. Le script signale tout texte plus petit.
-  - Les gabarits remplissent la hauteur disponible. Un texte trop long se raccourcit, il ne se réduit pas.
+  - Les gabarits remplissent la hauteur disponible, sans vide au milieu du visuel (demande de Mick du 17 novembre 2026). Dans `fait_cle` et `chiffre`, le générateur agrandit les textes jusqu'à remplir l'espace. Un texte trop long se raccourcit, il ne se réduit pas.
   - `fait_cle` : titre de 70 signes au plus, résumé de 25 mots au plus. L'élément clé s'ajuste seul à la largeur.
 - Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit. Les gabarits `couverture_ia`, `lecon`, `etape_methode`, `capture` et `fin` sont conservés pour l'archive et ne servent plus.
 
