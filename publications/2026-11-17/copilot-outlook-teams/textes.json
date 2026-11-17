@@ -1,0 +1,27 @@
+{
+ "ig": "Copilot dans Outlook et Teams, cinq tâches à lui confier.\n\nRésumer un fil avant d'y répondre, obtenir le compte rendu d'une réunion Teams, rédiger une note à partir de vos fichiers, faire analyser un tableau Excel et transformer la note en présentation.\n\nChaque prompt suit la méthode des 4 C. Dans l'exemple, un sous-traitant fictif de Carouge prépare son comité de direction.\n\nCopilot rédige un premier jet. Relisez tout avant envoi, le jugement reste le vôtre.\n\nEnregistrez ce post pour votre prochaine semaine chargée. Le prompt d'Outlook est en premier commentaire, l'article en lien dans la bio.\n\n#intelligenceartificielle #copilot #microsoft365 #cadres #suisseromande",
+ "li": "Utiliser Copilot dans Outlook et Teams, les cinq usages des cadres.\n\nCopilot fait gagner du temps sur la lecture et le premier jet, à condition de lui donner un cadre précis.\n1. Outlook, résumer un fil puis rédiger la réponse.\n2. Teams, obtenir le compte rendu d'une réunion transcrite, avec responsables et échéances.\n3. Word, produire un premier jet à partir de vos documents.\n4. Excel, faire analyser un tableau de suivi.\n5. PowerPoint, transformer la note en présentation.\n\nChaque prompt suit la méthode des 4 C et chaque usage a son point de vigilance. Lors du test, Copilot a par exemple proposé des horaires absents des sources, en les signalant en fin de note. Relisez tout avant envoi.\n\nLes cinq prompts complets sont dans l'article.\nhttps://cimeria.ch/utiliser-copilot-outlook-teams/\n\n#intelligenceartificielle #copilot #microsoft365",
+ "fb": "Cinq tâches à confier à Copilot dans Outlook, Teams, Word, Excel et PowerPoint.\n\nRésumer un fil, obtenir le compte rendu d'une réunion, rédiger une note, analyser un tableau et préparer une présentation. Chaque prompt suit la méthode des 4 C et chaque usage a son point de vigilance. Relisez tout avant envoi.\n\nLes cinq prompts complets sont dans l'article.\nhttps://cimeria.ch/utiliser-copilot-outlook-teams/",
+ "lien": "https://cimeria.ch/utiliser-copilot-outlook-teams/",
+ "slug": "utiliser-copilot-outlook-teams",
+ "fichiers": [
+  "v1-01-couverture.png",
+  "v1-02-etape.png",
+  "v1-03-etape.png",
+  "v1-04-etape.png",
+  "v1-05-etape.png",
+  "v1-06-etape.png",
+  "v1-07-fin.png"
+ ],
+ "alts": [
+  "Couverture Cimeria « Copilot dans Outlook et Teams, 5 usages ». Une tâche de lecture ou de premier jet par outil Microsoft 365. Dessin au trait. Exemple fictif d'un sous-traitant de Carouge de 35 personnes.",
+  "Copilot dans Outlook et Teams, 5 usages, étape 1 sur 5, Outlook. Vous ajoutez « Rédige une réponse qui confirme les deux livraisons et propose un appel de 15 minutes cette semaine. » L'IA vous rend un brouillon de réponse dans le fil et les informations absentes du fil. À vérifier, le dernier message du client, relu avant d'envoyer.",
+  "Copilot dans Outlook et Teams, 5 usages, étape 2 sur 5, Teams. Vous ajoutez « Établis la liste des décisions, des actions avec responsable et échéance, puis des points ouverts. » L'IA vous rend un tableau des décisions et des actions et la transcription citée pour chaque échéance. À vérifier, chaque responsable et chaque échéance.",
+  "Copilot dans Outlook et Teams, 5 usages, étape 3 sur 5, Word. Vous ajoutez « Rédige un projet de note interne qui expose la raison du changement et les trois questions à trancher. » L'IA vous rend un projet de note de 400 mots au plus et les chiffres absents des sources, signalés. À vérifier, la liste des chiffres ajoutés par Copilot.",
+  "Copilot dans Outlook et Teams, 5 usages, étape 4 sur 5, Excel. Vous ajoutez « Calcule le retard de chaque commande et le retard moyen par client, sans modifier les colonnes existantes. » L'IA vous rend une colonne Retard en jours et un tableau croisé et un graphique. À vérifier, une ligne contrôlée à la main.",
+  "Copilot dans Outlook et Teams, 5 usages, étape 5 sur 5, PowerPoint. Vous ajoutez « Crée une présentation de six diapositives qui résume la note et prépare la décision. » L'IA vous rend six diapositives, notes comprises et les trois décisions attendues. Votre part, garder visibles les propositions signalées.",
+  "Enregistrez ce post pour le retrouver. Le prompt d'Outlook est en commentaire. L'article est en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+ ],
+ "titre_doc": "Copilot dans Outlook et Teams, 5 usages",
+ "commentaire": "Le prompt d'Outlook, à coller dans « Aide-moi à répondre ». L'exemple est fictif.\n\nContexte : je dirige la production de Mécarve SA, sous-traitant en mécanique de précision de 35 personnes à Carouge. Ce fil concerne le retard du lot 4471 du client H1, promis le 5 octobre 2026.\nConsigne : rédige une réponse qui confirme les deux livraisons (100 pièces le 12 novembre, le solde de 100 pièces le 18 novembre 2026) et propose un appel de 15 minutes cette semaine.\nContenu : appuie-toi uniquement sur le fil ci-dessus.\nCadre : 120 mots au plus, vouvoiement, ton direct et cordial, une seule formule de regret. Liste-moi à part toute information que tu n'as pas trouvée dans le fil.\n\nLes quatre autres prompts sont dans l'article, en lien dans la bio."
+}

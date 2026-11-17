@@ -1,0 +1,11 @@
+Le prompt pour préparer une réunion, à adapter à votre situation. L'exemple est fictif.
+
+Je dirige le département logistique d'une entreprise genevoise de 120 collaborateurs. Demain matin, je présente au comité de direction le rapport trimestriel joint. Le directeur financier veut réduire les coûts de transport et le directeur commercial se plaint des délais de livraison.
+
+Objectif : identifier les trois points de ce rapport que le comité va contester, pour préparer mes réponses.
+
+Utilise uniquement le rapport joint. Pour chaque point, indique la page et le chiffre concernés.
+
+Format : un tableau de trois lignes avec le point contesté, la personne qui le soulèvera probablement, le chiffre du rapport qui l'appuie et une piste de réponse en une phrase. Signale ensuite les informations absentes du rapport dont j'aurais besoin.
+
+Les deux autres prompts sont dans l'article, en lien dans la bio.

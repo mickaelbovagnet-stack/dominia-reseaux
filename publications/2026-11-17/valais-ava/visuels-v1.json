@@ -1,0 +1,16 @@
+{
+ "visuels": [
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "En Suisse",
+   "cle": "AVA",
+   "cle_legende": "Assistant Valaisan Augmenté",
+   "titre": "Le Valais met en service AVA, son IA souveraine",
+   "resume": "Développée par le service informatique cantonal pour tous les collaborateurs de l'État. Données sur ses serveurs, traitement en Suisse.",
+   "sombre": true,
+   "source": "État du Valais, communiqué du 5 novembre 2026",
+   "kicker": "5 novembre 2026 · État du Valais",
+   "fichier": "v1-01-fait.png"
+  }
+ ]
+}

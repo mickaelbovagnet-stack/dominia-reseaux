@@ -1,0 +1,78 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Décryptage",
+   "titre": "Quelle offre Claude choisir",
+   "sous": "Deux questions, qui paie et quelles données.",
+   "illustration": "paliers",
+   "note": "Offres vérifiées le 13 novembre 2026.",
+   "droite": "Faites défiler →",
+   "fichier": "v1-01-couverture.png",
+   "position": 1,
+   "total": 6
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Les offres",
+   "cle": "6 offres",
+   "cle_legende": "quatre individuelles, deux pour les organisations",
+   "titre": "Free, Pro, Max, Ultra, Team et Enterprise",
+   "resume": "Team s'adresse aux équipes de 2 à 150 personnes, Enterprise aux organisations dès 20 sièges.",
+   "sombre": true,
+   "source": "Anthropic, page des offres, 13 novembre 2026",
+   "fichier": "v1-02-fait.png",
+   "position": 2,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Usage",
+   "cle": "5 heures",
+   "cle_legende": "une première limite, puis une limite hebdomadaire",
+   "titre": "Les offres payantes donnent davantage d'usage",
+   "resume": "Max donne cinq fois l'usage de Pro. Ultra en donne dix fois par semaine.",
+   "sombre": false,
+   "fichier": "v1-03-fait.png",
+   "position": 3,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Confidentialité",
+   "cle": "Team",
+   "cle_legende": "exclut l'entraînement par défaut",
+   "titre": "Les offres individuelles servent à l'entraînement sauf refus",
+   "resume": "Team et Enterprise l'excluent par défaut. Anthropic stocke les données de ses produits commerciaux aux États-Unis.",
+   "sombre": true,
+   "fichier": "v1-04-fait.png",
+   "position": 4,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Par profil",
+   "cle": "2 personnes",
+   "cle_legende": "le seuil du passage à Team",
+   "titre": "Un dirigeant de PME passe à Team dès le deuxième utilisateur",
+   "resume": "Un cadre paie lui-même Free ou Pro et n'y saisit aucune donnée de son employeur.",
+   "sombre": false,
+   "fichier": "v1-05-fait.png",
+   "position": 5,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "Le choix détaillé par profil est en lien dans la bio.",
+   "fichier": "v1-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Décryptage",
+   "titre": "Coût d'une formation IA en Suisse",
+   "sous": "Prix publics, aides et fiscalité comparés.",
+   "illustration": "balance",
+   "note": "Prix publics relevés le 17 novembre 2026.",
+   "droite": "Faites défiler →",
+   "fichier": "v1-01-couverture.png",
+   "position": 1,
+   "total": 6
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Prix publics",
+   "cle": "CHF 9'000",
+   "cle_legende": "hors taxe d'inscription, le certificat de la HEG-Genève",
+   "titre": "De la journée gratuite au certificat de haute école",
+   "resume": "La fourchette des prix publics part de la journée de formation IA de l'État de Genève, gratuite.",
+   "sombre": true,
+   "source": "HEG-Genève et État de Genève, 17 novembre 2026",
+   "fichier": "v1-02-fait.png",
+   "position": 2,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Facteurs",
+   "cle": "5 facteurs",
+   "cle_legende": "font varier le prix",
+   "titre": "Format, durée, groupe, préparation et déplacement",
+   "resume": "Le prix affiché n'est pas le coût complet. Le temps hors du poste, les trajets et parfois l'abonnement à l'outil s'y ajoutent.",
+   "sombre": false,
+   "fichier": "v1-03-fait.png",
+   "position": 3,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Employeurs",
+   "cle": "93 %",
+   "cle_legende": "des actifs formés soutenus par leur employeur",
+   "titre": "L'employeur finance le plus souvent la formation continue",
+   "resume": "Personnes actives occupées de 25 à 64 ans formées à des fins professionnelles en 2021.",
+   "sombre": true,
+   "source": "Office fédéral de la statistique",
+   "fichier": "v1-04-fait.png",
+   "position": 4,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Aides à Genève",
+   "cle": "CHF 750",
+   "cle_legende": "par an au plus, le chèque annuel de formation",
+   "titre": "Le chèque genevois vise les cours agréés de 40 heures",
+   "resume": "Sous plafond de revenu et sauf dérogation. Les frais de formation professionnelle se déduisent aussi du revenu imposable.",
+   "sombre": false,
+   "source": "Loi cantonale genevoise et Administration fédérale des contributions",
+   "fichier": "v1-05-fait.png",
+   "position": 5,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "La méthode pour lire un devis est dans l'article, en lien dans la bio.",
+   "fichier": "v1-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}

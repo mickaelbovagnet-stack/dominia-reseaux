@@ -1,0 +1,23 @@
+{
+ "ig": "Se former à l'IA à 50 ans ne demande pas de soirées de tutoriels.\n\nEssayez l'IA chaque fois qu'une tâche rébarbative se présente. La première fois prend du temps, puis chaque répétition va plus vite.\n\nTrois usages pour commencer, préparer une réunion à partir d'un document, relire un e-mail délicat, mettre une décision à l'épreuve. Chaque prompt suit la méthode des 4 C. Les exemples sont fictifs.\n\nVotre expérience vous permet de juger le résultat. Le jugement reste le vôtre.\n\nEnregistrez ce post pour votre prochain comité. Le prompt de la réunion est en premier commentaire, l'article en lien dans la bio.\n\n#intelligenceartificielle #cadres #formation #claude #suisseromande",
+ "li": "Se former à l'IA à 50 ans, la méthode pour un cadre.\n\nInutile de passer ses soirées sur des tutoriels. Essayez l'IA chaque fois qu'une tâche rébarbative se présente. La première fois prend du temps, puis chaque répétition va plus vite.\n\nTrois usages hebdomadaires sans compétence technique, avec des prompts selon la méthode des 4 C.\n1. Préparer une réunion à partir d'un document, en demandant ce que le comité va contester.\n2. Relire un e-mail délicat avant de l'envoyer, sans nom ni détail identifiant.\n3. Mettre une décision à l'épreuve en faisant jouer à l'IA un membre du comité sceptique.\n\nRégularité et curiosité suffisent, car votre expérience vous permet de juger le résultat.\n\nLes trois prompts et les erreurs à éviter sont dans l'article.\nhttps://cimeria.ch/se-former-ia-50-ans-cadre/\n\n#intelligenceartificielle #cadres #formation",
+ "fb": "Se former à l'IA à 50 ans ne demande pas de soirées de tutoriels.\n\nEssayez l'IA chaque fois qu'une tâche rébarbative se présente. Trois usages pour commencer, préparer une réunion, relire un e-mail délicat, mettre une décision à l'épreuve. Votre expérience vous permet de juger le résultat.\n\nLes trois prompts complets sont dans l'article.\nhttps://cimeria.ch/se-former-ia-50-ans-cadre/",
+ "lien": "https://cimeria.ch/se-former-ia-50-ans-cadre/",
+ "slug": "se-former-ia-50-ans-cadre",
+ "fichiers": [
+  "v1-01-couverture.png",
+  "v1-02-etape.png",
+  "v1-03-etape.png",
+  "v1-04-etape.png",
+  "v1-05-fin.png"
+ ],
+ "alts": [
+  "Couverture Cimeria « Se former à l'IA à 50 ans quand on est cadre ». Trois usages hebdomadaires, sans compétence technique. Dessin au trait. Exemples fictifs en Suisse romande.",
+  "Se former à l'IA à 50 ans quand on est cadre, étape 1 sur 3, Réunion. Vous ajoutez « Identifie les trois points de ce rapport que le comité va contester, avec la page et le chiffre. » L'IA vous rend un tableau des trois points contestés et les informations absentes du rapport. À vérifier, chaque chiffre dans le document d'origine.",
+  "Se former à l'IA à 50 ans quand on est cadre, étape 2 sur 3, E-mail. Vous ajoutez « Relis mon brouillon de refus pour qu'il soit factuel et respectueux, sans changer ma décision. » L'IA vous rend une version corrigée de 120 mots au plus et les phrases modifiées et pourquoi. Avant de coller, retirer le nom et tout détail identifiant.",
+  "Se former à l'IA à 50 ans quand on est cadre, étape 3 sur 3, Décision. Vous ajoutez « Joue un membre du comité sceptique et donne-moi les objections les plus solides à mon projet. » L'IA vous rend cinq objections classées et la question à vous poser pour chacune. Votre part, ce que vous faites des objections.",
+  "Enregistrez ce post pour le retrouver. Le prompt de la réunion est en commentaire. L'article est en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+ ],
+ "titre_doc": "Se former à l'IA à 50 ans quand on est cadre",
+ "commentaire": "Le prompt pour préparer une réunion, à adapter à votre situation. L'exemple est fictif.\n\nJe dirige le département logistique d'une entreprise genevoise de 120 collaborateurs. Demain matin, je présente au comité de direction le rapport trimestriel joint. Le directeur financier veut réduire les coûts de transport et le directeur commercial se plaint des délais de livraison.\n\nObjectif : identifier les trois points de ce rapport que le comité va contester, pour préparer mes réponses.\n\nUtilise uniquement le rapport joint. Pour chaque point, indique la page et le chiffre concernés.\n\nFormat : un tableau de trois lignes avec le point contesté, la personne qui le soulèvera probablement, le chiffre du rapport qui l'appuie et une piste de réponse en une phrase. Signale ensuite les informations absentes du rapport dont j'aurais besoin.\n\nLes deux autres prompts sont dans l'article, en lien dans la bio."
+}

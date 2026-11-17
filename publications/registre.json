@@ -1,12 +1,136 @@
 {
  "description": "Articles de cimeria.ch déjà déclinés sur les réseaux. Tenu à jour par la tâche planifiée « Posts réseaux Cimeria » et à chaque production manuelle. Un article absent de cette liste n'a pas encore de post.",
  "articles": {
-  "comment-ecrire-un-bon-prompt": [{"dossier": "2026-11-24/prompt-4c", "format": "cas pratique", "date": "2026-11-24"}],
-  "ia-pour-pme-usages-concrets": [{"dossier": "2026-11-25/10-usages", "format": "liste", "date": "2026-11-25"}, {"dossier": "2026-11-26/regles-donnees", "format": "chiffre", "date": "2026-11-26"}],
-  "chatgpt-suisse-euria-lumo-apertus": [{"dossier": "2026-11-27/chatgpt-suisse", "format": "décryptage", "date": "2026-11-27"}],
-  "etude-de-marche-ia-claude": [{"dossier": "2026-11-30/etude-de-marche", "format": "cas pratique", "date": "2026-11-30"}],
-  "sommet-ia-geneve-2027-contribuer": [{"dossier": "2026-11-19/actualite-semaine-9-novembre", "format": "actualité", "date": "2026-11-19"}]
+  "comment-ecrire-un-bon-prompt": [
+   {
+    "dossier": "2026-11-24/prompt-4c",
+    "format": "cas pratique",
+    "date": "2026-11-24"
+   }
+  ],
+  "ia-pour-pme-usages-concrets": [
+   {
+    "dossier": "2026-11-25/10-usages",
+    "format": "liste",
+    "date": "2026-11-25"
+   },
+   {
+    "dossier": "2026-11-26/regles-donnees",
+    "format": "chiffre",
+    "date": "2026-11-26"
+   }
+  ],
+  "chatgpt-suisse-euria-lumo-apertus": [
+   {
+    "dossier": "2026-11-27/chatgpt-suisse",
+    "format": "décryptage",
+    "date": "2026-11-27"
+   }
+  ],
+  "etude-de-marche-ia-claude": [
+   {
+    "dossier": "2026-11-30/etude-de-marche",
+    "format": "cas pratique",
+    "date": "2026-11-30"
+   }
+  ],
+  "sommet-ia-geneve-2027-contribuer": [
+   {
+    "dossier": "2026-11-19/actualite-semaine-9-novembre",
+    "format": "actualité",
+    "date": "2026-11-19"
+   }
+  ],
+  "valais-ia-souveraine-ava": [
+   {
+    "dossier": "2026-11-17/valais-ava",
+    "format": "actualité",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "ia-entreprises-suisse-romande": [
+   {
+    "dossier": "2026-11-17/ia-entreprises-romandes",
+    "format": "décryptage",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "claude-ou-chatgpt-quelle-ia-choisir": [
+   {
+    "dossier": "2026-11-17/claude-ou-chatgpt",
+    "format": "décryptage",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "formation-ia-geneve-comparatif": [
+   {
+    "dossier": "2026-11-17/formation-ia-geneve",
+    "format": "décryptage",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "ia-protection-donnees-suisse": [
+   {
+    "dossier": "2026-11-17/protection-donnees",
+    "format": "décryptage",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "se-former-ia-50-ans-cadre": [
+   {
+    "dossier": "2026-11-17/se-former-50-ans",
+    "format": "cas pratique",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "utiliser-copilot-outlook-teams": [
+   {
+    "dossier": "2026-11-17/copilot-outlook-teams",
+    "format": "cas pratique",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "quelle-offre-claude-choisir": [
+   {
+    "dossier": "2026-11-17/quelle-offre-claude",
+    "format": "décryptage",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ],
+  "cout-formation-ia-suisse": [
+   {
+    "dossier": "2026-11-17/cout-formation-ia",
+    "format": "décryptage",
+    "date": "2026-11-17",
+    "note": "rattrapage, publication groupée"
+   }
+  ]
  },
- "agenda": [{"dossier": "2026-11-20/agenda", "date": "2026-11-20", "evenements": ["epfl-investor-day-2026", "formation-ia-pme-geneve-26-novembre-2026", "robots-agents-future-of-work", "introduction-ia-unifr", "ai-days-2027", "amld-intelligence-summit-2027", "geneva-ai-summit-2027"]}],
- "bienvenue": {"dossier": "2026-11-23/bienvenue", "date": "2026-11-18"}
+ "agenda": [
+  {
+   "dossier": "2026-11-20/agenda",
+   "date": "2026-11-20",
+   "evenements": [
+    "epfl-investor-day-2026",
+    "formation-ia-pme-geneve-26-novembre-2026",
+    "robots-agents-future-of-work",
+    "introduction-ia-unifr",
+    "ai-days-2027",
+    "amld-intelligence-summit-2027",
+    "geneva-ai-summit-2027"
+   ]
+  }
+ ],
+ "bienvenue": {
+  "dossier": "2026-11-23/bienvenue",
+  "date": "2026-11-17"
+ }
 }

@@ -1,0 +1,8 @@
+Le prompt d'Outlook, à coller dans « Aide-moi à répondre ». L'exemple est fictif.
+
+Contexte : je dirige la production de Mécarve SA, sous-traitant en mécanique de précision de 35 personnes à Carouge. Ce fil concerne le retard du lot 4471 du client H1, promis le 5 octobre 2026.
+Consigne : rédige une réponse qui confirme les deux livraisons (100 pièces le 12 novembre, le solde de 100 pièces le 18 novembre 2026) et propose un appel de 15 minutes cette semaine.
+Contenu : appuie-toi uniquement sur le fil ci-dessus.
+Cadre : 120 mots au plus, vouvoiement, ton direct et cordial, une seule formule de regret. Liste-moi à part toute information que tu n'as pas trouvée dans le fil.
+
+Les quatre autres prompts sont dans l'article, en lien dans la bio.

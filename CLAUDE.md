@@ -106,13 +106,13 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 Les posts suivent la production du site, sans contenu de remplissage. La tâche planifiée « Posts réseaux Cimeria » tourne du lundi au vendredi à 18 h 08 (heure de Zurich), juste après le déploiement du soir du site (17:07 UTC, soit 18 h 07 en hiver et 19 h 07 en été) et applique cette section avec tout le reste de ce fichier.
 
 ### Deux déclencheurs, rien d'autre
-1. **Un nouvel article publié.** Un article est publié quand son fichier est sur la branche `main` de dominia-site et que sa date `publie` est passée ou tombe avant 20 h le jour même. Il passe en ligne au déploiement du soir. Seuls comptent les articles publiés à partir du 17 novembre 2026 et absents de `publications/registre.json`. Les articles plus anciens restent sans post.
+1. **Un nouvel article publié.** Un article est publié quand son fichier est sur la branche `main` de dominia-site et que sa date `publie` est passée ou tombe avant 20 h le jour même. Il passe en ligne au déploiement du soir. Seuls comptent les articles absents de `publications/registre.json`.
    - Format selon la rubrique : Actualité (carrousel Instagram, `fait_cle` seul sur LinkedIn et Facebook), Pratique (cas pratique en 6 diapositives et premier commentaire), Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`).
    - Brouillon le soir même à 20 h (heure de Zurich). Si ce créneau de 20 h est déjà pris, le soir ouvré libre suivant. Un article fusionné après le passage de la tâche sort le lendemain soir.
 2. **L'agenda, une fois par semaine.** Chaque vendredi à 12 h (heure de Zurich), un visuel `agenda` des événements à venir de `dominia-site/src/content/evenements` (5 au plus par visuel, au-delà un carrousel de deux visuels). Pas d'agenda la semaine où aucun événement n'est à venir.
 
 ### Règles communes
-- Aucun post avant le post de bienvenue du mercredi 18 novembre 2026 à 8 h. Un article publié avant prend le premier soir libre à partir du 18 novembre.
+- Les articles publiés jusqu'au 17 novembre 2026 ont tous été déclinés en une publication groupée le 17 novembre 2026 (dossier `publications/2026-11-17/`).
 - Chaque production inscrit l'article ou l'agenda dans `publications/registre.json`, dans le même commit.
 - Avant de déposer un brouillon, la tâche liste les brouillons Buffer existants. Elle ne touche jamais un brouillon existant et respecte un créneau déjà pris (par exemple par un post préparé à la main).
 

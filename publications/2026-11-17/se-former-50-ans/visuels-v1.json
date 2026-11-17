@@ -1,0 +1,73 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Cas pratique",
+   "titre": "Se former à l'IA à 50 ans quand on est cadre",
+   "sous": "Trois usages hebdomadaires, sans compétence technique.",
+   "illustration": "sablier",
+   "note": "Exemples fictifs en Suisse romande.",
+   "droite": "Faites défiler →",
+   "fichier": "v1-01-couverture.png",
+   "position": 1,
+   "total": 5
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 1,
+   "etapes": 3,
+   "mot": "Réunion",
+   "ajout": "Identifie les trois points de ce rapport que le comité va contester, avec la page et le chiffre.",
+   "rend": [
+    "Un tableau des trois points contestés.",
+    "Les informations absentes du rapport."
+   ],
+   "reste": "Chaque chiffre dans le document d'origine.",
+   "lib_reste": "À vérifier",
+   "fichier": "v1-02-etape.png",
+   "position": 2,
+   "total": 5
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 2,
+   "etapes": 3,
+   "mot": "E-mail",
+   "ajout": "Relis mon brouillon de refus pour qu'il soit factuel et respectueux, sans changer ma décision.",
+   "rend": [
+    "Une version corrigée de 120 mots au plus.",
+    "Les phrases modifiées et pourquoi."
+   ],
+   "reste": "Retirer le nom et tout détail identifiant.",
+   "lib_reste": "Avant de coller",
+   "fichier": "v1-03-etape.png",
+   "position": 3,
+   "total": 5
+  },
+  {
+   "gabarit": "cas_etape",
+   "etape": 3,
+   "etapes": 3,
+   "mot": "Décision",
+   "ajout": "Joue un membre du comité sceptique et donne-moi les objections les plus solides à mon projet.",
+   "rend": [
+    "Cinq objections classées.",
+    "La question à vous poser pour chacune."
+   ],
+   "reste": "Ce que vous faites des objections.",
+   "lib_reste": "Votre part",
+   "fichier": "v1-04-etape.png",
+   "position": 4,
+   "total": 5
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "Le prompt de la réunion est en commentaire. L'article est en lien dans la bio.",
+   "fichier": "v1-05-fin.png",
+   "position": 5,
+   "total": 5
+  }
+ ]
+}
