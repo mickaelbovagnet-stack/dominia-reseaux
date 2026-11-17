@@ -10,7 +10,8 @@ Le JSON contient "visuels", une liste. Chaque visuel a un "gabarit" et ses champ
 - cas        : titre, accroche, photo                     (couverture de Reel, univers anthracite)
 - agenda     : titre, evenements [{date, lieu, titre}]
 - actualite  : date, titre, resume, source                (carte seule, LinkedIn et Facebook)
-- couverture_ia, lecon, etape_methode, capture, fin : carrousel de cas pratique (voir chaque fonction)
+- chiffre, liste, point_de_vue, cas_couverture, cas_etape, cas_fin : gabarits éditoriaux du 17 novembre 2026 (voir chaque fonction)
+- couverture_ia, lecon, etape_methode, capture, fin : anciens gabarits, conservés pour l'archive
 Champ commun facultatif : "fichier". Les chemins d'image sont absolus ou relatifs au fichier JSON.
 Règles : textes courts et gros (lecture sur téléphone), rouge réservé à l'étiquette, au filet et au logo.
 """
@@ -343,7 +344,124 @@ def capture(v):
     </div>"""
     return page(base(c, w, h), corps), (w, h)
 
-GABARITS = dict(capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+
+# =====================================================================
+# Gabarits éditoriaux, validés par Mick le 17 novembre 2026.
+# Grille fixe : rubrique en haut, titre, une seule image forte, logotype en pied.
+# Le rouge ne sert qu'à la rubrique, au logo, à la barre de progression et à un chiffre clé.
+# L'anthracite sert de bandeau (couverture, étapes) ou de fond plein (chiffre, point de vue).
+# =====================================================================
+ED_BLANC_C, ED_DOUCE_S, ED_ROUGE_S, ED_ROUGE_TS, ED_FILET_S = "#F6F5F2", "#BEBDB8", "#F04A3B", "#FF6B5C", "#4A4A4E"
+def ed_css(fond):
+    c = CLAIR
+    return POLICES + f"""
+* {{ margin:0; padding:0; box-sizing:border-box; }}
+html,body {{ width:1080px; height:1350px; overflow:hidden; }}
+body {{ background:{fond}; color:{c['encre']}; font-family:'Figtree',sans-serif; position:relative; }}
+.cadre {{ position:absolute; inset:0; }}
+.rub {{ position:absolute; left:80px; top:84px; font-family:'Jost',sans-serif; font-weight:500; font-size:28px; letter-spacing:.16em; text-transform:uppercase; color:{c['rougeTexte']}; }}
+.cpt {{ position:absolute; right:80px; top:84px; font-family:'Jost',sans-serif; font-weight:500; font-size:28px; color:{c['douce']}; }}
+.ed-titre {{ font-family:'Jost',sans-serif; font-weight:500; letter-spacing:-.015em; line-height:1.06; }}
+.etiq {{ font-family:'Jost',sans-serif; font-weight:500; font-size:28px; letter-spacing:.14em; text-transform:uppercase; color:{c['douce']}; }}
+.pied {{ position:absolute; left:80px; right:80px; bottom:60px; padding-top:28px; border-top:2px solid {c['filet']}; display:flex; justify-content:space-between; align-items:center; }}
+.site {{ font-family:'Jost',sans-serif; font-size:28px; letter-spacing:.02em; color:{c['douce']}; }}
+"""
+def ed_pied(droite="cimeria.ch", sombre=False):
+    if sombre:
+        return f"<div class='pied' style='border-top-color:{ED_FILET_S}'>{logotype(ED_BLANC_C, CLAIR['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(droite)}</div></div>"
+    return f"<div class='pied'>{logotype(CLAIR['encre'], CLAIR['rouge'], 210)}<div class='site'>{e(droite)}</div></div>"
+def ed_cpt(v, sombre=False):
+    return f"<div class='cpt' style='color:{ED_DOUCE_S if sombre else CLAIR['douce']}'>{e(v['position'])} / {e(v['total'])}</div>" if v.get("position") and v.get("total") else ""
+def ed_page(fond, corps): return page(ed_css(fond), f"<div class='cadre'>{corps}</div>"), (1080, 1350)
+
+def chiffre(v):
+    """Chiffre clé, fond anthracite. Champs : rubrique, accent (partie rouge du chiffre), nombre (suite du chiffre), phrase, action, source.
+    Exemple : accent "1", nombre " sur 3". Le chiffre tient sur une ligne, 8 signes au plus."""
+    c = CLAIR
+    corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Le chiffre'))}</div>
+    <div style='position:absolute;left:66px;top:140px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{v.get('taille',345)}px;line-height:1;letter-spacing:-.045em;color:{ED_BLANC_C}'><span style='color:{ED_ROUGE_S}'>{e(v.get('accent',''))}</span>{e(v.get('nombre',''))}</div>
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:560px;font-size:62px;line-height:1.14;color:{ED_BLANC_C}'>{e(v['phrase'])}</div>
+    <div style='position:absolute;left:80px;right:80px;top:850px;padding-top:44px;border-top:2px solid {ED_FILET_S};font-size:46px;line-height:1.35;color:{ED_DOUCE_S}'>{e(v.get('action',''))}</div>
+    <div style='position:absolute;left:80px;right:80px;top:1168px;font-size:26px;color:{ED_DOUCE_S}'>Source · {e(v['source'])}</div>
+    {ed_pied(v.get('droite','cimeria.ch'), True)}"""
+    return ed_page(c['encre'], corps)
+
+def liste(v):
+    """Liste à garder, fond clair. Champs : rubrique, titre, sous, elements [[libellé, "d" ou "i"]] (10 au plus), legende (true pour Débutant / Intermédiaire), note, droite.
+    Le niveau est facultatif : sans lui, pas de pastille."""
+    c = CLAIR
+    pastille = lambda n: "" if not n else f"<div style='width:16px;height:16px;border-radius:50%;flex:none;{'background:'+c['encre'] if n=='d' else 'border:3px solid '+c['encre']}'></div>"
+    lignes = "".join(f"<div style='display:flex;align-items:center;gap:30px;padding:9px 0;border-top:2px solid {c['filet']}'><div style='font-family:Jost;font-weight:500;font-size:36px;width:56px;flex:none'>{k:02d}</div><div style='font-size:35px;line-height:1.2;flex:1'>{e(x[0])}</div>{pastille(x[1] if len(x) > 1 else '')}</div>" for k, x in enumerate(v["elements"], 1))
+    leg = f"<div><span style='display:inline-block;width:16px;height:16px;border-radius:50%;background:{c['encre']}'></span>&nbsp; Débutant &nbsp;&nbsp;&nbsp;<span style='display:inline-block;width:16px;height:16px;border-radius:50%;border:3px solid {c['encre']}'></span>&nbsp; Intermédiaire</div>" if v.get("legende") else "<div></div>"
+    corps = f"""<div class='rub'>{e(v.get('rubrique','À garder'))}</div>{ed_cpt(v)}
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['titre'],72,64,58)}px'>{e(v['titre'])}<div style='font-family:Figtree;font-size:36px;line-height:1.3;color:{c['douce']};letter-spacing:0;margin-top:26px'>{e(v.get('sous',''))}</div></div>
+    <div style='position:absolute;left:80px;right:80px;top:420px'>{lignes}</div>
+    <div style='position:absolute;left:80px;right:80px;top:1172px;display:flex;justify-content:space-between;font-size:26px;color:{c['douce']}'>{leg}<div>{e(v.get('note',''))}</div></div>
+    {ed_pied(v.get('droite','cimeria.ch'))}"""
+    return ed_page(c['fond'], corps)
+
+def point_de_vue(v):
+    """Citation de Mickaël et portrait en moitié basse. Champs : rubrique, citation (sans guillemets), auteur, photo (facultatif)."""
+    c = CLAIR; photo = v.get("photo", str(ICI / "images/mickael-bovagnet.jpg"))
+    corps = f"""<div class='rub'>{e(v.get('rubrique','Point de vue'))}</div>
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['citation'],70,70,58)}px;line-height:1.08'>« {e(v['citation'])} »</div>
+    <div style='position:absolute;left:80px;top:470px;font-size:30px;color:{c['douce']}'>{e(v.get('auteur','Mickaël Bovagnet, auteur du guide'))}</div>
+    <div style='position:absolute;left:0;right:0;top:600px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
+    <div style='position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.85))'></div>
+    <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','cimeria.ch'))}</div></div>"""
+    return ed_page(c['fond'], corps)
+
+def cas_couverture(v):
+    """Couverture de cas pratique : bandeau anthracite avec le titre, illustration au trait en partie claire.
+    Champs : rubrique, position, total, titre (50 signes au plus), sous, illustration (nom d'un fichier de gabarits/illustrations, sans .svg), note, droite."""
+    c = CLAIR
+    ill = (ICI / f"illustrations/{v['illustration']}.svg").read_text() if v.get("illustration") else ""
+    ill = ill.replace("<svg ", "<svg width='620' height='434' ", 1)
+    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:700px;background:{c['encre']}'></div>
+    <div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Cas pratique'))}</div>{ed_cpt(v, True)}
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['titre'],118,104,92)}px;line-height:1.02;color:{ED_BLANC_C}'>{e(v['titre'])}<div style='font-family:Figtree;font-size:42px;line-height:1.3;color:{ED_DOUCE_S};letter-spacing:0;margin-top:30px'>{e(v.get('sous',''))}</div></div>
+    <div style='position:absolute;left:0;right:0;top:730px;display:flex;justify-content:center'>{ill}</div>
+    <div style='position:absolute;left:80px;right:80px;top:1172px;font-size:26px;color:{c['douce']};text-align:center'>{e(v.get('note',''))}</div>
+    {ed_pied(v.get('droite','Faites défiler →'))}"""
+    return ed_page(c['fond'], corps)
+
+def cas_etape(v):
+    """Étape de cas pratique : bandeau anthracite avec la progression et le mot de l'étape, carte « Vous ajoutez », puis ce que l'IA rend et ce qui reste.
+    Champs : etape, etapes (nombre total d'étapes), mot (12 signes au plus), ajout (25 mots au plus, sans guillemets), rend [1 ou 2 lignes courtes],
+    reste, lib_reste (« Ce qui manque encore » par défaut, « Votre part » à la dernière étape), position, total."""
+    c = CLAIR; n, tot = int(v["etape"]), int(v.get("etapes", 4))
+    barre = "<div style='display:flex;gap:12px'>" + "".join(f"<div style='flex:1;height:12px;border-radius:6px;background:{ED_ROUGE_S if i < n else ED_FILET_S}'></div>" for i in range(tot)) + "</div>"
+    puce = lambda plein: f"<div style='width:30px;height:30px;border-radius:50%;flex:none;margin-top:13px;{'background:'+c['encre'] if plein else 'border:5px solid '+c['encre']}'></div>"
+    rend = "".join(f"<div style='display:flex;gap:26px;font-size:46px;line-height:1.28;margin-top:20px'>{puce(True)}<div>{e(x)}</div></div>" for x in v["rend"])
+    lib = v.get("lib_reste", "Votre part" if n == tot else "Ce qui manque encore")
+    corps = f"""<div style='position:absolute;left:0;right:0;top:0;height:500px;background:{c['encre']}'></div>
+    <div class='rub' style='color:{ED_ROUGE_TS}'>Étape {n} sur {tot}</div>{ed_cpt(v, True)}
+    <div style='position:absolute;left:80px;right:80px;top:150px'>{barre}</div>
+    <div style='position:absolute;left:72px;top:200px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{200 if len(v['mot']) <= 9 else 160}px;line-height:1;letter-spacing:-.035em;color:{ED_BLANC_C}'>{e(v['mot'])}</div>
+    <div style='position:absolute;left:80px;right:80px;top:430px;bottom:170px;display:flex;flex-direction:column'>
+      <div style='background:#FFFFFF;border-radius:18px;padding:44px 52px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
+        <div class='etiq'>Vous ajoutez</div>
+        <div style='font-size:50px;line-height:1.28;margin-top:16px'>« {e(v['ajout'])} »</div></div>
+      <div style='flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:36px'>
+        <div class='etiq'>L’IA vous rend</div>{rend}
+        <div class='etiq' style='margin-top:52px'>{e(lib)}</div>
+        <div style='display:flex;gap:26px;font-size:46px;line-height:1.28;margin-top:20px;color:{c['douce']}'>{puce(False)}<div>{e(v['reste'])}</div></div></div></div>
+    {ed_pied(v.get('droite','cimeria.ch'))}"""
+    return ed_page(c['fond'], corps)
+
+def cas_fin(v):
+    """Dernière diapositive d'un cas pratique, même grille que le point de vue. Champs : titre, texte, auteur, photo (facultatif), position, total."""
+    c = CLAIR; photo = v.get("photo", str(ICI / "images/mickael-bovagnet.jpg"))
+    corps = f"""<div class='rub'>{e(v.get('rubrique','À retenir'))}</div>{ed_cpt(v)}
+    <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:80px'>{e(v.get('titre','Enregistrez ce post pour le retrouver.'))}</div>
+    <div style='position:absolute;left:80px;right:80px;top:350px;font-size:36px;line-height:1.3;color:{c['douce']}'>{e(v.get('texte','Le prompt complet est en commentaire. L’article détaillé est en lien dans la bio.'))}</div>
+    <div style='position:absolute;left:0;right:0;top:600px;bottom:0;background:url({img(photo)}) center 18%/cover'></div>
+    <div style='position:absolute;left:0;right:0;bottom:0;height:260px;background:linear-gradient(rgba(20,20,22,0),rgba(20,20,22,.88))'></div>
+    <div style='position:absolute;left:80px;bottom:170px;font-size:32px;color:{ED_BLANC_C}'><b style='font-weight:600'>{e(v.get('auteur','Mickaël Bovagnet'))}</b> · {e(v.get('fonction','Auteur du guide, Cimeria'))}</div>
+    <div class='pied' style='border-top-color:rgba(246,245,242,.25)'>{logotype(ED_BLANC_C, c['rouge'], 210)}<div class='site' style='color:{ED_DOUCE_S}'>{e(v.get('droite','@cimeria.ch'))}</div></div>"""
+    return ed_page(c['fond'], corps)
+
+GABARITS = dict(chiffre=chiffre, liste=liste, point_de_vue=point_de_vue, cas_couverture=cas_couverture, cas_etape=cas_etape, cas_fin=cas_fin, capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
 async def main(spec, sortie):
     global RACINE
@@ -369,6 +487,8 @@ async def main(spec, sortie):
             await pg.goto(tmp.as_uri()); await pg.evaluate("document.fonts.ready"); await pg.wait_for_timeout(300)
             nom = v.get("fichier", f"{i:02d}-{v['gabarit']}.png")
             await pg.screenshot(path=str(sortie / nom))
+            if v["gabarit"] == "cas_etape" and (n := mots(v["ajout"])) > 25:
+                print(f"ATTENTION {nom} : « Vous ajoutez » fait {n} mots, 25 au plus")
             if v["gabarit"] == "etape_methode" and (n := mots(*(b for _, b in v["consigne"]), v["rend"], v["verifie"])) > 60:
                 print(f"ATTENTION {nom} : {n} mots, 60 au plus, alléger ou répartir sur deux diapositives")
             if await pg.evaluate("(() => { const c=document.querySelector('.cadre'); return c.scrollHeight > c.clientHeight + 2; })()"):

@@ -1,6 +1,6 @@
 # Charte des réseaux sociaux Cimeria
 
-Ce dépôt héberge les visuels publics des réseaux sociaux de Cimeria (Dominia jusqu'au 16 novembre 2026, le dépôt garde son nom dominia-reseaux). Comptes : Instagram @cimeria.ch, LinkedIn linkedin.com/company/cimeria-ch, Facebook facebook.com/cimeria.ch. Ces consignes s'appliquent à toute conversation du projet et à toute tâche planifiée qui prépare un post. Processus validé par Mick le 12 novembre 2026, passé aux couleurs de Cimeria le 17 novembre 2026.
+Ce dépôt héberge les visuels publics des réseaux sociaux de Cimeria (Dominia jusqu'au 16 novembre 2026, le dépôt garde son nom dominia-reseaux). Comptes : Instagram @cimeria.ch, LinkedIn linkedin.com/company/cimeria-ch, Facebook facebook.com/cimeria.ch. Ces consignes s'appliquent à toute conversation du projet et à toute tâche planifiée qui prépare un post. Processus validé par Mick le 12 novembre 2026, passé aux couleurs de Cimeria et à la grille éditoriale le 17 novembre 2026.
 
 ## Règles absolues
 
@@ -31,25 +31,32 @@ Relire l'article publié sur cimeria.ch en entier. Tous les chiffres, consignes 
 - Montrer la vraie consigne en 4 C (Contexte, Consigne, Contenu, Cadre) et les vérifications.
 - Ne jamais laisser croire qu'une question suffit. Le post n'est pas réducteur.
 
-### 3. Construire le carrousel Instagram en 8 diapositives (1080 x 1350)
+### 3. Construire le carrousel Instagram en 6 diapositives (1080 x 1350)
 
-| N° | Gabarit | Étiquette | Contenu |
-|---|---|---|---|
-| 1 | `couverture_ia` | Pratique | Le titre en haut, gros et lisible en vignette (45 signes au plus), sans mot répété. Une accroche concrète (durée, nombre d'étapes, exemple). En dessous, la demande naïve, la réponse vague de l'IA et le tampon « Trop vague ». |
-| 2 | `lecon` | Aperçu du guide | « Ce qui fait la différence ». Les 4 C nommés, vos sources, votre contrôle. |
-| 3 à 6 | `etape_methode` | Aperçu du guide | Une étape par diapositive : le bloc « Ce que vous écrivez, en 4 C » (consignes courtes), puis deux lignes, « L'IA vous rend » et « Vous vérifiez ». 60 mots au plus par diapositive, le script prévient au-delà. Une étape plus riche se répartit sur deux diapositives. Les termes techniques sont traduits (« un rapport à ouvrir dans le navigateur » plutôt que « HTML »). Les sigles sont écrits en toutes lettres. |
-| 7 | `capture` | Aperçu du guide | Le résultat réel. Une vraie capture tirée de l'article (outil et date en légende), recadrée pour rester lisible sur téléphone, le bas effacé avec « La suite dans l'article ». Jamais d'image générée par IA ni de photo de banque d'images. |
-| 8 | `fin` | Pratique | « Enregistrez ce post pour le retrouver. » La consigne complète de l'étape 1 annoncée en commentaire, le renvoi à l'article en lien dans la bio. Signature « Mickaël Bovagnet, Auteur du guide, Cimeria » avec le portrait. |
+Direction validée par Mick le 17 novembre 2026, sur le modèle de The Economist et de la Harvard Business Review. La cible est faite de cadres et de dirigeants, des lecteurs ordonnés et souvent expérimentés. La grille reste fixe, peu de texte, une seule image forte par visuel. Pas de capture d'écran, pas de mise en page qui part dans tous les sens.
 
-Le nombre d'étapes peut varier selon l'article. La structure reste la même.
+| N° | Gabarit | Contenu |
+|---|---|---|
+| 1 | `cas_couverture` | Bandeau anthracite avec le titre (50 signes au plus) et un sous-titre concret. En partie claire, une illustration au trait tirée de `gabarits/illustrations/`. « Exemple fictif » en note quand c'est le cas. |
+| 2 à 5 | `cas_etape` | Une étape par diapositive. Bandeau anthracite avec la barre de progression et le mot de l'étape (Contexte, Consigne, Contenu, Cadre). Carte « Vous ajoutez » de 25 mots au plus, le script prévient au-delà. Puis « L'IA vous rend » (une ou deux lignes courtes) et « Ce qui manque encore », qui devient « Votre part » à la dernière étape. Les termes techniques sont traduits et les sigles écrits en toutes lettres. |
+| 6 | `cas_fin` | « Enregistrez ce post pour le retrouver. » Le prompt complet annoncé en commentaire, l'article en lien dans la bio. Portrait de Mickaël en moitié basse avec la signature « Mickaël Bovagnet, Auteur du guide, Cimeria ». |
+
+Le nombre d'étapes suit l'article. La structure reste la même.
+
+Formats d'image unique, à alterner avec les carrousels dans la grille du profil :
+- `chiffre` : un chiffre clé d'une source officielle, sur fond anthracite. La partie `accent` du chiffre est en rouge. Une phrase qui l'explique, une ligne qui dit quoi faire, la source.
+- `liste` : une liste numérotée à garder (10 éléments au plus), par exemple les usages d'un article.
+- `point_de_vue` : une phrase de Mickaël tirée d'un article publié, avec son portrait en moitié basse.
 
 ### 4. Respecter la charte visuelle
 - Charte Cimeria (artifact « Cimeria, identité », https://claude.ai/artifact/WV2b8yPKi2L1bGXnSqTtfR).
-- Univers clair (fond #F6F5F2, cartes #FFFFFF, encre #2B2B2D). L'univers anthracite reste réservé aux couvertures de cas pratique avec portrait.
-- Le rouge (#DA291C) est réservé aux accents et au carré du logo, jamais en aplat.
+- Fond clair #F6F5F2, cartes #FFFFFF, encre #2B2B2D. L'anthracite sert de bandeau (couverture et étapes) ou de fond plein (chiffre). Dans la grille du profil, les visuels anthracite et clairs alternent.
+- Le rouge (#DA291C, #F04A3B sur anthracite) est réservé à la rubrique, au carré du logo, à la barre de progression et à la partie `accent` d'un chiffre clé. Jamais de surlignage, de cadre ni d'aplat rouge.
 - Jost pour les titres, étiquettes et chiffres, Figtree pour les textes.
 - Logotype Cimeria en pied de chaque visuel, d'un seul bloc, sans jamais isoler « ia ». Aucun quadrillage sur les visuels des réseaux.
-- Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit.
+- Les illustrations sont des dessins au trait anthracite, un seul détail rouge, rangés dans `gabarits/illustrations/` (SVG 600 x 420). Jamais d'image générée par IA, de photo de banque d'images ni de logo d'un éditeur.
+- Les photos sont celles de Mickaël, fournies par lui.
+- Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit. Les gabarits `couverture_ia`, `lecon`, `etape_methode`, `capture` et `fin` sont conservés pour l'archive et ne servent plus.
 
 ### 5. Relire deux fois avant d'envoyer à Mick
 1. En expert des réseaux sociaux : accroche, rythme, lisibilité sur téléphone, appel à l'action.
@@ -85,7 +92,8 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 
 ## Arborescence
 
-- `gabarits/` : générateur, polices Jost et Figtree, portrait.
+- `gabarits/` : générateur, polices Jost et Figtree, portrait, illustrations au trait.
+- `maquettes/2026-11-17/` : les maquettes qui ont mené à la grille éditoriale.
 - `publications/2026-11-12/` : archive de l'époque Dominia, à ne pas republier telle quelle.
 - `publications/AAAA-MM-JJ/sujet/` : `sources/`, fichiers JSON de chaque version, images, `planche.png`, `premier-commentaire.txt`.
 - `apercus/` : un exemple de chaque gabarit, régénéré par `python3 gabarits/generer.py apercus/source/apercus.json apercus`.
