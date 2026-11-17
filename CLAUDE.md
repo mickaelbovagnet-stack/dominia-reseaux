@@ -5,7 +5,7 @@ Ce dépôt héberge les visuels publics des réseaux sociaux de Cimeria (Dominia
 ## Règles absolues
 
 - Échanger avec Mick en français. Il s'appelle Mickaël Bovagnet dans tout contenu public.
-- Rien n'est jamais publié par Claude. Tout part en brouillon dans Buffer et Mick publie lui-même.
+- Tout part d'abord en brouillon dans Buffer. Claude publie depuis Buffer seulement après la validation explicite de Mick dans la conversation (règle changée par Mick le 17 novembre 2026). Sans cette validation, Mick publie lui-même.
 - Tout ce qui est dans ce dépôt est public. Aucune donnée confidentielle.
 - Les règles de contenu du site s'appliquent aussi aux réseaux (voir le CLAUDE.md de dominia-site). Aucun prix du coaching, aucun montant en dollars ou en euros, aucune organisation privée romande nommée sans l'accord de Mick.
 - Typographie de chaque texte (visuels, légendes, textes alternatifs, commentaires) :
@@ -92,7 +92,7 @@ Organisation 6af56cc922ccef12afddbdf0 (« My organization », offre gratuite : 3
 - **Facebook** (6afb1540ece6dfde5fe51193, page cimeria.ch) : les mêmes images en album, avec une légende proche d'Instagram et un lien direct vers l'article.
 
 ### 8. Soumettre à Mick
-Envoyer la planche, le premier commentaire et un court récapitulatif. Mick valide, publie et poste le commentaire. Quand un visuel contient un portrait généré, le récapitulatif le signale pour qu'il active l'étiquette IA d'Instagram.
+Envoyer la planche, le premier commentaire et un court récapitulatif. Mick valide. Il publie lui-même ou demande à Claude de publier depuis Buffer, dans l'ordre chronologique des articles (le plus ancien d'abord, pour l'ordre de la grille Instagram). Mick poste ensuite le premier commentaire à la main. Quand un visuel contient un portrait généré, le récapitulatif le signale pour qu'il active l'étiquette IA d'Instagram.
 
 ## Version allégée pour l'actualité
 
