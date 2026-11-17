@@ -101,6 +101,45 @@ def etape():
 RENDUS = [("v2-1-chiffre.png", chiffre), ("v2-2-usages.png", usages), ("v2-3-point-de-vue.png", point_de_vue),
           ("v2-4-cas-couverture.png", couverture_cas), ("v2-5-cas-etape.png", etape)]
 
+# ---------- v3 : chiffre lisible et étape avec plus d'impact ----------
+def chiffre_v3():
+    corps = f"""<div class='rub'>Le chiffre</div>
+    <div style='position:absolute;left:72px;top:150px;font-family:Jost;font-weight:500;font-size:330px;line-height:1;letter-spacing:-.04em'>1 sur 3</div>
+    <div style='position:absolute;left:80px;right:80px;top:520px;font-family:Jost;font-weight:500;font-size:58px;line-height:1.15;letter-spacing:-.01em'>Seule une PME suisse sur trois qui utilise l’IA a fixé des règles claires pour protéger ses données.</div>
+    <div style='position:absolute;left:80px;right:80px;top:840px;padding-top:40px;border-top:2px solid {FILET};font-size:40px;line-height:1.35'>
+      Une page suffit. Elle dit ce qui entre dans l’outil, ce qui n’y entre jamais et qui relit avant l’envoi.</div>
+    <div style='position:absolute;left:80px;right:80px;top:1150px;font-size:26px;color:{DOUCE}'>Source · AXA, étude sur le marché du travail des PME, édition 2025.</div>
+    {pied()}"""
+    return page(corps)
+
+def progression(n, total=4):
+    return "<div style='display:flex;gap:12px'>" + "".join(
+        f"<div style='flex:1;height:12px;border-radius:6px;{'background:'+ENCRE if i < n else 'border:2px solid '+ENCRE}'></div>" for i in range(total)) + "</div>"
+
+def etape_v3(n, mot, ajout, gains, reste, lib_reste="Ce qui manque encore", cpt=""):
+    puce = lambda plein: f"<div style='width:26px;height:26px;border-radius:50%;flex:none;margin-top:12px;{'background:'+ENCRE if plein else 'border:4px solid '+ENCRE}'></div>"
+    lignes = "".join(f"<div style='display:flex;gap:24px;font-size:40px;line-height:1.3;margin-top:18px'>{puce(True)}<div>{e(x)}</div></div>" for x in gains)
+    corps = f"""<div class='rub'>Étape {n} sur 4</div><div class='cpt'>{cpt}</div>
+    <div style='position:absolute;left:80px;right:80px;top:150px'>{progression(n)}</div>
+    <div style='position:absolute;left:74px;top:210px;font-family:Jost;font-weight:500;font-size:170px;line-height:1;letter-spacing:-.03em'>{e(mot)}</div>
+    <div style='position:absolute;left:80px;right:80px;top:430px;border-left:8px solid {ENCRE};padding:6px 0 6px 40px'>
+      <div style='font-family:Jost;font-weight:500;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:{DOUCE}'>Vous ajoutez</div>
+      <div style='font-size:46px;line-height:1.3;margin-top:14px'>« {e(ajout)} »</div></div>
+    <div style='position:absolute;left:80px;right:80px;top:800px'>
+      <div style='font-family:Jost;font-weight:500;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:{DOUCE}'>L’IA vous rend</div>{lignes}
+      <div style='font-family:Jost;font-weight:500;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:{DOUCE};margin-top:44px'>{e(lib_reste)}</div>
+      <div style='display:flex;gap:24px;font-size:40px;line-height:1.3;margin-top:18px;color:{DOUCE}'>{puce(False)}<div>{e(reste)}</div></div></div>
+    {pied()}"""
+    return page(corps)
+
+def etape1(): return etape_v3(1, "Contexte", "Je dirige une PME genevoise d’entretien de chauffages. Hausse de 4 % au 1er\u00a0janvier.",
+                             ["Un e-mail qui parle de vos clients."], "Le montant et les raisons restent vagues.", cpt="2 / 6")
+def etape4(): return etape_v3(4, "Cadre", "120 mots au plus. Signale-moi ce que tu as dû inventer.",
+                             ["Un e-mail de 105 mots, deux objets au choix.", "La liste de ce que l’IA a supposé."],
+                             "Vous relisez. Le texte part sous votre signature.", lib_reste="Votre part", cpt="5 / 6")
+
+RENDUS = [("v3-1-chiffre.png", chiffre_v3), ("v3-5-etape-1.png", etape1), ("v3-5-etape-4.png", etape4)]
+
 async def main():
     async with async_playwright() as p:
         nav = await p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox", "--allow-file-access-from-files"])
@@ -114,6 +153,6 @@ async def main():
     ims = [Image.open(ICI / n) for n, _ in RENDUS]
     W, H = 432, 540; pl = Image.new("RGB", (len(ims) * (W + 16) + 16, H + 32), "white")
     for i, im in enumerate(ims): pl.paste(im.resize((W, H)), (16 + i * (W + 16), 16))
-    pl.save(ICI / "v2-planche.png")
+    pl.save(ICI / "v3-planche.png")
 
 asyncio.run(main())
