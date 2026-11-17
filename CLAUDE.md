@@ -112,6 +112,7 @@ Les posts suivent la production du site, sans contenu de remplissage. La tâche 
 2. **L'agenda, une fois par semaine.** Chaque vendredi à 12 h (heure de Zurich), un visuel `agenda` des événements à venir de `dominia-site/src/content/evenements` (5 au plus par visuel, au-delà un carrousel de deux visuels). Pas d'agenda la semaine où aucun événement n'est à venir.
 
 ### Règles communes
+- Aucun post avant le post de bienvenue du mercredi 18 novembre 2026 à 8 h. Un article publié avant prend le premier soir libre à partir du 18 novembre.
 - Chaque production inscrit l'article ou l'agenda dans `publications/registre.json`, dans le même commit.
 - Avant de déposer un brouillon, la tâche liste les brouillons Buffer existants. Elle ne touche jamais un brouillon existant et respecte un créneau déjà pris (par exemple par un post préparé à la main).
 
