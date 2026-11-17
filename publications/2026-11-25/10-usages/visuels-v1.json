@@ -1,0 +1,56 @@
+{
+ "visuels": [
+  {
+   "gabarit": "liste",
+   "fichier": "01-10-usages.png",
+   "rubrique": "À garder",
+   "titre": "10 usages de l’IA pour diriger une PME",
+   "sous": "Sans développeur ni budget, version gratuite comprise.",
+   "legende": true,
+   "note": "Les 10 prompts sont dans l’article.",
+   "droite": "Lien en bio",
+   "elements": [
+    [
+     "Relire un courrier délicat",
+     "d"
+    ],
+    [
+     "Résumer un contrat",
+     "d"
+    ],
+    [
+     "Préparer un comité de direction",
+     "d"
+    ],
+    [
+     "Analyser un tableau de ventes",
+     "i"
+    ],
+    [
+     "Poser les hypothèses d’un budget",
+     "i"
+    ],
+    [
+     "Faire une première étude de marché",
+     "i"
+    ],
+    [
+     "Décrire son client idéal",
+     "d"
+    ],
+    [
+     "Relancer les impayés",
+     "d"
+    ],
+    [
+     "S’entraîner à négocier",
+     "i"
+    ],
+    [
+     "Traduire pour la Suisse alémanique",
+     "d"
+    ]
+   ]
+  }
+ ]
+}

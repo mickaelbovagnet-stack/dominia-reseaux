@@ -391,7 +391,8 @@ def liste(v):
     Le niveau est facultatif : sans lui, pas de pastille."""
     c = CLAIR
     pastille = lambda n: "" if not n else f"<div style='width:16px;height:16px;border-radius:50%;flex:none;{'background:'+c['encre'] if n=='d' else 'border:3px solid '+c['encre']}'></div>"
-    lignes = "".join(f"<div style='display:flex;align-items:center;gap:30px;padding:9px 0;border-top:2px solid {c['filet']}'><div style='font-family:Jost;font-weight:500;font-size:36px;width:56px;flex:none'>{k:02d}</div><div style='font-size:35px;line-height:1.2;flex:1'>{e(x[0])}</div>{pastille(x[1] if len(x) > 1 else '')}</div>" for k, x in enumerate(v["elements"], 1))
+    n = len(v["elements"]); pad, fs = (9, 35) if n > 8 else (16, 38) if n > 6 else (24, 42)
+    lignes = "".join(f"<div style='display:flex;align-items:center;gap:30px;padding:{pad}px 0;border-top:2px solid {c['filet']}'><div style='font-family:Jost;font-weight:500;font-size:{fs+1}px;width:{fs+22}px;flex:none'>{k:02d}</div><div style='font-size:{fs}px;line-height:1.2;flex:1'>{e(x[0])}</div>{pastille(x[1] if len(x) > 1 else '')}</div>" for k, x in enumerate(v["elements"], 1))
     leg = f"<div><span style='display:inline-block;width:16px;height:16px;border-radius:50%;background:{c['encre']}'></span>&nbsp; Débutant &nbsp;&nbsp;&nbsp;<span style='display:inline-block;width:16px;height:16px;border-radius:50%;border:3px solid {c['encre']}'></span>&nbsp; Intermédiaire</div>" if v.get("legende") else "<div></div>"
     corps = f"""<div class='rub'>{e(v.get('rubrique','À garder'))}</div>{ed_cpt(v)}
     <div class='ed-titre' style='position:absolute;left:80px;right:80px;top:146px;font-size:{tt(v['titre'],72,64,58)}px'>{e(v['titre'])}<div style='font-family:Figtree;font-size:36px;line-height:1.3;color:{c['douce']};letter-spacing:0;margin-top:26px'>{e(v.get('sous',''))}</div></div>
@@ -439,7 +440,7 @@ def cas_etape(v):
     <div class='rub' style='color:{ED_ROUGE_TS}'>Étape {n} sur {tot}</div>{ed_cpt(v, True)}
     <div style='position:absolute;left:80px;right:80px;top:150px'>{barre}</div>
     <div style='position:absolute;left:72px;top:200px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{200 if len(v['mot']) <= 9 else 160}px;line-height:1;letter-spacing:-.035em;color:{ED_BLANC_C}'>{e(v['mot'])}</div>
-    <div style='position:absolute;left:80px;right:80px;top:430px;bottom:170px;display:flex;flex-direction:column'>
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:430px;bottom:170px;display:flex;flex-direction:column'>
       <div style='background:#FFFFFF;border-radius:18px;padding:44px 52px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
         <div class='etiq'>Vous ajoutez</div>
         <div style='font-size:50px;line-height:1.28;margin-top:16px'>{e('« ' + v['ajout'] + ' »')}</div></div>
@@ -493,7 +494,7 @@ async def main(spec, sortie):
                 print(f"ATTENTION {nom} : « Vous ajoutez » fait {n} mots, 25 au plus")
             if v["gabarit"] == "etape_methode" and (n := mots(*(b for _, b in v["consigne"]), v["rend"], v["verifie"])) > 60:
                 print(f"ATTENTION {nom} : {n} mots, 60 au plus, alléger ou répartir sur deux diapositives")
-            if await pg.evaluate("(() => { const c=document.querySelector('.cadre'); return c.scrollHeight > c.clientHeight + 2; })()"):
+            if await pg.evaluate("(() => { const c=document.getElementById('corps') || document.querySelector('.cadre'); return c.scrollHeight > c.clientHeight + 2; })()"):
                 print(f"ATTENTION {nom} : le texte déborde, raccourcir")
             print(sortie / nom)
             await pg.close(); tmp.unlink()
