@@ -1,0 +1,12 @@
+{
+ "description": "Articles de cimeria.ch déjà déclinés sur les réseaux. Tenu à jour par la tâche planifiée « Posts réseaux Cimeria » et à chaque production manuelle. Un article absent de cette liste n'a pas encore de post.",
+ "articles": {
+  "comment-ecrire-un-bon-prompt": [{"dossier": "2026-11-24/prompt-4c", "format": "cas pratique", "date": "2026-11-24"}],
+  "ia-pour-pme-usages-concrets": [{"dossier": "2026-11-25/10-usages", "format": "liste", "date": "2026-11-25"}, {"dossier": "2026-11-26/regles-donnees", "format": "chiffre", "date": "2026-11-26"}],
+  "chatgpt-suisse-euria-lumo-apertus": [{"dossier": "2026-11-27/chatgpt-suisse", "format": "décryptage", "date": "2026-11-27"}],
+  "etude-de-marche-ia-claude": [{"dossier": "2026-11-30/etude-de-marche", "format": "cas pratique", "date": "2026-11-30"}],
+  "sommet-ia-geneve-2027-contribuer": [{"dossier": "2026-11-19/actualite-semaine-9-novembre", "format": "actualité", "date": "2026-11-19"}]
+ },
+ "agenda": [{"dossier": "2026-11-20/agenda", "date": "2026-11-20", "evenements": ["epfl-investor-day-2026", "formation-ia-pme-geneve-26-novembre-2026", "robots-agents-future-of-work", "introduction-ia-unifr", "ai-days-2027", "amld-intelligence-summit-2027", "geneva-ai-summit-2027"]}],
+ "bienvenue": {"dossier": "2026-11-23/bienvenue", "date": "2026-11-18"}
+}

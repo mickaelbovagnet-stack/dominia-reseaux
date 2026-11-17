@@ -101,11 +101,38 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 4. Une seule relecture, celle du client type.
 5. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.
 
+## Plan de communication automatisé (validé par Mick le 17 novembre 2026)
+
+Les posts suivent la production du site. La tâche planifiée « Posts réseaux Cimeria » tourne du lundi au vendredi à 18 h 38 (heure de Zurich) et applique cette section avec tout le reste de ce fichier.
+
+### Ce qui déclenche un post
+- Un article est publié quand son fichier est sur la branche `main` de dominia-site, que sa date `publie` est passée et que sa page répond sur cimeria.ch.
+- `publications/registre.json` liste les articles déjà déclinés. Un article publié absent du registre attend son post. Chaque production l'y inscrit dans le même commit.
+
+### Grille de la semaine (brouillons à 8 h, heure de Zurich, un seul post par jour)
+| Jour | Post | Source |
+|---|---|---|
+| Mardi | Actualité de la semaine (carrousel Instagram, `fait_cle` seul sur LinkedIn et Facebook) | article Actualité du lundi |
+| Mercredi | Format court (`chiffre`, `liste` ou `point_de_vue`) | un article publié, en priorité un article sans post |
+| Jeudi | Cas pratique (6 diapositives et premier commentaire) | article Pratique du mercredi |
+| Vendredi | Agenda (`agenda`) une semaine sur deux s'il reste au moins 3 événements à venir non annoncés, sinon un format court | `dominia-site/src/content/evenements` |
+| Lundi | Décryptage (`cas_couverture`, `fait_cle`, `cas_fin`) | article Décryptage du vendredi précédent |
+
+- Un article publié hors de son jour normal prend le prochain créneau de sa rubrique encore libre.
+- Un créneau sans article frais reçoit un post de rattrapage tiré du plus récent article publié sans post. Un Décryptage ou une Pratique en retard garde son format complet. Sinon, un format court.
+- Les créneaux se remplissent sept jours à l'avance au plus.
+- Avant de déposer un brouillon, la tâche liste les brouillons Buffer existants. Elle ne crée jamais deux posts le même jour sur un même réseau et ne touche jamais un brouillon existant.
+- Un créneau déjà pris dans Buffer (par exemple par un post préparé à la main) est respecté. Le post à faire glisse au créneau libre suivant de même type.
+
+### Ce que la tâche ne fait jamais
+Elle ne publie rien et ne programme rien hors brouillon. Elle ne modifie pas dominia-site. Elle ne crée aucun portrait par IA. Elle n'invente aucun fait absent de l'article. En cas de doute sur un fait, un nom ou une règle de ce fichier, elle s'abstient et le signale à Mick.
+
 ## Arborescence
 
 - `gabarits/` : générateur, polices Jost et Figtree, illustrations au trait.
 - `gabarits/images/portraits/` : photo de référence, variantes validées, règle, modèle de prompt et registre.
 - `maquettes/2026-11-17/` : les maquettes qui ont mené à la grille éditoriale.
 - `publications/2026-11-12/` : archive de l'époque Dominia, à ne pas republier telle quelle.
+- `publications/registre.json` : articles déjà déclinés sur les réseaux, et agendas déjà publiés.
 - `publications/AAAA-MM-JJ/sujet/` : `sources/`, fichiers JSON de chaque version, images, `planche.png`, `premier-commentaire.txt`.
 - `apercus/` : un exemple de chaque gabarit, régénéré par `python3 gabarits/generer.py apercus/source/apercus.json apercus`.

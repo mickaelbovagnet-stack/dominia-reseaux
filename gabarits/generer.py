@@ -576,7 +576,9 @@ async def main(spec, sortie):
             if k.get("recadrage"): im = im.crop(tuple(k["recadrage"]))
             dst = ICI / f".recadre-{i}.png"; im.save(dst); k["chemin_recadre"] = str(dst)
     async with async_playwright() as p:
-        nav = await p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox", "--allow-file-access-from-files"])
+        chrome = next((c for c in ("/usr/bin/google-chrome", "/usr/bin/chromium", "/usr/bin/chromium-browser") if pathlib.Path(c).exists()), None)
+        # Sans Chrome installé, Playwright prend son propre Chromium (pip install playwright && playwright install chromium).
+        nav = await p.chromium.launch(**({"executable_path": chrome} if chrome else {}), args=["--no-sandbox", "--allow-file-access-from-files"])
         for i, v in enumerate(visuels, 1):
             doc, (w, h) = GABARITS[v["gabarit"]](v)
             tmp = ICI / f".rendu-{i}.html"; tmp.write_text(doc)
