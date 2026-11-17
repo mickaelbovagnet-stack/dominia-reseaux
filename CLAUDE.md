@@ -51,7 +51,8 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
 
 ### 4. Respecter la charte visuelle
 - Charte Cimeria (artifact « Cimeria, identité », https://claude.ai/artifact/WV2b8yPKi2L1bGXnSqTtfR).
-- Fond clair #F6F5F2, cartes #FFFFFF, encre #2B2B2D. L'anthracite sert de bandeau (couverture et étapes) ou de fond plein (chiffre). Dans la grille du profil, les visuels anthracite et clairs alternent.
+- Fond clair #F6F5F2, cartes #FFFFFF, encre #2B2B2D. L'anthracite sert de bandeau (étapes) ou de fond plein (couverture, chiffre). Dans la grille du profil, les visuels anthracite et clairs alternent.
+- Dans un carrousel, jamais deux visuels anthracite à la suite, toujours l'alternance (demande de Mick du 17 novembre 2026). Le générateur fixe lui-même le fond de `fait_cle` et d'`agenda` en alternance avec le visuel précédent et signale toute suite de deux visuels anthracite.
 - Le rouge (#DA291C, #F04A3B sur anthracite) est réservé à la rubrique, au carré du logo, à la barre de progression et à la partie `accent` d'un chiffre clé. Jamais de surlignage, de cadre ni d'aplat rouge.
 - Jost pour les titres, étiquettes et chiffres, Figtree pour les textes.
 - Logotype Cimeria en pied de chaque visuel, d'un seul bloc, sans jamais isoler « ia ». Aucun quadrillage sur les visuels des réseaux.

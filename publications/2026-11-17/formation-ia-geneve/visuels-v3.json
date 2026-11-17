@@ -1,0 +1,77 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Décryptage",
+   "titre": "Formation IA à Genève, cinq formats",
+   "sous": "De la journée de l'État au coaching.",
+   "note": "Offres vérifiées le 6 novembre 2026.",
+   "droite": "Faites défiler →",
+   "fichier": "v3-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "graphisme": "formation-ia-geneve-comparatif"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Aide publique",
+   "cle": "1 journée",
+   "cle_legende": "prise en charge par l'État de Genève",
+   "titre": "Une journée de formation IA avec l'Université de Genève",
+   "resume": "Deux personnes par entreprise genevoise au plus, à condition de suivre la journée en entier.",
+   "sombre": true,
+   "fichier": "v3-02-fait.png",
+   "position": 2,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Haute école",
+   "cle": "13 crédits",
+   "cle_legende": "pour le certificat de la HEG-Genève",
+   "titre": "Un certificat sur six mois, en cinq modules",
+   "resume": "Les cinq modules du certificat peuvent aussi se suivre séparément.",
+   "sombre": false,
+   "fichier": "v3-03-fait.png",
+   "position": 3,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "En ligne",
+   "cle": "Gratuit",
+   "cle_legende": "les cours d'Anthropic et d'OpenAI",
+   "titre": "Les éditeurs forment aussi en ligne",
+   "resume": "Anthropic et OpenAI publient des cours gratuits sur leurs outils. Microsoft propose des parcours d'apprentissage Copilot.",
+   "sombre": true,
+   "fichier": "v3-04-fait.png",
+   "position": 4,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Formation ou coaching",
+   "cle": "Sur mesure",
+   "cle_legende": "la différence du coaching",
+   "titre": "Un programme commun ou vos propres activités",
+   "resume": "Une formation transmet un programme commun. Un coaching part des activités de la personne et prépare chaque séance pour elle.",
+   "sombre": false,
+   "fichier": "v3-05-fait.png",
+   "position": 5,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "Le comparatif complet des formats est en lien dans la bio.",
+   "fichier": "v3-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}

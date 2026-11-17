@@ -516,22 +516,24 @@ def actualite(v):
     return ed_page(c['fond'], corps)
 
 def agenda(v):
-    """Agenda des événements IA, fond anthracite. Champs : titre, sous (facultatif), evenements [{date, titre, lieu}] (5 au plus, au-delà un carrousel de deux visuels), rubrique, position, total, note, droite.
+    """Agenda des événements IA, fond anthracite ou clair (sombre, alterné automatiquement dans un carrousel). Champs : titre, sous (facultatif), evenements [{date, titre, lieu}] (5 au plus, au-delà un carrousel de deux visuels), rubrique, position, total, note, droite.
     Les lignes se répartissent sur toute la hauteur. Seuls les organisateurs de dominia-site/src/content/organisateurs.json sont nommés."""
-    c = CLAIR; n = len(v["evenements"]); fd, ft, fl = (52, 54, 38) if n <= 3 else (44, 46, 34)
-    lignes = "".join(f"<div style='flex:1;display:flex;align-items:center;gap:36px;border-top:2px solid {ED_FILET_S}'>"
-                     f"<div style='width:{int(fd*6.2)}px;flex:none;font-family:Jost;font-weight:500;font-size:{fd}px;line-height:1.1;color:{ED_BLANC_C}'>{e(x['date'])}</div>"
-                     f"<div style='flex:1'><div style='font-size:{ft}px;line-height:1.15;font-weight:600;color:{ED_BLANC_C}'>{e(x['titre'])}</div>"
-                     f"<div style='font-size:{fl}px;line-height:1.25;margin-top:6px;color:{ED_DOUCE_S}'>{e(x['lieu'])}</div></div></div>" for x in v["evenements"])
-    corps = f"""<div class='rub' style='color:{ED_ROUGE_TS}'>{e(v.get('rubrique','Agenda'))}</div>{ed_cpt(v, True)}
+    c = CLAIR; sb = v.get('sombre', True)
+    BL, DO, FI, RO = (ED_BLANC_C, ED_DOUCE_S, ED_FILET_S, ED_ROUGE_TS) if sb else (c['encre'], c['douce'], c['filet'], c['rougeTexte'])
+    n = len(v["evenements"]); fd, ft, fl = (52, 54, 38) if n <= 3 else (44, 46, 34)
+    lignes = "".join(f"<div style='flex:1;display:flex;align-items:center;gap:36px;border-top:2px solid {FI}'>"
+                     f"<div style='width:{int(fd*6.2)}px;flex:none;font-family:Jost;font-weight:500;font-size:{fd}px;line-height:1.1;color:{BL}'>{e(x['date'])}</div>"
+                     f"<div style='flex:1'><div style='font-size:{ft}px;line-height:1.15;font-weight:600;color:{BL}'>{e(x['titre'])}</div>"
+                     f"<div style='font-size:{fl}px;line-height:1.25;margin-top:6px;color:{DO}'>{e(x['lieu'])}</div></div></div>" for x in v["evenements"])
+    corps = f"""<div class='rub' style='color:{RO}'>{e(v.get('rubrique','Agenda'))}</div>{ed_cpt(v, sb)}
     <div id='corps' style='position:absolute;left:80px;right:80px;top:136px;bottom:160px;display:flex;flex-direction:column;overflow:hidden'>
-      <div class='ed-titre' style='font-size:80px;color:{ED_BLANC_C}'>{e(v.get('titre','À noter en Suisse romande'))}</div>
-      {f"<div style='font-size:{ED_TEXTE}px;line-height:1.25;color:{ED_DOUCE_S};margin-top:18px'>{e(v['sous'])}</div>" if v.get('sous') else ''}
-      <div style='flex:1;display:flex;flex-direction:column;margin-top:30px;border-bottom:2px solid {ED_FILET_S}'>{lignes}</div>
-      <div style='margin-top:22px;font-size:{ED_PETIT}px;color:{ED_DOUCE_S}'>{e(v.get('note','Tout l’agenda est sur cimeria.ch/agenda.'))}</div>
+      <div class='ed-titre' style='font-size:80px;color:{BL}'>{e(v.get('titre','À noter en Suisse romande'))}</div>
+      {f"<div style='font-size:{ED_TEXTE}px;line-height:1.25;color:{DO};margin-top:18px'>{e(v['sous'])}</div>" if v.get('sous') else ''}
+      <div style='flex:1;display:flex;flex-direction:column;margin-top:30px;border-bottom:2px solid {FI}'>{lignes}</div>
+      <div style='margin-top:22px;font-size:{ED_PETIT}px;color:{DO}'>{e(v.get('note','Tout l’agenda est sur cimeria.ch/agenda.'))}</div>
     </div>
-    {ed_pied(v.get('droite','cimeria.ch/agenda'), True)}"""
-    return ed_page(c['encre'], corps)
+    {ed_pied(v.get('droite','cimeria.ch/agenda'), sb)}"""
+    return ed_page(c['encre'] if sb else c['fond'], corps)
 
 
 def fait_cle(v):
@@ -580,6 +582,19 @@ PETITS = """(() => { const r = []; for (const el of document.body.querySelectorA
   const t = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join(' ').trim();
   if (t && parseFloat(getComputedStyle(el).fontSize) < %d) r.push(t.slice(0, 40)); } return r; })()""" % ED_MIN
 
+# Jamais deux visuels anthracite à la suite dans un carrousel (demande de Mick du 17 novembre 2026) : le fond de
+# fait_cle et d'agenda est fixé ici en alternance avec le visuel précédent, le champ « sombre » du JSON est ignoré.
+FOND_FIXE = {"chiffre": True, "liste": False, "cas_etape": False, "cas_fin": False, "point_de_vue": False}
+def alterner(visuels):
+    if len(visuels) < 2: return
+    prec = None
+    for v in visuels:
+        g = v["gabarit"]
+        if g in ("fait_cle", "agenda"): v["sombre"] = (not prec) if prec is not None else True
+        sombre = bool(v.get("graphisme")) if g == "cas_couverture" else v.get("sombre", True) if g in ("fait_cle", "agenda") else FOND_FIXE.get(g, False)
+        if prec and sombre: print(f"ATTENTION {v.get('fichier', g)} : deux visuels anthracite à la suite")
+        prec = sombre
+
 async def main(spec, sortie):
     global RACINE
     RACINE = spec.resolve().parent
@@ -599,6 +614,7 @@ async def main(spec, sortie):
         chrome = next((c for c in ("/usr/bin/google-chrome", "/usr/bin/chromium", "/usr/bin/chromium-browser") if pathlib.Path(c).exists()), None)
         # Sans Chrome installé, Playwright prend son propre Chromium (pip install playwright && playwright install chromium).
         nav = await p.chromium.launch(**({"executable_path": chrome} if chrome else {}), args=["--no-sandbox", "--allow-file-access-from-files"])
+        alterner(visuels)
         for i, v in enumerate(visuels, 1):
             doc, (w, h) = GABARITS[v["gabarit"]](v)
             tmp = ICI / f".rendu-{i}.html"; tmp.write_text(doc)

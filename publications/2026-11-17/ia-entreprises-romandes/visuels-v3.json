@@ -1,0 +1,79 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Décryptage",
+   "titre": "L'IA dans les entreprises romandes",
+   "sous": "L'état des lieux 2026, sources à l'appui.",
+   "note": "Chiffres vérifiés le 4 novembre 2026.",
+   "droite": "Faites défiler →",
+   "fichier": "v3-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "graphisme": "ia-entreprises-suisse-romande"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Adoption",
+   "cle": "6 sur 10",
+   "cle_legende": "entreprises suisses utilisent l'IA",
+   "titre": "L'IA est entrée dans la majorité des entreprises suisses",
+   "resume": "Seules 5 % des entreprises utilisatrices en font le cœur de leur modèle d'affaires.",
+   "sombre": true,
+   "source": "UBS, mai 2026",
+   "fichier": "v3-02-fait.png",
+   "position": 2,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Usages des PME",
+   "cle": "3 usages",
+   "cle_legende": "en tête dans les PME suisses",
+   "titre": "Traduction, correspondance et contenus publicitaires d'abord",
+   "resume": "Les PME emploient l'IA surtout pour ces tâches simples.",
+   "sombre": false,
+   "source": "AXA, septembre 2026",
+   "fichier": "v3-03-fait.png",
+   "position": 3,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Cadre légal",
+   "cle": "nLPD",
+   "cle_legende": "la loi sur la protection des données s'applique déjà",
+   "titre": "Une loi fédérale sur l'IA est attendue en consultation",
+   "resume": "Le texte issu de la Convention du Conseil de l'Europe est attendu en consultation au printemps 2027.",
+   "sombre": true,
+   "fichier": "v3-04-fait.png",
+   "position": 4,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Initiatives suisses",
+   "cle": "4 millions",
+   "cle_legende": "de téléchargements d'Apertus en un an",
+   "titre": "Le modèle ouvert suisse trouve son public",
+   "resume": "Apertus est le modèle ouvert de l'EPFL, de l'ETH Zurich et du Centre suisse de calcul scientifique.",
+   "sombre": false,
+   "fichier": "v3-05-fait.png",
+   "position": 5,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "L'état des lieux complet et ses sources sont en lien dans la bio.",
+   "fichier": "v3-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Décryptage",
+   "titre": "Claude ou ChatGPT, quelle IA pour travailler",
+   "sous": "Cinq outils comparés sur quatre critères, sans classement.",
+   "note": "Offres vérifiées le 6 novembre 2026.",
+   "droite": "Faites défiler →",
+   "fichier": "v3-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "graphisme": "claude-ou-chatgpt-quelle-ia-choisir"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Qualité",
+   "cle": "5 outils",
+   "cle_legende": "Claude, ChatGPT, Copilot, Gemini et Euria",
+   "titre": "Tous donnent des résultats utilisables",
+   "resume": "Les écarts se jouent sur les documents longs, le traitement des données et l'intégration à vos outils.",
+   "sombre": true,
+   "fichier": "v3-02-fait.png",
+   "position": 2,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Données",
+   "cle": "Sauf refus",
+   "cle_legende": "versions grand public de Claude et ChatGPT",
+   "titre": "Vos conversations peuvent servir à l'entraînement",
+   "resume": "Claude et ChatGPT entraînent leurs modèles sur les comptes personnels sauf refus dans les réglages. Les offres entreprise ne le font pas par défaut.",
+   "sombre": false,
+   "fichier": "v3-03-fait.png",
+   "position": 3,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Hébergement",
+   "cle": "Euria",
+   "cle_legende": "seul outil qui traite tout en Suisse",
+   "titre": "Un seul des cinq outils garde toutes les données en Suisse",
+   "resume": "Microsoft peut stocker en Suisse les données Copilot d'une entreprise rattachée à la Suisse. ChatGPT Enterprise ne propose pas la Suisse.",
+   "sombre": true,
+   "fichier": "v3-04-fait.png",
+   "position": 4,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "rubrique": "Par profil",
+   "cle": "1 mois",
+   "cle_legende": "d'essai payant pour un dirigeant de PME",
+   "titre": "Le bon choix dépend de votre situation",
+   "resume": "Un dirigeant teste Claude et ChatGPT en version payante pendant un mois. Un cadre apprend d'abord l'outil déployé par son entreprise.",
+   "sombre": false,
+   "fichier": "v3-05-fait.png",
+   "position": 5,
+   "total": 6,
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "cas_fin",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "rubrique": "À retenir",
+   "texte": "Le comparatif complet est dans l'article, en lien dans la bio.",
+   "fichier": "v3-06-fin.png",
+   "position": 6,
+   "total": 6
+  }
+ ]
+}
