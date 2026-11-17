@@ -47,6 +47,7 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
 - `chiffre` : un chiffre clé d'une source officielle, sur fond anthracite. La partie `accent` du chiffre est en rouge. Une phrase qui l'explique, une ligne qui dit quoi faire, la source.
 - `liste` : une liste numérotée à garder (10 éléments au plus), par exemple les usages d'un article.
 - `point_de_vue` : une phrase de Mickaël tirée d'un article publié, avec son portrait en moitié basse.
+- Décryptage : un carrousel `cas_couverture`, puis une diapositive `fait_cle` par élément comparé (fonds en alternance), puis `cas_fin`.
 
 ### 4. Respecter la charte visuelle
 - Charte Cimeria (artifact « Cimeria, identité », https://claude.ai/artifact/WV2b8yPKi2L1bGXnSqTtfR).
@@ -91,7 +92,7 @@ Envoyer la planche, le premier commentaire et un court récapitulatif. Mick vali
 ## Version allégée pour l'actualité
 
 1. Partir d'une source officielle vérifiée, liée dans le post, ou de l'article hebdomadaire « L'IA cette semaine » publié le lundi sur cimeria.ch.
-2. Un visuel unique (gabarit `actualite`) pour LinkedIn et Facebook. Le carrousel hebdomadaire d'Instagram enchaîne un sommaire (`liste`, rubrique « L'IA cette semaine »), une diapositive `actualite` par fait (5 au plus) et une fin (`cas_fin`, « Abonnez-vous pour suivre l'actualité IA. »).
+2. Un visuel unique (gabarit `fait_cle`) pour LinkedIn et Facebook. Le carrousel hebdomadaire d'Instagram enchaîne un sommaire (`liste`, rubrique « L'IA cette semaine »), une diapositive `fait_cle` par fait (5 au plus), fonds anthracite et clair en alternance, chacune ancrée par un élément clé en très grand (date, chiffre, mot), avec la section de l'article en rubrique (À la une, En Suisse, Tech et outils, Économie de l'IA), et une fin (`cas_fin`, « Abonnez-vous pour suivre l'actualité IA. »).
 3. L'agenda des événements (gabarit `agenda`, 7 au plus) part des fichiers de `dominia-site/src/content/evenements`. Seuls les organisateurs de `organisateurs.json` sont nommés.
 4. Une seule relecture, celle du client type.
 5. Brouillons LinkedIn et Facebook déposés dans Buffer avant 8 h.

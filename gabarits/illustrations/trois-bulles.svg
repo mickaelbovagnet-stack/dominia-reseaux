@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 420' fill='none' stroke='#2B2B2D' stroke-width='6' stroke-linejoin='round' stroke-linecap='round'>
+  <path d='M40 60 H250 Q270 60 270 80 V170 Q270 190 250 190 H110 L70 225 V190 H60 Q40 190 40 170 V80 Q40 60 60 60 Z' fill='#FFFFFF'/>
+  <path d='M80 105 H230 M80 145 H190'/>
+  <path d='M330 40 H540 Q560 40 560 60 V150 Q560 170 540 170 H520 V205 L480 170 H350 Q330 170 330 150 V60 Q330 40 350 40 Z' fill='#FFFFFF'/>
+  <path d='M370 85 H520 M370 125 H470'/>
+  <path d='M180 250 H420 Q440 250 440 270 V360 Q440 380 420 380 H280 L240 412 V380 H200 Q180 380 180 360 V270 Q180 250 200 250 Z' fill='#FFFFFF'/>
+  <path d='M220 295 H400 M220 335 H340'/>
+  <circle cx='415' cy='335' r='10' fill='#DA291C' stroke='none'/>
+</svg>

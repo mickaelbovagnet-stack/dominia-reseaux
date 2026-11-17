@@ -1,0 +1,123 @@
+{
+ "visuels": [
+  {
+   "gabarit": "liste",
+   "fichier": "v2-01-sommaire.png",
+   "rubrique": "L’IA cette semaine",
+   "position": 1,
+   "total": 7,
+   "titre": "L’IA en Suisse romande, semaine du 9 novembre",
+   "sous": "Les faits vérifiés de la semaine, sources à l’appui.",
+   "elements": [
+    [
+     "Genève détaille comment contribuer au sommet IA de 2027"
+    ],
+    [
+     "L’EPFL annonce un Bachelor en IA"
+    ],
+    [
+     "Gemini s’étend dans Gmail"
+    ],
+    [
+     "Anthropic ouvre Claude Meetings en bêta"
+    ],
+    [
+     "Jensen Huang quitte la direction de Nvidia"
+    ]
+   ],
+   "note": "Faites défiler →",
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-02-fait.png",
+   "position": 2,
+   "total": 7,
+   "rubrique": "À la une",
+   "kicker": "11 novembre 2026 · État de Genève",
+   "cle": "18 déc.",
+   "cle_legende": "Clôture de l’appel à contributions du Sommet mondial sur l’IA.",
+   "titre": "Genève détaille trois voies pour contribuer au Sommet mondial sur l’IA",
+   "resume": "Un appel à contributions ouvert à tous, le programme Road to Geneva et des événements en marge du sommet, les 21 et 22 juin 2027 à Palexpo.",
+   "source": "État de Genève, communiqué du 11 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-03-fait.png",
+   "position": 3,
+   "total": 7,
+   "rubrique": "En Suisse",
+   "kicker": "12 novembre 2026 · EPFL",
+   "cle": "2027",
+   "cle_legende": "Rentrée du nouveau Bachelor en intelligence artificielle de l’EPFL.",
+   "titre": "L’EPFL annonce un Bachelor en intelligence artificielle",
+   "resume": "Première année commune avec l’informatique et cours obligatoire sur l’éthique et les politiques de l’IA. L’annonce ne mentionne pas la formation continue.",
+   "source": "EPFL, annonce du 12 novembre 2026",
+   "sombre": false
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-04-fait.png",
+   "position": 4,
+   "total": 7,
+   "rubrique": "Tech et outils",
+   "kicker": "10 novembre 2026 · Google",
+   "cle": "Par défaut",
+   "cle_legende": "Les fonctions de Gemini dans Gmail sont activées d’office.",
+   "titre": "Google étend Gemini dans Gmail à tous les utilisateurs adultes de Workspace",
+   "resume": "Résumés des longs échanges et aide à la rédaction. L’utilisateur ou l’administrateur peut les désactiver. Le déploiement s’étale sur 15 jours au plus.",
+   "source": "Google, annonce du 10 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-05-fait.png",
+   "position": 5,
+   "total": 7,
+   "rubrique": "Tech et outils",
+   "kicker": "12 novembre 2026 · Anthropic",
+   "cle": "Bêta",
+   "cle_legende": "Pour les offres Claude Team et Enterprise.",
+   "titre": "Anthropic ouvre Claude Meetings",
+   "resume": "Claude rejoint un appel Google Meet comme participant visible, prend des notes et prépare des documents. Il garde une transcription et un résumé, sans l’audio.",
+   "source": "Anthropic, notes de version du 12 novembre 2026",
+   "sombre": false
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-06-fait.png",
+   "position": 6,
+   "total": 7,
+   "rubrique": "Économie de l’IA",
+   "kicker": "12 novembre 2026 · Nvidia",
+   "cle": "Intérim",
+   "cle_legende": "Assuré par la directrice financière, Colette Kress.",
+   "titre": "Jensen Huang quitte la direction de Nvidia",
+   "resume": "Il a démissionné avec effet immédiat de ses fonctions de directeur général et d’administrateur. Harvey C. Jones prend la présidence du conseil.",
+   "source": "Nvidia, communiqué du 12 novembre 2026",
+   "sombre": true
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v2-07-fin.png",
+   "position": 7,
+   "total": 7,
+   "rubrique": "Chaque semaine",
+   "titre": "Abonnez-vous pour suivre l’actualité IA.",
+   "texte": "Chaque lundi, les faits vérifiés de l’IA en Suisse romande. L’article complet est en lien dans la bio."
+  },
+  {
+   "rubrique": "Actualité IA",
+   "kicker": "11 novembre 2026 · État de Genève",
+   "cle": "18 déc.",
+   "cle_legende": "Clôture de l’appel à contributions du Sommet mondial sur l’IA.",
+   "titre": "Genève détaille trois voies pour contribuer au Sommet mondial sur l’IA",
+   "resume": "Un appel à contributions ouvert à tous, le programme Road to Geneva et des événements en marge du sommet, les 21 et 22 juin 2027 à Palexpo.",
+   "source": "État de Genève, communiqué du 11 novembre 2026",
+   "sombre": true,
+   "gabarit": "fait_cle",
+   "fichier": "v2-actualite-unique.png"
+  }
+ ]
+}

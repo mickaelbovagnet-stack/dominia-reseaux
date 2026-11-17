@@ -12,5 +12,24 @@
   "Abonnez-vous pour suivre l’actualité IA. Chaque lundi, les faits vérifiés de l’IA en Suisse romande. L’article complet est en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
  ],
  "alt_unique": "Actualité IA. 11 novembre 2026 · État de Genève. Genève détaille trois voies pour contribuer au Sommet mondial sur l’IA. Un appel à contributions ouvert à tous jusqu’au 18 décembre 2026, le programme Road to Geneva pour inscrire ses événements et des événements en marge du sommet, les 21 et 22 juin 2027 à Palexpo. Qui est concerné, les entreprises, les laboratoires et les jeunes pousses, selon le communiqué. Source, État de Genève, communiqué du 11 novembre 2026.",
- "lien": "https://cimeria.ch/sommet-ia-geneve-2027-contribuer/"
+ "lien": "https://cimeria.ch/sommet-ia-geneve-2027-contribuer/",
+ "fichiers_v2": [
+  "v2-01-sommaire.png",
+  "v2-02-fait.png",
+  "v2-03-fait.png",
+  "v2-04-fait.png",
+  "v2-05-fait.png",
+  "v2-06-fait.png",
+  "v2-07-fin.png"
+ ],
+ "alts_v2": [
+  "Sommaire Cimeria, l’IA en Suisse romande, semaine du 9 novembre. Genève détaille comment contribuer au sommet IA de 2027, l’EPFL annonce un Bachelor en IA, Gemini s’étend dans Gmail, Anthropic ouvre Claude Meetings en bêta et Jensen Huang quitte la direction de Nvidia.",
+  "L’IA cette semaine. À la une. 11 novembre 2026 · État de Genève. En grand, 18 déc., clôture de l’appel à contributions du Sommet mondial sur l’IA. Genève détaille trois voies pour contribuer au Sommet mondial sur l’IA. Un appel à contributions ouvert à tous, le programme Road to Geneva et des événements en marge du sommet, les 21 et 22 juin 2027 à Palexpo. Source, État de Genève, communiqué du 11 novembre 2026.",
+  "L’IA cette semaine. En Suisse. 12 novembre 2026 · EPFL. En grand, 2027, rentrée du nouveau Bachelor en intelligence artificielle de l’EPFL. L’EPFL annonce un Bachelor en intelligence artificielle. Première année commune avec l’informatique et cours obligatoire sur l’éthique et les politiques de l’IA. L’annonce ne mentionne pas la formation continue. Source, EPFL, annonce du 12 novembre 2026.",
+  "L’IA cette semaine. Tech et outils. 10 novembre 2026 · Google. En grand, Par défaut, les fonctions de Gemini dans Gmail sont activées d’office. Google étend Gemini dans Gmail à tous les utilisateurs adultes de Workspace. Résumés des longs échanges et aide à la rédaction. L’utilisateur ou l’administrateur peut les désactiver. Le déploiement s’étale sur 15 jours au plus. Source, Google, annonce du 10 novembre 2026.",
+  "L’IA cette semaine. Tech et outils. 12 novembre 2026 · Anthropic. En grand, Bêta, pour les offres Claude Team et Enterprise. Anthropic ouvre Claude Meetings. Claude rejoint un appel Google Meet comme participant visible, prend des notes et prépare des documents. Il garde une transcription et un résumé, sans l’audio. Source, Anthropic, notes de version du 12 novembre 2026.",
+  "L’IA cette semaine. Économie de l’IA. 12 novembre 2026 · Nvidia. En grand, Intérim, assuré par la directrice financière, Colette Kress. Jensen Huang quitte la direction de Nvidia. Il a démissionné avec effet immédiat de ses fonctions de directeur général et d’administrateur. Harvey C. Jones prend la présidence du conseil. Source, Nvidia, communiqué du 12 novembre 2026.",
+  "Abonnez-vous pour suivre l’actualité IA. Chaque lundi, les faits vérifiés de l’IA en Suisse romande. L’article complet est en lien dans la bio. Portrait de Mickaël Bovagnet, auteur du guide, Cimeria."
+ ],
+ "alt_unique_v2": "Actualité IA. Actualité IA. 11 novembre 2026 · État de Genève. En grand, 18 déc., clôture de l’appel à contributions du Sommet mondial sur l’IA. Genève détaille trois voies pour contribuer au Sommet mondial sur l’IA. Un appel à contributions ouvert à tous, le programme Road to Geneva et des événements en marge du sommet, les 21 et 22 juin 2027 à Palexpo. Source, État de Genève, communiqué du 11 novembre 2026."
 }

@@ -495,7 +495,32 @@ def agenda(v):
     {ed_pied(v.get('droite','cimeria.ch/agenda'), True)}"""
     return ed_page(c['encre'], corps)
 
-GABARITS = dict(chiffre=chiffre, liste=liste, point_de_vue=point_de_vue, cas_couverture=cas_couverture, cas_etape=cas_etape, cas_fin=cas_fin, capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
+
+def fait_cle(v):
+    """Un fait ancré par un élément clé en très grand (date, chiffre, nom, mot). Alterne fond anthracite et fond clair pour rythmer les carrousels.
+    Champs : rubrique, kicker (date et source, facultatif), cle (12 signes au plus), cle_legende, titre (90 signes au plus), resume (35 mots au plus),
+    pour_label et pour (facultatifs, une ligne d'usage), source, sombre (true ou false), position, total, droite."""
+    c = CLAIR; s = bool(v.get("sombre"))
+    encre, douce, filet = (ED_BLANC_C, ED_DOUCE_S, ED_FILET_S) if s else (c['encre'], c['douce'], c['filet'])
+    n = len(v["cle"]); taille = 300 if n <= 5 else 230 if n <= 8 else 170 if n <= 12 else 130
+    kick = f"<div style='font-family:Jost;font-weight:500;font-size:30px;color:{douce}'>{e(v['kicker'])}</div>" if v.get("kicker") else ""
+    pour = (f"<div style='margin-top:30px;padding-top:26px;border-top:2px solid {filet}'><div class='etiq' style='color:{douce}'>{e(v.get('pour_label','Pour quel usage'))}</div>"
+            f"<div style='font-size:36px;line-height:1.3;margin-top:10px;color:{encre}'>{e(v['pour'])}</div></div>") if v.get("pour") else ""
+    corps = f"""<div class='rub' style='color:{ED_ROUGE_TS if s else c['rougeTexte']}'>{e(v.get('rubrique',''))}</div>{ed_cpt(v, s)}
+    <div id='corps' style='position:absolute;left:80px;right:80px;top:146px;bottom:170px;display:flex;flex-direction:column;overflow:hidden'>
+      {kick}
+      <div style='margin-left:-8px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:{taille}px;line-height:1;letter-spacing:-.04em;color:{encre};margin-top:18px'>{e(v['cle'])}</div>
+      <div style='font-size:34px;line-height:1.3;color:{douce};margin-top:16px'>{e(v.get('cle_legende',''))}</div>
+      <div style='flex:1;min-height:30px'></div>
+      <div class='ed-titre' style='font-size:{tt(v['titre'],62,56,50)}px;line-height:1.1;color:{encre}'>{e(v['titre'])}</div>
+      <div style='font-size:35px;line-height:1.32;color:{douce};margin-top:22px'>{e(v.get('resume',''))}</div>
+      {pour}
+      <div style='font-size:24px;color:{douce};margin-top:26px'>{('Source · ' + e(v['source'])) if v.get('source') else ''}</div>
+    </div>
+    {ed_pied(v.get('droite','cimeria.ch'), s)}"""
+    return ed_page(c['encre'] if s else c['fond'], corps)
+
+GABARITS = dict(fait_cle=fait_cle, chiffre=chiffre, liste=liste, point_de_vue=point_de_vue, cas_couverture=cas_couverture, cas_etape=cas_etape, cas_fin=cas_fin, capture=capture, etape_methode=etape_methode, echange=echange, couverture_ia=couverture_ia, lecon=lecon, demo=demo, couverture=couverture, etape=etape, fait=fait, fin=fin, cas=cas, agenda=agenda, actualite=actualite)
 
 async def main(spec, sortie):
     global RACINE
