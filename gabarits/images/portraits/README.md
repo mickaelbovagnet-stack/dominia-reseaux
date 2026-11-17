@@ -76,6 +76,21 @@ Si une consigne t'oblige à modifier mon visage, garde le visage et simplifie la
 
 Une version anglaise donne parfois un meilleur résultat selon l'outil. Elle reprend les mêmes blocs : « Keep my face and appearance exactly as in the attached photo… ».
 
+## Outils
+
+Situation en novembre 2026. Les modèles changent vite, le test ci-dessous tranche.
+
+- **ChatGPT, générateur d'images.** C'est le premier essai. L'éditeur mis à jour en septembre 2026 met en avant la fidélité à la personne, et les images portent les métadonnées de provenance C2PA, ce qui sert notre règle de transparence.
+- **Gemini, modèle Nano Banana.** C'est le second essai. Il garde bien ce qui doit rester fixe, mais le visage peut dériver d'une génération à l'autre.
+- **À éviter.** Les applications de portraits professionnels qui demandent une série de selfies pour entraîner un modèle à votre visage, Midjourney (trop stylisé) et les outils d'IA de Canva (moins fidèles au visage).
+
+Avant tout envoi, désactiver dans l'outil l'option qui autorise l'éditeur à entraîner ses modèles sur vos contenus.
+
+### Test de départ
+1. Même photo de référence, même prompt, pose `explique-assis`, trois essais dans chaque outil.
+2. Passer les six images à la grille de ressemblance.
+3. Garder l'outil qui réussit le plus d'essais sans retouche, l'inscrire dans `registre.md` et s'y tenir jusqu'au prochain test.
+
 ## Catalogue de poses
 
 Chaque pose est pensée pour la moitié basse des gabarits `point_de_vue` et `cas_fin`, une zone horizontale de 1'080 x 750 pixels. Le visage doit se trouver dans le tiers haut de l'image.
