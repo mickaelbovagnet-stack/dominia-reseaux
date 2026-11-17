@@ -70,8 +70,9 @@ def point_de_vue():
     return page(corps)
 
 # 4. Cas pratique, couverture illustrée (dessin au trait, un seul détail rouge)
-def illustration_email():
-    return f"""<svg viewBox='0 0 600 420' width='600' height='420' fill='none' stroke='{ENCRE}' stroke-width='6' stroke-linejoin='round' stroke-linecap='round'>
+def illustration_email(k=0.0):
+    w, h = (600, 420) if not k else (620, 434)
+    return f"""<svg viewBox='0 0 600 420' width='{w}' height='{h}' fill='none' stroke='{ENCRE}' stroke-width='6' stroke-linejoin='round' stroke-linecap='round'>
       <rect x='40' y='70' width='440' height='300' rx='14' fill='{BLANC}'/>
       <path d='M40 84 L260 240 L480 84'/>
       <path d='M40 356 L200 210 M480 356 L320 210'/>
@@ -135,8 +136,8 @@ def etape_v3(n, mot, ajout, gains, reste, lib_reste="Ce qui manque encore", cpt=
 def etape1(): return etape_v3(1, "Contexte", "Je dirige une PME genevoise d’entretien de chauffages. Hausse de 4 % au 1er\u00a0janvier.",
                              ["Un e-mail qui parle de vos clients."], "Le montant et les raisons restent vagues.", cpt="2 / 6")
 def etape4(): return etape_v3(4, "Cadre", "120 mots au plus. Signale-moi ce que tu as dû inventer.",
-                             ["Un e-mail de 105 mots, deux objets au choix.", "La liste de ce que l’IA a supposé."],
-                             "Vous relisez. Le texte part sous votre signature.", lib_reste="Votre part", cpt="5 / 6")
+                             ["Un e-mail de 105 mots.", "La liste de ce que l’IA a supposé."],
+                             "Vous relisez avant l’envoi.", lib_reste="Votre part", cpt="5 / 6")
 
 RENDUS = [("v3-1-chiffre.png", chiffre_v3), ("v3-5-etape-1.png", etape1), ("v3-5-etape-4.png", etape4)]
 
@@ -145,11 +146,11 @@ R_SOMBRE, BLANC_C, DOUCE_S = "#F04A3B", "#F6F5F2", "#BEBDB8"
 def chiffre_v4():
     corps = f"""<div style='position:absolute;inset:0;background:{ENCRE}'></div>
     <div class='rub' style='color:#FF6B5C'>Le chiffre</div>
-    <div style='position:absolute;left:72px;top:150px;font-family:Jost;font-weight:500;font-size:330px;line-height:1;letter-spacing:-.04em;color:{BLANC_C}'><span style='color:{R_SOMBRE}'>1</span> sur 3</div>
-    <div style='position:absolute;left:80px;right:80px;top:520px;font-family:Jost;font-weight:500;font-size:58px;line-height:1.15;letter-spacing:-.01em;color:{BLANC_C}'>Seule une PME suisse sur trois qui utilise l’IA a fixé des règles claires pour protéger ses données.</div>
-    <div style='position:absolute;left:80px;right:80px;top:840px;padding-top:40px;border-top:2px solid #4A4A4E;font-size:40px;line-height:1.35;color:{DOUCE_S}'>
+    <div style='position:absolute;left:66px;top:140px;white-space:nowrap;font-family:Jost;font-weight:500;font-size:345px;line-height:1;letter-spacing:-.045em;color:{BLANC_C}'><span style='color:{R_SOMBRE}'>1</span> sur 3</div>
+    <div style='position:absolute;left:80px;right:80px;top:560px;font-family:Jost;font-weight:500;font-size:62px;line-height:1.14;letter-spacing:-.01em;color:{BLANC_C}'>Seule une PME suisse sur trois qui utilise l’IA a fixé des règles claires pour protéger ses données.</div>
+    <div style='position:absolute;left:80px;right:80px;top:850px;padding-top:44px;border-top:2px solid #4A4A4E;font-size:46px;line-height:1.35;color:{DOUCE_S}'>
       Une page suffit. Elle dit ce qui entre dans l’outil, ce qui n’y entre jamais et qui relit avant l’envoi.</div>
-    <div style='position:absolute;left:80px;right:80px;top:1150px;font-size:26px;color:{DOUCE_S}'>Source · AXA, étude sur le marché du travail des PME, édition 2025.</div>
+    <div style='position:absolute;left:80px;right:80px;top:1168px;font-size:26px;color:{DOUCE_S}'>Source · AXA, étude sur le marché du travail des PME, édition 2025.</div>
     <div class='pied' style='border-top-color:#4A4A4E'>{g.logotype(BLANC_C, ROUGE, 210)}<div class='site' style='color:{DOUCE_S}'>cimeria.ch</div></div>"""
     return page(corps)
 
@@ -161,35 +162,36 @@ def progression_v4(n, total=4):
         f"<div style='flex:1;height:12px;border-radius:6px;background:{R_SOMBRE if i < n else '#4A4A4E'}'></div>" for i in range(total)) + "</div>"
 
 def etape_v4(n, mot, ajout, gains, reste, lib_reste="Ce qui manque encore", cpt=""):
-    puce = lambda plein: f"<div style='width:26px;height:26px;border-radius:50%;flex:none;margin-top:12px;{'background:'+ENCRE if plein else 'border:4px solid '+ENCRE}'></div>"
-    lignes = "".join(f"<div style='display:flex;gap:24px;font-size:40px;line-height:1.3;margin-top:18px'>{puce(True)}<div>{e(x)}</div></div>" for x in gains)
-    etiq = lambda t, m=0: f"<div style='font-family:Jost;font-weight:500;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:{DOUCE};margin-top:{m}px'>{t}</div>"
-    corps = f"""{bandeau(470)}
+    puce = lambda plein: f"<div style='width:30px;height:30px;border-radius:50%;flex:none;margin-top:13px;{'background:'+ENCRE if plein else 'border:5px solid '+ENCRE}'></div>"
+    lignes = "".join(f"<div style='display:flex;gap:26px;font-size:46px;line-height:1.28;margin-top:20px'>{puce(True)}<div>{e(x)}</div></div>" for x in gains)
+    etiq = lambda t, m=0: f"<div style='font-family:Jost;font-weight:500;font-size:28px;letter-spacing:.14em;text-transform:uppercase;color:{DOUCE};margin-top:{m}px'>{t}</div>"
+    corps = f"""{bandeau(500)}
     <div class='rub' style='color:#FF6B5C'>Étape {n} sur 4</div><div class='cpt' style='color:{DOUCE_S}'>{cpt}</div>
     <div style='position:absolute;left:80px;right:80px;top:150px'>{progression_v4(n)}</div>
-    <div style='position:absolute;left:74px;top:220px;font-family:Jost;font-weight:500;font-size:170px;line-height:1;letter-spacing:-.03em;color:{BLANC_C}'>{e(mot)}</div>
-    <div style='position:absolute;left:80px;right:80px;top:410px;background:{BLANC};border-radius:16px;padding:40px 48px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
-      {etiq('Vous ajoutez')}
-      <div style='font-size:44px;line-height:1.3;margin-top:14px'>« {e(ajout)} »</div></div>
-    <div style='position:absolute;left:80px;right:80px;top:820px'>
-      {etiq('L’IA vous rend')}{lignes}
-      {etiq(e(lib_reste), 44)}
-      <div style='display:flex;gap:24px;font-size:40px;line-height:1.3;margin-top:18px;color:{DOUCE}'>{puce(False)}<div>{e(reste)}</div></div></div>
+    <div style='position:absolute;left:72px;top:200px;font-family:Jost;font-weight:500;font-size:200px;line-height:1;letter-spacing:-.035em;color:{BLANC_C}'>{e(mot)}</div>
+    <div style='position:absolute;left:80px;right:80px;top:430px;bottom:170px;display:flex;flex-direction:column'>
+      <div style='background:{BLANC};border-radius:18px;padding:44px 52px;box-shadow:0 20px 50px rgba(43,43,45,.12)'>
+        {etiq('Vous ajoutez')}
+        <div style='font-size:50px;line-height:1.28;margin-top:16px'>« {e(ajout)} »</div></div>
+      <div style='flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:36px'>
+        {etiq('L’IA vous rend')}{lignes}
+        {etiq(e(lib_reste), 52)}
+        <div style='display:flex;gap:26px;font-size:46px;line-height:1.28;margin-top:20px;color:{DOUCE}'>{puce(False)}<div>{e(reste)}</div></div></div></div>
     {pied()}"""
     return page(corps)
 
 def etape1_v4(): return etape_v4(1, "Contexte", "Je dirige une PME genevoise d’entretien de chauffages. Hausse de 4 % au 1er\u00a0janvier.",
                              ["Un e-mail qui parle de vos clients."], "Le montant et les raisons restent vagues.", cpt="2 / 6")
 def etape4_v4(): return etape_v4(4, "Cadre", "120 mots au plus. Signale-moi ce que tu as dû inventer.",
-                             ["Un e-mail de 105 mots, deux objets au choix.", "La liste de ce que l’IA a supposé."],
-                             "Vous relisez. Le texte part sous votre signature.", lib_reste="Votre part", cpt="5 / 6")
+                             ["Un e-mail de 105 mots.", "La liste de ce que l’IA a supposé."],
+                             "Vous relisez avant l’envoi.", lib_reste="Votre part", cpt="5 / 6")
 
 def couverture_v4():
-    corps = f"""{bandeau(640)}
+    corps = f"""{bandeau(700)}
     <div class='rub' style='color:#FF6B5C'>Cas pratique</div><div class='cpt' style='color:{DOUCE_S}'>1 / 6</div>
-    <div class='titre' style='font-size:92px;color:{BLANC_C}'>Annoncer une hausse de prix avec l’IA<div class='sous' style='color:{DOUCE_S};font-size:38px'>Un e-mail prêt à relire en 4 étapes.</div></div>
-    <div style='position:absolute;left:0;right:0;top:700px;display:flex;justify-content:center'>{illustration_email()}</div>
-    <div style='position:absolute;left:80px;right:80px;top:1140px;font-size:26px;color:{DOUCE};text-align:center'>Exemple fictif d’une PME genevoise de 18 collaborateurs.</div>
+    <div class='titre' style='font-size:118px;line-height:1.02;color:{BLANC_C}'>Annoncer une hausse de prix avec l’IA<div class='sous' style='color:{DOUCE_S};font-size:42px;margin-top:30px'>Un e-mail prêt à relire en 4 étapes.</div></div>
+    <div style='position:absolute;left:0;right:0;top:730px;display:flex;justify-content:center'>{illustration_email(1.0)}</div>
+    <div style='position:absolute;left:80px;right:80px;top:1172px;font-size:26px;color:{DOUCE};text-align:center'>Exemple fictif d’une PME genevoise de 18 collaborateurs.</div>
     {pied('Faites défiler →')}"""
     return page(corps)
 
