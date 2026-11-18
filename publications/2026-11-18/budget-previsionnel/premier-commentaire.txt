@@ -1,0 +1,8 @@
+Le prompt de l’étape 1, à adapter à votre entreprise. Les données sont fictives. Joignez l’export de votre compte de résultat et votre projet de budget.
+
+Contexte : tu es contrôleur de gestion expérimenté dans les PME du second œuvre en Suisse romande. Je dirige une entreprise d'agencement de Carouge de 18 collaborateurs. Je prépare le budget 2027, que je présenterai en décembre à ma banque pour renouveler ma ligne de crédit. Je joins deux fichiers. L'export de mon compte de résultat donne le réel 2025 et le réel 2026 de janvier à octobre. Mon projet de budget donne mon estimation 2026 et le budget 2027.
+Consigne : compare mon projet de budget au réel ligne par ligne et fais apparaître les hypothèses que mon budget pose sans les dire.
+Contenu : vérifie d'abord que mon estimation 2026 est cohérente avec le réel à fin octobre. Pour chaque ligne du budget 2027, calcule l'évolution par rapport à l'estimation 2026 et compare-la à celle du chiffre d'affaires. Relève les lignes qui s'écartent de la tendance et les incohérences entre lignes.
+Cadre : un tableau (compte, évolution 2027, hypothèse implicite, question à me poser), puis les trois écarts qui pèsent le plus sur le résultat. Montre tes calculs. N'invente aucune information sur l'entreprise et signale ce que tu supposes.
+
+Les étapes 2 à 4 sont dans l’article, en lien dans la bio.

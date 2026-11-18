@@ -112,6 +112,13 @@
     "date": "2026-11-17",
     "note": "rattrapage, publication groupée"
    }
+  ],
+  "budget-previsionnel-ia-claude": [
+   {
+    "dossier": "2026-11-18/budget-previsionnel",
+    "format": "cas pratique",
+    "date": "2026-11-18"
+   }
   ]
  },
  "agenda": [

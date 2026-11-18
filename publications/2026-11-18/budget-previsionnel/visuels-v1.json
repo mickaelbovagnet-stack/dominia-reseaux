@@ -1,0 +1,84 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "fichier": "v1-01-couverture.png",
+   "position": 1,
+   "total": 6,
+   "titre": "Un budget prévisionnel avec l’IA",
+   "sous": "Trois étapes et une note d’une page pour la banque, environ une heure.",
+   "note": "Exemple fictif d’une entreprise d’agencement de Carouge de 18 collaborateurs.",
+   "graphisme": "budget-previsionnel-ia-claude"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-02-etape-1.png",
+   "position": 2,
+   "total": 6,
+   "etapes": 4,
+   "etape": 1,
+   "mot": "Lire",
+   "ajout": "Fais apparaître les hypothèses que mon budget pose sans les dire. Montre tes calculs.",
+   "rend": [
+    "Les hypothèses implicites, ligne par ligne.",
+    "Les trois écarts qui pèsent le plus."
+   ],
+   "reste": "Deux ou trois totaux comparés à votre fichier.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-03-etape-2.png",
+   "position": 3,
+   "total": 6,
+   "etapes": 4,
+   "etape": 2,
+   "mot": "Contester",
+   "ajout": "Mets mon budget à l’épreuve comme l’analyste de crédit de ma banque. Ne cherche pas à me rassurer.",
+   "rend": [
+    "Les hypothèses, de la plus fragile à la plus solide.",
+    "Cinq questions de rendez-vous."
+   ],
+   "reste": "Chaque correction recalculée dans votre tableur.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-04-etape-3.png",
+   "position": 4,
+   "total": 6,
+   "etapes": 4,
+   "etape": 3,
+   "mot": "Scénarios",
+   "ajout": "Identifie les risques qui pèsent sur ce budget et construis trois scénarios, prudent, central et dégradé. Montre tes calculs.",
+   "rend": [
+    "Huit risques au plus, avec leur signal d’alerte.",
+    "Un résultat 2027 par scénario."
+   ],
+   "reste": "Vos paramètres à la place des siens.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-05-etape-4.png",
+   "position": 5,
+   "total": 6,
+   "etapes": 4,
+   "etape": 4,
+   "mot": "Note",
+   "ajout": "Rédige la note d’hypothèses d’une page. N’ajoute aucun chiffre nouveau. Signale chaque hypothèse que mes réponses n’étayent pas.",
+   "rend": [
+    "Une page d’hypothèses, chacune avec son statut.",
+    "Les pièces à préparer pour la banque."
+   ],
+   "reste": "La décision, avec votre fiduciaire."
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v1-06-fin.png",
+   "position": 6,
+   "total": 6,
+   "texte": "Le prompt de l’étape 1 est en commentaire. Les quatre prompts sont dans l’article, en lien dans la bio."
+  }
+ ]
+}
