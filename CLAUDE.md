@@ -8,6 +8,7 @@ Ce dépôt héberge les visuels publics des réseaux sociaux de Cimeria (Dominia
 - Tout part d'abord en brouillon dans Buffer. Claude publie depuis Buffer seulement après la validation explicite de Mick dans la conversation (règle changée par Mick le 17 novembre 2026). Sans cette validation, Mick publie lui-même.
 - Tout ce qui est dans ce dépôt est public. Aucune donnée confidentielle.
 - Les règles de contenu du site s'appliquent aussi aux réseaux (voir le CLAUDE.md de dominia-site). Aucun prix du coaching, aucun montant en dollars ou en euros, aucune organisation privée romande nommée sans l'accord de Mick.
+- Aucune mention de conseil en placement nulle part, ni sur les visuels, ni dans les légendes, les textes alternatifs ou les commentaires, pas même une phrase qui dit que le post n'en est pas un (demande de Mick du 23 novembre 2026). Une actualité financière s'en tient aux faits sourcés.
 - Typographie de chaque texte (visuels, légendes, textes alternatifs, commentaires) :
   - aucun tiret long ;
   - jamais de virgule avant « et » ni avant « mais » ;
