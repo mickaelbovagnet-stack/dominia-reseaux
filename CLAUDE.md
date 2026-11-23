@@ -68,6 +68,7 @@ Formats d'image unique, à alterner avec les carrousels dans la grille du profil
   - Aucun texte sous 30 px, textes courants à 44 px au moins. Le script signale tout texte plus petit.
   - Les gabarits remplissent la hauteur disponible, sans vide au milieu du visuel (demande de Mick du 17 novembre 2026). Dans `fait_cle` et `chiffre`, le générateur agrandit les textes jusqu'à remplir l'espace. Un texte trop long se raccourcit, il ne se réduit pas.
   - `fait_cle` : titre de 70 signes au plus, résumé de 25 mots au plus. L'élément clé s'ajuste seul à la largeur.
+- Titres compréhensibles d'emblée (demande de Mick du 23 novembre 2026). Chaque titre, chaque ligne de sommaire et chaque élément clé en grand se comprend par un dirigeant de PME sans autre explication. Jamais un sigle, un symbole boursier, un nom de programme ou un terme technique seul en élément clé (par exemple « ANT », « Frontier », « Connecteurs »). On préfère le nom connu de l'outil ou du sujet (« Copilot », « e-ID », « En bourse ») et un chiffre accompagné d'une légende qui dit ce qu'il mesure. Le titre dit ce qui change pour le lecteur, en mots courants.
 - Uniquement les gabarits de `gabarits/generer.py`, sans mise en page improvisée. `apercus/` montre chaque gabarit. Les gabarits `couverture_ia`, `lecon`, `etape_methode`, `capture` et `fin` sont conservés pour l'archive et ne servent plus.
 
 ### 5. Relire deux fois avant d'envoyer à Mick
