@@ -1,0 +1,106 @@
+{
+ "visuels": [
+  {
+   "gabarit": "liste",
+   "fichier": "01-sommaire.png",
+   "rubrique": "L’IA cette semaine",
+   "position": 1,
+   "total": 7,
+   "titre": "L’IA en Suisse romande, semaine du 16 novembre",
+   "sous": "Les faits vérifiés de la semaine, sources à l’appui.",
+   "elements": [
+    [
+     "Proton lance Lumo Desktop"
+    ],
+    [
+     "Fedpol commande un détecteur de vidéos truquées pour l’e-ID"
+    ],
+    [
+     "Microsoft présente les Copilot Workspaces"
+    ],
+    [
+     "Anthropic entre en bourse au Nasdaq"
+    ],
+    [
+     "Nvidia publie un chiffre d’affaires en hausse de 103 %"
+    ]
+   ],
+   "note": "Faites défiler →",
+   "droite": "cimeria.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "02-fait.png",
+   "position": 2,
+   "total": 7,
+   "rubrique": "À la une",
+   "kicker": "17 novembre 2026 · Proton",
+   "cle": "Connecteurs",
+   "cle_legende": "Lumo se relie aux fichiers, à Proton Mail, à Google Drive, à Jira et à Confluence.",
+   "titre": "Proton lance Lumo Desktop pour Windows, macOS et Linux",
+   "resume": "Avec des tâches planifiées et des consignes réutilisables. Proton exclut conversations et fichiers connectés de l’entraînement des modèles.",
+   "source": "Proton, annonce du 17 novembre 2026"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "03-fait.png",
+   "position": 3,
+   "total": 7,
+   "rubrique": "En Suisse",
+   "kicker": "20 novembre 2026 · ICTjournal",
+   "cle": "2027",
+   "cle_legende": "Début du mandat du module, qui court jusqu’en mars 2036.",
+   "titre": "Fedpol commande un détecteur de vidéos truquées pour l’e-ID",
+   "resume": "Le module complétera la vérification en ligne des demandes d’e-ID. La date de lancement de l’e-ID reste à préciser.",
+   "source": "ICTjournal, 20 novembre 2026, d’après simap.ch"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "04-fait.png",
+   "position": 4,
+   "total": 7,
+   "rubrique": "Tech et outils",
+   "kicker": "17 novembre 2026 · Microsoft",
+   "cle": "Frontier",
+   "cle_legende": "Les deux nouveautés passent par ce programme d’avant-première.",
+   "titre": "Microsoft présente les Copilot Workspaces et l’agent Autopilot",
+   "resume": "Un espace partagé réunit l’équipe, son travail et Copilot. Autopilot est un agent doté de sa propre identité et d’une mémoire.",
+   "source": "Microsoft, Book of News d’Ignite 2026"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "05-fait.png",
+   "position": 5,
+   "total": 7,
+   "rubrique": "Économie de l’IA",
+   "kicker": "18 novembre 2026 · Anthropic",
+   "cle": "ANT",
+   "cle_legende": "Le symbole d’Anthropic au Nasdaq depuis le 19 novembre 2026.",
+   "titre": "Anthropic, éditeur de Claude, entre en bourse au Nasdaq",
+   "resume": "L’offre comprend une offre publique en Suisse, sans cotation prévue sur une bourse suisse à ce stade, selon le prospectus.",
+   "source": "Anthropic, communiqué et prospectus du 18 novembre 2026"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "06-fait.png",
+   "position": 6,
+   "total": 7,
+   "rubrique": "Économie de l’IA",
+   "kicker": "17 novembre 2026 · Nvidia",
+   "cle": "+103 %",
+   "cle_legende": "Le chiffre d’affaires du trimestre, sur un an.",
+   "titre": "Nvidia publie les résultats de son troisième trimestre",
+   "resume": "L’activité Data Center progresse de 110 % sur un an. Colette Kress est citée comme directrice générale par intérim.",
+   "source": "Nvidia, communiqué du 17 novembre 2026"
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "07-fin.png",
+   "position": 7,
+   "total": 7,
+   "rubrique": "Chaque semaine",
+   "titre": "Abonnez-vous pour suivre l’actualité IA.",
+   "texte": "Chaque lundi, les faits vérifiés de l’IA en Suisse romande. L’article complet est en lien dans la bio."
+  }
+ ]
+}
