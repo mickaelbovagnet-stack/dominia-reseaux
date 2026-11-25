@@ -1,0 +1,71 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Cas pratique",
+   "fichier": "v3-01-couverture.png",
+   "position": 1,
+   "total": 5,
+   "titre": "Bien démarrer avec Claude en 3 réglages",
+   "sous": "Protéger vos données, fixer vos préférences, ouvrir un espace par sujet.",
+   "droite": "Faites défiler →",
+   "graphisme": "apprendre-claude"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-02-etape-1.png",
+   "position": 2,
+   "total": 5,
+   "etapes": 3,
+   "etape": 1,
+   "mot": "Vie privée",
+   "ajout": "Paramètres, puis Confidentialité. Entraînement des modèles désactivé.",
+   "rend": [
+    "Vos conversations hors de l’entraînement des modèles.",
+    "Sauf celles notées d’un pouce ou signalées."
+   ],
+   "reste": "L’interrupteur, dès l’ouverture du compte.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-03-etape-2.png",
+   "position": 3,
+   "total": 5,
+   "etapes": 3,
+   "etape": 2,
+   "mot": "Préférences",
+   "ajout": "Réponds en français, au vouvoiement. Commence par la réponse, développe ensuite. Signale ce que tu supposes. Ne me félicite pas.",
+   "rend": [
+    "Ces consignes appliquées à toutes vos conversations."
+   ],
+   "reste": "Toute information confidentielle dans ce champ.",
+   "lib_reste": "Vous évitez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v3-04-etape-3.png",
+   "position": 4,
+   "total": 5,
+   "etapes": 3,
+   "etape": 3,
+   "mot": "Projet",
+   "ajout": "Ce projet sert à [votre sujet]. Appuie-toi sur ses documents. Commence toujours par me poser tes questions.",
+   "rend": [
+    "Des réponses fondées sur vos documents.",
+    "Des consignes propres à ce projet."
+   ],
+   "reste": "Demander la source de chaque remarque.",
+   "lib_reste": "Votre part"
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v3-05-fin.png",
+   "position": 5,
+   "total": 5,
+   "rubrique": "À retenir",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "texte": "Le prompt pour écrire vos préférences est en commentaire. L’article est en lien dans la bio."
+  }
+ ]
+}
