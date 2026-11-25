@@ -31,6 +31,8 @@ Relire l'article publié sur cimeria.ch en entier. Tous les chiffres, consignes 
 - Mettre en avant la méthode IA, jamais la méthode métier.
 - Montrer la vraie consigne en 4 C (Contexte, Consigne, Contenu, Cadre) et les vérifications.
 - Ne jamais laisser croire qu'une question suffit. Le post n'est pas réducteur.
+- Adapter le niveau de précision au sujet (demande de Mick du 25 novembre 2026). Un thème général (prise en main d'un outil, réglages, bonnes pratiques) reste large, sans exemple précis, avec des cartes qui donnent un modèle à adapter (« [votre sujet] »). Un sujet précis pour une cible définie garde l'exemple concret de l'article, car la précision prime.
+- Chaque mot d'étape se comprend seul et chaque carte montre ce que fait l'étape, pas seulement le prompt qui y mène.
 
 ### 3. Construire le carrousel Instagram en 6 diapositives (1080 x 1350)
 
