@@ -127,6 +127,13 @@
     "format": "actualité",
     "date": "2026-11-23"
    }
+  ],
+  "apprendre-claude": [
+   {
+    "dossier": "2026-11-25/apprendre-claude",
+    "format": "cas pratique",
+    "date": "2026-11-25"
+   }
   ]
  },
  "agenda": [
@@ -140,6 +147,23 @@
     "introduction-ia-unifr",
     "ai-days-2027",
     "amld-intelligence-summit-2027",
+    "geneva-ai-summit-2027"
+   ]
+  },
+  {
+   "dossier": "2026-11-27/agenda",
+   "date": "2026-11-27",
+   "evenements": [
+    "seance-information-transforming-business-ai-epfl-2026",
+    "robots-agents-future-of-work-unifr-2026",
+    "introduction-ia-formation-continue-unifr-2026",
+    "rencontre-anne-hiltpold-ia-education-ccig-2026",
+    "atelier-ia-fondations-associations-geneve-2026",
+    "ai-days-2027-geneve",
+    "ai-days-2027-yverdon",
+    "ai-days-2027-fribourg",
+    "amld-intelligence-summit-2027",
+    "innovate-with-ai-and-tech-epfl-imd-2027",
     "geneva-ai-summit-2027"
    ]
   }

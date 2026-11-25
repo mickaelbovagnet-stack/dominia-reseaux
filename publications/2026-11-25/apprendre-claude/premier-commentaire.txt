@@ -1,0 +1,8 @@
+Le prompt de l’étape 2, à adapter à votre fonction. L’exemple est fictif. Collez-le dans une nouvelle conversation, puis répondez aux questions de Claude une à une.
+
+Contexte : tu es spécialiste du réglage des assistants d'IA pour des cadres. Je suis responsable des achats dans un groupe industriel de 600 collaborateurs du canton de Genève. J'utilise Claude sur un compte personnel, pour préparer mes prises de parole, structurer mes notes et apprendre de nouveaux sujets. Je n'y saisis aucune donnée de mon employeur.
+Consigne : aide-moi à préparer mes instructions de profil, celles qui s'appliqueront à toutes mes conversations.
+Contenu : pose-moi d'abord cinq questions, une à la fois, sur ma façon de travailler, mes destinataires habituels, le ton que j'attends et ce qui m'agace dans une réponse. Appuie-toi uniquement sur mes réponses.
+Cadre : propose ensuite dix instructions au plus, une ligne chacune, classées en trois groupes (qui je suis, comment me répondre, ce qu'il faut éviter). Signale celles qui relèveraient plutôt d'un projet que du profil. N'invente rien sur moi.
+
+Les instructions du projet et son premier prompt sont dans l’article, en lien dans la bio.

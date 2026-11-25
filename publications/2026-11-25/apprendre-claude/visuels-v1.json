@@ -1,0 +1,73 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "rubrique": "Cas pratique",
+   "fichier": "v1-01-couverture.png",
+   "position": 1,
+   "total": 5,
+   "titre": "Bien démarrer avec Claude en 3 réglages",
+   "sous": "Confidentialité, instructions de profil et premier projet, en une demi-heure.",
+   "note": "Exemple fictif d’une responsable des achats à Meyrin.",
+   "droite": "Faites défiler →",
+   "graphisme": "apprendre-claude"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-02-etape-1.png",
+   "position": 2,
+   "total": 5,
+   "etapes": 3,
+   "etape": 1,
+   "mot": "Données",
+   "ajout": "Paramètres, puis Confidentialité. Entraînement des modèles désactivé.",
+   "rend": [
+    "Des conversations exclues de l’entraînement.",
+    "Sauf celles notées d’un pouce ou signalées."
+   ],
+   "reste": "L’interrupteur, dès l’ouverture du compte.",
+   "lib_reste": "Vous vérifiez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-03-etape-2.png",
+   "position": 3,
+   "total": 5,
+   "etapes": 3,
+   "etape": 2,
+   "mot": "Profil",
+   "ajout": "Pose-moi d’abord cinq questions, une à la fois, puis propose dix instructions au plus. N’invente rien sur moi.",
+   "rend": [
+    "Dix instructions en trois groupes.",
+    "Celles qui relèvent plutôt d’un projet."
+   ],
+   "reste": "Cinq lignes, complétées de vos propres règles.",
+   "lib_reste": "Vous choisissez"
+  },
+  {
+   "gabarit": "cas_etape",
+   "fichier": "v1-04-etape-3.png",
+   "position": 4,
+   "total": 5,
+   "etapes": 3,
+   "etape": 3,
+   "mot": "Projet",
+   "ajout": "Analyse d’abord mon plan type et mes deux interventions. Ne rédige pas l’intervention.",
+   "rend": [
+    "Trois forces et trois faiblesses.",
+    "Deux messages centraux d’une phrase."
+   ],
+   "reste": "Demander sur quel document repose chaque remarque.",
+   "lib_reste": "Votre part"
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v1-05-fin.png",
+   "position": 5,
+   "total": 5,
+   "rubrique": "À retenir",
+   "titre": "Enregistrez ce post pour le retrouver.",
+   "texte": "Le prompt du profil est en commentaire. L’article est en lien dans la bio."
+  }
+ ]
+}

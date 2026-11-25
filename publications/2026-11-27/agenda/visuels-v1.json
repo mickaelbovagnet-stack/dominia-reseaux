@@ -1,0 +1,71 @@
+{
+ "visuels": [
+  {
+   "gabarit": "agenda",
+   "fichier": "v1-01-agenda.png",
+   "rubrique": "Agenda",
+   "position": 1,
+   "total": 2,
+   "titre": "À noter en décembre",
+   "evenements": [
+    {
+     "date": "8 déc.",
+     "titre": "Transforming Business with AI & Data Tech",
+     "lieu": "En ligne · EPFL, séance d’information"
+    },
+    {
+     "date": "9 déc.",
+     "titre": "Robots, Agents and the Future of Work",
+     "lieu": "Fribourg · Université de Fribourg"
+    },
+    {
+     "date": "10 déc.",
+     "titre": "Introduction à l’intelligence artificielle",
+     "lieu": "Fribourg · Université de Fribourg"
+    },
+    {
+     "date": "10 déc.",
+     "titre": "Rencontre avec Anne Hiltpold, IA & éducation",
+     "lieu": "Genève · CCIG"
+    },
+    {
+     "date": "11 déc.",
+     "titre": "Atelier IA pour les fondations et associations",
+     "lieu": "Genève · Canton de Genève"
+    }
+   ],
+   "note": "Faites défiler →"
+  },
+  {
+   "gabarit": "agenda",
+   "fichier": "v1-02-agenda.png",
+   "rubrique": "Agenda",
+   "position": 2,
+   "total": 2,
+   "titre": "À noter en 2027",
+   "sous": "Les grands rendez-vous IA du premier semestre.",
+   "evenements": [
+    {
+     "date": "17 au 19 févr.",
+     "titre": "AI Days 2027",
+     "lieu": "Genève, Yverdon-les-Bains, Fribourg · HES-SO"
+    },
+    {
+     "date": "9 au 11 mars",
+     "titre": "AMLD Intelligence Summit 2027",
+     "lieu": "Lausanne · EPFL"
+    },
+    {
+     "date": "10 au 14 mai",
+     "titre": "Innovate with AI and Tech",
+     "lieu": "Lausanne · IMD"
+    },
+    {
+     "date": "21 et 22 juin",
+     "titre": "Geneva AI Summit 2027",
+     "lieu": "Genève, Palexpo · Confédération suisse"
+    }
+   ]
+  }
+ ]
+}
