@@ -1,0 +1,99 @@
+{
+ "visuels": [
+  {
+   "gabarit": "cas_couverture",
+   "fichier": "v2-01-couverture.png",
+   "position": 1,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "titre": "Neuf cours d’IA gratuits, par lequel commencer",
+   "sous": "Six sources fiables et le bon cours selon l’outil que vous avez déjà.",
+   "note": "Pages officielles vérifiées le 27 novembre 2026.",
+   "graphisme": "formation-ia-gratuite"
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-02-microsoft.png",
+   "position": 2,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "cle": "Microsoft 365",
+   "cle_legende": "Microsoft Learn, en français",
+   "titre": "Vos premières demandes à Copilot, en deux heures et demie",
+   "resume": "« Développer des compétences de base en IA générative », quatre modules pour débutants. Seul prérequis, connaître Microsoft 365.",
+   "pour_label": "Pour qui",
+   "pour": "Votre entreprise utilise déjà Microsoft 365."
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-03-claude.png",
+   "position": 3,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "cle": "Claude",
+   "cle_legende": "Claude Academy, Anthropic",
+   "titre": "De la première conversation aux projets, en 2,5 heures",
+   "resume": "« Claude 101 », treize leçons et un quiz, sans expérience préalable. Un compte Claude gratuit enregistre la progression et un badge valide la réussite.",
+   "pour_label": "Pour qui",
+   "pour": "Vous utilisez Claude ou voulez l’essayer."
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-04-chatgpt.png",
+   "position": 4,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "cle": "ChatGPT",
+   "cle_legende": "OpenAI Academy",
+   "titre": "Une heure pour les bases, trois cours pour un certificat",
+   "resume": "« AI Foundations » dure 60 à 75 minutes, compte ChatGPT requis. Avec deux autres cours, il mène à un certificat de fin de parcours.",
+   "pour_label": "Pour qui",
+   "pour": "Vous utilisez ChatGPT."
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-05-epfl.png",
+   "position": 5,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "cle": "EPFL",
+   "cle_legende": "« That’s AI », EPFL Extension School",
+   "titre": "29 unités courtes pour comprendre l’IA avant de choisir",
+   "resume": "Des fondamentaux de l’IA à l’apprentissage automatique, 10 à 19 minutes par unité. En français, en allemand ou en anglais.",
+   "pour_label": "Pour qui",
+   "pour": "Vous partez de zéro."
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-06-geneve.png",
+   "position": 6,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "cle": "Genève",
+   "cle_legende": "Formation en ligne de l’État de Genève",
+   "titre": "24 minutes sur l’IA en entreprise, avec une charte offerte",
+   "resume": "Trois modules de 8 minutes sur les potentiels, les applications et les limites de l’IA. Un modèle de charte d’utilisation est fourni gratuitement.",
+   "pour_label": "Pour qui",
+   "pour": "Vous dirigez une PME."
+  },
+  {
+   "gabarit": "fait_cle",
+   "fichier": "v2-07-pieges.png",
+   "position": 7,
+   "total": 8,
+   "rubrique": "Décryptage",
+   "cle": "3 pièges",
+   "cle_legende": "À repérer avant de vous inscrire",
+   "titre": "Gratuit ne veut pas dire tout gratuit",
+   "resume": "Un parcours Copilot exige une licence Microsoft 365 Copilot. « AI Essentials » de Google n’est pas marqué gratuit. Un badge n’est pas une certification."
+  },
+  {
+   "gabarit": "cas_fin",
+   "fichier": "v2-08-fin.png",
+   "position": 8,
+   "total": 8,
+   "titre": "Enregistrez ce post pour choisir votre cours.",
+   "texte": "Le comparatif des neuf cours est dans l’article, en lien dans la bio."
+  }
+ ]
+}
